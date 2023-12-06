@@ -1,0 +1,41 @@
+.a4-resume {
+  width: 21cm; /* A4 width */
+  height: 29.7cm; /* A4 height */
+  margin: 0 auto; /* Center the container */
+  background-color: white; /* Background color to simulate paper */
+  padding: 10px; /* Add padding for aesthetics */
+}
+
+.row.header {
+  height: 20%;
+  background-color: yellow;
+}
+
+.row.body {
+  height: 80%;
+  background-color: greenyellow;
+}
+
+.skills-and-certificates {
+  background-color: beige;
+}
+
+.education {
+  background-color: yellow;
+}
+.skillsLang {
+  background-color: orange;
+}
+.contact {
+  background-color: blueviolet;
+}
+
+.profile {
+  background-color: gray;
+  height: 25%;
+}
+
+.work-experience {
+  height: 75%;
+  background-color: blueviolet;
+}
