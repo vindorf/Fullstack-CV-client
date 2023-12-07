@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 
 function Experience(props) {
   const handleInstituteInput = (e) => props.onInstituteChange(e.target.value);

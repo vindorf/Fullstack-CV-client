@@ -6,6 +6,10 @@ import Skills from "./Skills";
 import Experience from "./Experience";
 
 function ResumeOverview() {
+  const [fullName, setFullName] = useState([]);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
   const [education, setEducation] = useState([]);
   const [institute, setInstitute] = useState("");
   const [degree, setDegree] = useState("");
@@ -24,14 +28,35 @@ function ResumeOverview() {
       endYear,
       description,
     };
+
+    const newFullName = {
+      firstName,
+      lastName,
+    };
+    setFullName((prevFullName) => [...prevFullName, newFullName]);
     setEducation((prevEducation) => [...prevEducation, newExperience]);
+
     sethideForm("hide");
     setshowResumeResult("show");
+
+    setFirstName("");
+    setLastName("");
     setInstitute("");
     setDegree("");
+    setStartYear("");
+    setEndYear("");
+    setDescription("");
   };
 
   const addNewExperience = (e) => sethideForm("show");
+
+  const handleFirstNameChange = (value) => {
+    setFirstName(value);
+  };
+
+  const handleLastNameChange = (value) => {
+    setLastName(value);
+  };
 
   const handleInstituteChange = (value) => {
     setInstitute(value);
@@ -55,14 +80,27 @@ function ResumeOverview() {
   useEffect(() => {
     console.log("EDUCATION INSIDE USEEFFECT =>", education);
     console.log("updated total experience array:", education);
-  }, [education.length]);
-  console.log("EDUCATION OUTSIDE USEEFFECT =>", education);
+    console.log("updated name", fullName);
+  }, [education.length, fullName]);
+
   return (
     <div className="container a4-resume">
       <div className="row header">
-        {/* <div className="col-12 header">
-          <Header />
-        </div> */}
+        <div className={`col-12 header ${hideForm}`}>
+          <Header
+            onSaveResume={saveResume}
+            onFirstNameChange={handleFirstNameChange}
+            onLastNameChange={handleLastNameChange}
+          />
+        </div>
+        <div className={`${showResumeResult}`}>
+          {fullName.map((element) => (
+            <div>
+              <div>{element.firstName}</div>
+              <div>{element.lastName}</div>
+            </div>
+          ))}
+        </div>
       </div>
       <div className="row body">
         <div className="col-lg-4">

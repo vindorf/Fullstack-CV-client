@@ -18,38 +18,20 @@ function LoginPage(props) {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    // const requestBody = { email, password };
+    const requestBody = { email, password };
 
-    //   axios
-    //     .post(`${API_URL}/auth/login`, requestBody)
-    //     .then((response) => {
-    //       console.log("JWT token", response.data.authToken);
-    //       storeToken(response.data.authToken);
-    //       authenticateUser();
-    //       navigate("/resumes");
-    //     })
-    //     .catch((error) => {
-    //       const errorDescription = error.response.data.message;
-    //       setErrorMessage(errorDescription);
-    //     });
-    // };
-  };
-  const requestBody = { email, password };
-  const handleLogin = async (requestBody) => {
-    try {
-      const response = await axios.post(`${API_URL}/auth/login`, requestBody);
-      console.log("JWT token", response.data.authToken);
-
-      // Assuming these functions handle token storage and user authentication
-      storeToken(response.data.authToken);
-      authenticateUser();
-
-      // Navigate to the private page after successful login
-      navigate("/resumes");
-    } catch (error) {
-      const errorDescription = error.response.data.message;
-      setErrorMessage(errorDescription);
-    }
+    axios
+      .post(`${API_URL}/auth/login`, requestBody)
+      .then((response) => {
+        console.log("JWT token", response.data.authToken);
+        storeToken(response.data.authToken);
+        authenticateUser();
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorDescription = error.response.data.message;
+        setErrorMessage(errorDescription);
+      });
   };
 
   return (
@@ -68,9 +50,7 @@ function LoginPage(props) {
           onChange={handlePassword}
         />
 
-        <button type="submit" onClick={() => handleLogin(requestBody)}>
-          Login
-        </button>
+        <button type="submit">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
