@@ -165,12 +165,12 @@ function ResumeOverview() {
             <Contact />
           </div> */}
         </div>
-
+        <br />
         <div className="col-lg-8">
-          {/* <div className="profile">
+          <div className="profile">
             <Profile />
           </div>
-          <div className="work-experience" style={{ height: "75%" }}>
+          {/* <div className="work-experience" style={{ height: "75%" }}>
             <Experience />
           </div> */}
         </div>
