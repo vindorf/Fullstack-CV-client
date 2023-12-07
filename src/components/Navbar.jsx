@@ -17,7 +17,7 @@ function Navbar() {
           </Link>
           <button onClick={logOutUser}>Logout</button>
           <br></br>
-          <span>Welcome: {user && user.name}</span>
+          <span>{user && user.email} is logged in!</span>
         </>
       )}
 
