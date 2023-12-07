@@ -12,6 +12,8 @@ function ResumeOverview() {
   const [startYear, setStartYear] = useState("");
   const [endYear, setEndYear] = useState("");
   const [description, setDescription] = useState("");
+  const [hideForm, sethideForm] = useState("show");
+  const [showResumeResult, setshowResumeResult] = useState("hide");
 
   const saveResume = (e) => {
     e.preventDefault();
@@ -23,10 +25,13 @@ function ResumeOverview() {
       description,
     };
     setEducation((prevEducation) => [...prevEducation, newExperience]);
-
+    sethideForm("hide");
+    setshowResumeResult("show");
     setInstitute("");
     setDegree("");
   };
+
+  const addNewExperience = (e) => sethideForm("show");
 
   const handleInstituteChange = (value) => {
     setInstitute(value);
@@ -48,9 +53,10 @@ function ResumeOverview() {
   };
 
   useEffect(() => {
+    console.log("EDUCATION INSIDE USEEFFECT =>", education);
     console.log("updated total experience array:", education);
   }, [education.length]);
-
+  console.log("EDUCATION OUTSIDE USEEFFECT =>", education);
   return (
     <div className="container a4-resume">
       <div className="row header">
@@ -63,7 +69,7 @@ function ResumeOverview() {
           {/* <div className="skills-and-certificates flex-fill">
             <Skills />
           </div> */}
-          <div className="education flex-fill">
+          <div className={`education flex-fill ${hideForm}`}>
             <Experience
               onSaveResume={saveResume}
               onInstituteChange={handleInstituteChange}
@@ -73,6 +79,20 @@ function ResumeOverview() {
               onExperienceDescriptionChange={handleExperienceDescriptionChange}
             />
           </div>
+
+          <div className={`${showResumeResult}`}>
+            {education.map((element) => (
+              <div>
+                <div>{element.institute}</div>
+                <div>{element.degree}</div>
+                <div>{element.startYear}</div>
+                <div>{element.endYear}</div>
+                <div>{element.description}</div>
+              </div>
+            ))}
+            <button onClick={addNewExperience}>add new experience</button>
+          </div>
+
           {/* <div className="skillsLang flex-fill">
             <Skills />
           </div>
@@ -90,7 +110,7 @@ function ResumeOverview() {
           </div> */}
         </div>
       </div>
-      {/* NOTE How can we do this without a  */}
+
       <button type="submit" onClick={saveResume}>
         Save CV!
       </button>
