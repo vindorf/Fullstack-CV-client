@@ -16,17 +16,17 @@ function Experience(props) {
       <form>
         <input
           type="text"
-          name="institute"
-          placeholder="Institute"
-          value={props.institute}
+          name="instituteName"
+          placeholder="institute"
+          value={props.instituteName}
           onChange={handleInstituteInput}
         />
 
         <input
           type="text"
-          name="degree"
+          name="degreeName"
           placeholder="degree"
-          value={props.degree}
+          value={props.degreeName}
           onChange={handleDegreeInput}
         />
 

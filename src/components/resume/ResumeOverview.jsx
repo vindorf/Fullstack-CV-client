@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { AuthContext } from "../../context/auth.context";
+import { useContext } from "react";
+import axios from "axios";
+const API_URL = import.meta.env.VITE_SERVER_URL;
+
 import Header from "./Header";
 import Contact from "./Contact";
 import Profile from "./Profile";
@@ -6,13 +11,15 @@ import Skills from "./Skills";
 import Experience from "./Experience";
 
 function ResumeOverview() {
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+
   const [fullName, setFullName] = useState([]);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
   const [education, setEducation] = useState([]);
-  const [institute, setInstitute] = useState("");
-  const [degree, setDegree] = useState("");
+  const [instituteName, setInstituteName] = useState("");
+  const [degreeName, setDegreeName] = useState("");
   const [startYear, setStartYear] = useState("");
   const [endYear, setEndYear] = useState("");
   const [description, setDescription] = useState("");
@@ -21,28 +28,50 @@ function ResumeOverview() {
 
   const saveResume = (e) => {
     e.preventDefault();
-    const newExperience = {
-      institute,
-      degree,
+
+    const newEducation = {
+      instituteName,
+      degreeName,
       startYear,
       endYear,
       description,
     };
 
+    setEducation((prevEducation) => [...prevEducation, newEducation]);
+
     const newFullName = {
       firstName,
       lastName,
     };
+
     setFullName((prevFullName) => [...prevFullName, newFullName]);
-    setEducation((prevEducation) => [...prevEducation, newExperience]);
+
+    const storedToken = localStorage.getItem("authToken");
+    const requestBody = {
+      firstName,
+      lastName,
+      education: [...education, newEducation],
+      userId: user._id,
+    };
+
+    axios
+      .post(`${API_URL}/api/create-resume`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        console.log("Saved CV!");
+      })
+      .catch((error) => {
+        console.log("ERROR!"); // correct errormessage
+      });
 
     sethideForm("hide");
     setshowResumeResult("show");
 
     setFirstName("");
     setLastName("");
-    setInstitute("");
-    setDegree("");
+    setInstituteName("");
+    setDegreeName("");
     setStartYear("");
     setEndYear("");
     setDescription("");
@@ -59,11 +88,11 @@ function ResumeOverview() {
   };
 
   const handleInstituteChange = (value) => {
-    setInstitute(value);
+    setInstituteName(value);
   };
 
   const handleDegreeChange = (value) => {
-    setDegree(value);
+    setDegreeName(value);
   };
   const handleStartYearChange = (value) => {
     setStartYear(value);
@@ -79,8 +108,6 @@ function ResumeOverview() {
 
   useEffect(() => {
     console.log("EDUCATION INSIDE USEEFFECT =>", education);
-    console.log("updated total experience array:", education);
-    console.log("updated name", fullName);
   }, [education.length, fullName]);
 
   return (
@@ -121,8 +148,8 @@ function ResumeOverview() {
           <div className={`${showResumeResult}`}>
             {education.map((element) => (
               <div>
-                <div>{element.institute}</div>
-                <div>{element.degree}</div>
+                <div>{element.instituteName}</div>
+                <div>{element.degreeName}</div>
                 <div>{element.startYear}</div>
                 <div>{element.endYear}</div>
                 <div>{element.description}</div>
