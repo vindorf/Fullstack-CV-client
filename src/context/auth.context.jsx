@@ -37,24 +37,33 @@ function AuthProviderWrapper(props) {
       setUser(null);
     }
   };
-  const removeToken = () => {                    
+  const removeToken = () => {
     localStorage.removeItem("authToken");
-  }
+  };
 
-  const logOutUser = () => {                   
+  const logOutUser = () => {
     removeToken();
     authenticateUser();
-  }  
+  };
 
   useEffect(() => {
     authenticateUser();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, isLoading, user, storeToken, authenticateUser,  logOutUser }}>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn,
+        isLoading,
+        user,
+        storeToken,
+        authenticateUser,
+        logOutUser,
+      }}
+    >
       {props.children}
     </AuthContext.Provider>
   );
 }
 
-export  { AuthProviderWrapper, AuthContext };
+export { AuthProviderWrapper, AuthContext };
