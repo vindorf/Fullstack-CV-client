@@ -9,6 +9,7 @@ import Contact from "./Contact";
 import Profile from "./Profile";
 import Skills from "./Skills";
 import Experience from "./Experience";
+import AddInput from "./AddInput";
 
 function ResumeOverview() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -17,18 +18,23 @@ function ResumeOverview() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
+  const [language, setLanguage] = useState([]);
+
   const [education, setEducation] = useState([]);
   const [instituteName, setInstituteName] = useState("");
   const [degreeName, setDegreeName] = useState("");
   const [startYear, setStartYear] = useState("");
   const [endYear, setEndYear] = useState("");
   const [description, setDescription] = useState("");
-  const [hideForm, sethideForm] = useState("show");
-  const [showResumeResult, setshowResumeResult] = useState("hide");
+
+  const receiveDataFromInput = (data) => {
+    console.log("Data received from child:", data);
+    // Process received data...
+  };
 
   const saveResume = (e) => {
     e.preventDefault();
-
+    receiveDataFromInput();
     const newEducation = {
       instituteName,
       degreeName,
@@ -43,6 +49,8 @@ function ResumeOverview() {
       firstName,
       lastName,
     };
+
+    setLanguage((prevLanguage) => [...prevLanguage, language]);
 
     setFullName((prevFullName) => [...prevFullName, newFullName]);
 
@@ -65,9 +73,6 @@ function ResumeOverview() {
         console.log("ERROR!"); // correct errormessage
       });
 
-    sethideForm("hide");
-    setshowResumeResult("show");
-
     setFirstName("");
     setLastName("");
     setInstituteName("");
@@ -76,8 +81,6 @@ function ResumeOverview() {
     setEndYear("");
     setDescription("");
   };
-
-  const addNewExperience = (e) => sethideForm("show");
 
   const handleFirstNameChange = (value) => {
     setFirstName(value);
@@ -113,28 +116,21 @@ function ResumeOverview() {
   return (
     <div className="container a4-resume">
       <div className="row header">
-        <div className={`col-12 header ${hideForm}`}>
+        <div className="col-12 header">
           <Header
             onSaveResume={saveResume}
             onFirstNameChange={handleFirstNameChange}
             onLastNameChange={handleLastNameChange}
           />
         </div>
-        <div className={`${showResumeResult}`}>
-          {fullName.map((element) => (
-            <div>
-              <div>{element.firstName}</div>
-              <div>{element.lastName}</div>
-            </div>
-          ))}
-        </div>
       </div>
       <div className="row body">
         <div className="col-lg-4">
+          <AddInput sendDataToOverview={receiveDataFromInput} />
           {/* <div className="skills-and-certificates flex-fill">
             <Skills />
           </div> */}
-          <div className={`education flex-fill ${hideForm}`}>
+          <div className="education flex-fill">
             <Experience
               onSaveResume={saveResume}
               onInstituteChange={handleInstituteChange}
@@ -144,19 +140,9 @@ function ResumeOverview() {
               onExperienceDescriptionChange={handleExperienceDescriptionChange}
             />
           </div>
-
-          <div className={`${showResumeResult}`}>
-            {education.map((element) => (
-              <div>
-                <div>{element.instituteName}</div>
-                <div>{element.degreeName}</div>
-                <div>{element.startYear}</div>
-                <div>{element.endYear}</div>
-                <div>{element.description}</div>
-              </div>
-            ))}
-            <button onClick={addNewExperience}>add new experience</button>
-          </div>
+          {/* <button type="submit" onClick={handleAddDisplayExperience}>
+            Add more education
+          </button> */}
 
           {/* <div className="skillsLang flex-fill">
             <Skills />
@@ -167,9 +153,7 @@ function ResumeOverview() {
         </div>
         <br />
         <div className="col-lg-8">
-          <div className="profile">
-            <Profile />
-          </div>
+          <div className="profile">{/* <Profile />{" "} */}</div>
           {/* <div className="work-experience" style={{ height: "75%" }}>
             <Experience />
           </div> */}

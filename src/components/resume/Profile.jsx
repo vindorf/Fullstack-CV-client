@@ -49,17 +49,16 @@ function Profile() {
                   value={field.value}
                   onChange={(e) => handleFieldChange(index, e)} // Handle input change for each field
                 />
+                <button type="button" onClick={handleAddField}>
+                  +
+                </button>
                 <button type="button" onClick={() => handleRemoveField(index)}>
-                  Remove skill
+                  -
                 </button>
               </div>
             )}
           </div>
         ))}
-        <button type="button" onClick={handleAddField}>
-          Add skill
-        </button>
-        <button type="submit">Save all skills</button>
       </form>
     </div>
   );
