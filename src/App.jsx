@@ -8,6 +8,7 @@ import IsPrivat from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 import CreateResume from "./pages/CreateResume";
 import UserPage from "./pages/UserPage";
+import DetailResumePage from "./pages/DetailResumePage";
 
 function App() {
   return (
@@ -31,14 +32,14 @@ function App() {
             </IsPrivat>
           }
         />
-        {/* <Route
-          path="/projects/edit/:projectId"
+        <Route
+          path="/resume/:resumeId" 
           element={
             <IsPrivat>
-              <EditProjectPage />
+              <DetailResumePage />
             </IsPrivat>
           }
-        /> */}
+        />
         <Route
           path="/signup"
           element={

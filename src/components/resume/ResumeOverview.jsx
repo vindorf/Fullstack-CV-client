@@ -4,11 +4,12 @@ import { useContext } from "react";
 import axios from "axios";
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
-import Header from "./Header";
+
 import Contact from "./Contact";
 import Profile from "./Profile";
 import Skills from "./Skills";
 import Experience from "./Experience";
+import Header from "./Header";
 
 function ResumeOverview() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
