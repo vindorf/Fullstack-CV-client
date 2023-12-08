@@ -15,12 +15,38 @@ function UserPage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
+  const [hideForm, sethideForm] = useState("show");
+
   const handleFirstNameChange = (value) => {
     setFirstName(value);
   };
 
   const handleLastNameChange = (value) => {
     setLastName(value);
+  };
+
+  const createCV = () => {
+    const storedToken = localStorage.getItem("authToken");
+    const requestBody = {
+      firstName,
+      lastName,
+      userId: user._id,
+    };
+
+    axios
+      .post(`${API_URL}/api/resumes`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        console.log("Saved CV!");
+        getAllResumes();
+        // navigate("/resumes");
+      })
+      .catch((error) => {
+        console.log("ERROR!", error);
+      });
+
+    sethideForm("hide");
   };
 
   const getAllResumes = () => {
@@ -61,28 +87,15 @@ function UserPage() {
     }
   };
 
-  const createCV = () => {
-    const storedToken = localStorage.getItem("authToken");
-    const requestBody = {
-      firstName,
-      lastName,
-    };
-
-    axios
-      .post(`${API_URL}/api/resumes`, requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then((response) => {
-        console.log("Saved CV!");
-        navigate("/resumes");
-      })
-      .catch((error) => {
-        console.log("ERROR!", error);
-      });
-  };
-
   return (
     <div>
+      <div className={`form ${hideForm}`}>
+        <Header
+          onFirstNameChange={handleFirstNameChange}
+          onLastNameChange={handleLastNameChange}
+        />
+        <button onClick={createCV}>Create new resumé</button>
+      </div>
       <h1>Welcome {user && user.email}</h1>
       {resumes &&
         resumes.map((e) => {
@@ -95,13 +108,6 @@ function UserPage() {
             </div>
           );
         })}
-      <div>
-        <Header
-          onFirstNameChange={handleFirstNameChange}
-          onLastNameChange={handleLastNameChange}
-        />
-        <button onClick={createCV}>Click</button>
-      </div>
     </div>
   );
 }
