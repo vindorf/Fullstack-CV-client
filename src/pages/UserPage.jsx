@@ -1,26 +1,43 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
 import axios from "axios";
+import Header from "../components/resume/Header";
+
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
 function UserPage() {
+  const navigate = useNavigate();
+
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const [resumes, setResumes] = useState([]);
-  console.log(resumes);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  const handleFirstNameChange = (value) => {
+    setFirstName(value);
+  };
+
+  const handleLastNameChange = (value) => {
+    setLastName(value);
+  };
+
   const getAllResumes = () => {
     const storedToken = localStorage.getItem("authToken");
     axios
       .get(`${API_URL}/api/resumes/${user._id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((resp) => setResumes(resp.data.resumes));
+      .then((resp) => setResumes(resp.data.resumes))
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   useEffect(() => {
     getAllResumes();
-  }, []);
+  }, [user._id]);
 
   const deleteResume = (resumeId) => {
     const confirmation = window.confirm(
@@ -44,6 +61,26 @@ function UserPage() {
     }
   };
 
+  const createCV = () => {
+    const storedToken = localStorage.getItem("authToken");
+    const requestBody = {
+      firstName,
+      lastName,
+    };
+
+    axios
+      .post(`${API_URL}/api/resumes`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        console.log("Saved CV!");
+        navigate("/resumes");
+      })
+      .catch((error) => {
+        console.log("ERROR!", error);
+      });
+  };
+
   return (
     <div>
       <h1>Welcome {user && user.email}</h1>
@@ -58,8 +95,13 @@ function UserPage() {
             </div>
           );
         })}
-
-      <Link to="/create-resume">Create resumé</Link>
+      <div>
+        <Header
+          onFirstNameChange={handleFirstNameChange}
+          onLastNameChange={handleLastNameChange}
+        />
+        <button onClick={createCV}>Click</button>
+      </div>
     </div>
   );
 }

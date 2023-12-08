@@ -4,7 +4,7 @@ import ResumeOverview from "../components/resume/ResumeOverview";
 function CreateResume() {
   return (
     <div>
-      <ResumeOverview />
+      <Header />
     </div>
   );
 }
