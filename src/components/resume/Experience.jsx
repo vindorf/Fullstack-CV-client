@@ -10,26 +10,9 @@ function Experience(props) {
 
   return (
     <div>
-      <h1>Hello from the experience component</h1>
-      <h4>Add your {} experience </h4>
+      <h4>Add your education</h4>
 
       <form>
-        <input
-          type="text"
-          name="instituteName"
-          placeholder="institute"
-          value={props.instituteName}
-          onChange={handleInstituteInput}
-        />
-
-        <input
-          type="text"
-          name="degreeName"
-          placeholder="degree"
-          value={props.degreeName}
-          onChange={handleDegreeInput}
-        />
-
         <input
           type="text"
           name="startYear"
@@ -45,6 +28,23 @@ function Experience(props) {
           placeholder="To (year)"
           onChange={handleEndYearInput}
         />
+        <br />
+        <input
+          type="text"
+          name="instituteName"
+          placeholder="institute"
+          value={props.instituteName}
+          onChange={handleInstituteInput}
+        />
+        <br />
+        <input
+          type="text"
+          name="degreeName"
+          placeholder="degree"
+          value={props.degreeName}
+          onChange={handleDegreeInput}
+        />
+        <br />
 
         <input
           type="text"
