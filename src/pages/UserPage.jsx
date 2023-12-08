@@ -17,9 +17,32 @@ function UserPage() {
       })
       .then((resp) => setResumes(resp.data.resumes));
   };
+
   useEffect(() => {
     getAllResumes();
   }, []);
+
+  const deleteResume = (resumeId) => {
+    const confirmation = window.confirm(
+      "Are you sure you want to delete this?"
+    );
+    if (confirmation) {
+      const storedToken = localStorage.getItem("authToken");
+      axios
+        .delete(`${API_URL}/api/resume/delete/${resumeId}`, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        })
+        .then((resp) => {
+          const updatedResumes = resumes.filter(
+            (resume) => resume._id !== resumeId
+          );
+          setResumes(updatedResumes);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  };
 
   return (
     <div>
@@ -30,6 +53,8 @@ function UserPage() {
             <div key={e._id} className="resume-card">
               <h1>{e.title} </h1>
               <h2>{e.intro} </h2>
+              <p>{e._id} </p>
+              <button onClick={() => deleteResume(e._id)}>DELETE</button>
             </div>
           );
         })}
