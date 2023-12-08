@@ -89,26 +89,36 @@ function UserPage() {
 
   return (
     <div>
-      <div className={`form ${hideForm}`}>
-        <Header
-          onFirstNameChange={handleFirstNameChange}
-          onLastNameChange={handleLastNameChange}
-        />
-        <button onClick={createCV}>Create new resumé</button>
-      </div>
-      <h1>Welcome {user && user.email}</h1>
-      {resumes &&
-        resumes.map((e) => {
-          return (
-            <div key={e._id} className="resume-card">
-              <h1>{e.title} </h1>
-              <h2>{e.intro} </h2>
-              <p>{e._id} </p>
-              <button onClick={() => deleteResume(e._id)}>DELETE</button>
+  <h1>Welcome {user && user.email}</h1>
+  {resumes &&
+    resumes.map((resume) => {
+      return (
+        <div key={resume._id} className="resume-card">
+          <h1>First Name: {resume.firstName} </h1>
+          <h2>Last Name: {resume.lastName} </h2>
+          <p>ID: {resume._id} </p>
+          {resume.education && (
+            <div>
+              {resume.education.map((edu, index) => (
+                <div key={index}>
+                  <p>Degree Name: {edu.degreeName}</p>
+                  <p>Description: {edu.description}</p>
+                  <p>Start Year: {edu.startYear}</p>
+                  <p>End Year: {edu.endYear}</p>
+                  <p>Institute Name: {edu.instituteName}</p>
+                </div>
+              ))}
             </div>
-          );
-        })}
-    </div>
+          )}
+          <button onClick={() => deleteResume(resume._id)}>DELETE</button>
+          <Link to={`/resume/${resume._id}`}>
+            <button>DETAILS</button>{" "}
+          </Link>
+        </div>
+      );
+    })}
+  <Link to="/create-resume">Create resumé</Link>
+</div>
   );
 }
 
