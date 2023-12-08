@@ -11,7 +11,6 @@ function AddInput() {
 
   console.log(input);
   const [arr, setArr] = useState(inputArr);
-
   const addInput = () => {
     setArr((s) => {
       return [
@@ -23,15 +22,9 @@ function AddInput() {
       ];
     });
   };
+  console.log(arr); // this array doesnt have the value of the input and does not go to the DetailResumePage.jsx
 
-  console.log(arr);
   console.log("INPUT ==>", input);
-
-  const removeInput = (index) => {
-    const newArr = arr.filter((item, i) => i !== index);
-    setArr(newArr);
-    setInput(newArr.map((item) => item.value));
-  };
 
   const handleChange = (e, index) => {
     const newArr = arr.map((item, i) => {
@@ -44,20 +37,31 @@ function AddInput() {
     setInput(newArr.map((item) => item.value));
   };
 
+  const reload = (e) => {
+    e.preventDefault();
+    setArr(inputArr); // this array
+    setInput([]); //
+  };
+
   return (
     <div>
       <h2>Languages</h2>
+      <button onClick={addInput} style={{ margin: "10px" }}>
+        +
+      </button>
+      <button onClick={reload} style={{ margin: "10px" }}>
+        NEW
+      </button>
       {arr.map((item, i) => {
         return (
           <div key={i}>
             <input
-              name="language"
               onChange={(e) => handleChange(e, i)}
               type={item.value}
+              value={item.value}
               id={i}
             />
-            <button onClick={addInput}>+</button>
-            <button onClick={() => removeInput(i)}>-</button>
+            <br></br>
           </div>
         );
       })}
