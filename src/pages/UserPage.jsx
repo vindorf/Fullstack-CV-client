@@ -12,25 +12,52 @@ function UserPage() {
   const getAllResumes = () => {
     const storedToken = localStorage.getItem("authToken");
     axios
-      .get(`${API_URL}/api//resumes/${user._id}`, {
+      .get(`${API_URL}/api/resumes/${user._id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((resp) => setResumes(resp.data.resumes));
   };
+
   useEffect(() => {
     getAllResumes();
   }, []);
+
+  const deleteResume = (resumeId) => {
+    const confirmation = window.confirm(
+      "Are you sure you want to delete this?"
+    );
+    if (confirmation) {
+      const storedToken = localStorage.getItem("authToken");
+      axios
+        .delete(`${API_URL}/api/resume/delete/${resumeId}`, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        })
+        .then((resp) => {
+          const updatedResumes = resumes.filter(
+            (resume) => resume._id !== resumeId
+          );
+          setResumes(updatedResumes);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  };
+
   return (
     <div>
       <h1>Welcome {user && user.email}</h1>
-      {resumes && resumes.map((e) => {
-        return (
-          <div key={e._id} className="resume-card">
-            <h1>{e.title} </h1>
-            <h2>{e.intro} </h2>
-          </div>
-        ) 
-      })}
+      {resumes &&
+        resumes.map((e) => {
+          return (
+            <div key={e._id} className="resume-card">
+              <h1>{e.title} </h1>
+              <h2>{e.intro} </h2>
+              <p>{e._id} </p>
+              <button onClick={() => deleteResume(e._id)}>DELETE</button>
+            </div>
+          );
+        })}
 
       <Link to="/create-resume">Create resumé</Link>
     </div>
