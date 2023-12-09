@@ -1,13 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { useState } from "react";
-
-function Profile() {
-  const [fields, setFields] = useState([{ value: "", isVisible: true }]); // State to manage form fields
-
-  const [hideForm, sethideForm] = useState("show");
-  const [showResumeResult, setShowResumeResult] = useState("hide");
-  const [removedFields, setRemovedFields] = useState([]); // State to store removed fields
+function Profile(props) {
+  const [fields, setFields] = useState([{ value: "", isVisible: true }]); // manage iput fields
 
   // Function to handle adding new fields
   const handleAddField = () => {
@@ -17,7 +11,7 @@ function Profile() {
 
   const handleRemoveField = (index) => {
     const updatedFields = fields.filter((field, i) => i !== index); // Remove the field at the specified index
-    setFields(updatedFields); // Update the state with the updated array of fields
+    setFields(updatedFields);
   };
 
   // Function to handle input change in each field
@@ -30,11 +24,8 @@ function Profile() {
   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    sethideForm("hide");
-    setShowResumeResult("show");
-
-    console.log("Form submitted:", fields);
+    const allValues = fields.map((obj) => obj.value);
+    props.addTheNewSkills(allValues); // Pass the array of fields to parent component
   };
 
   return (
@@ -43,7 +34,7 @@ function Profile() {
         {fields.map((field, index) => (
           <div key={index}>
             {field.isVisible && (
-              <div className={`${hideForm}`}>
+              <div>
                 <input
                   type="text"
                   value={field.value}
@@ -59,6 +50,7 @@ function Profile() {
             )}
           </div>
         ))}
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

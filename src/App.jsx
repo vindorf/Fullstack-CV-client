@@ -6,7 +6,6 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsPrivat from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
-import CreateResume from "./pages/CreateResume";
 import UserPage from "./pages/UserPage";
 import DetailResumePage from "./pages/DetailResumePage";
 
@@ -24,16 +23,9 @@ function App() {
             </IsPrivat>
           }
         ></Route>
+
         <Route
-          path="/create-resume"
-          element={
-            <IsPrivat>
-              <CreateResume />
-            </IsPrivat>
-          }
-        />
-        <Route
-          path="/resume/:resumeId" 
+          path="/resume/:resumeId"
           element={
             <IsPrivat>
               <DetailResumePage />

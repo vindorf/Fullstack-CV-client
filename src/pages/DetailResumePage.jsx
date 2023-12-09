@@ -9,6 +9,7 @@ import Profile from "../components/resume/Profile";
 import Skills from "../components/resume/Skills";
 import Experience from "../components/resume/Experience";
 import Header from "../components/resume/Header";
+import AddInput from "../components/resume/AddInput";
 
 function DetailResumePage() {
   const navigate = useNavigate();
@@ -25,7 +26,15 @@ function DetailResumePage() {
   const [description, setDescription] = useState("");
   const [hideForm, sethideForm] = useState("show");
   const [showResumeResult, setshowResumeResult] = useState("hide");
-  console.log(resume);
+
+  const [skills, setSkills] = useState([]);
+
+  // console.log(resume);
+
+  const addNewSkills = (newSkills) => {
+    const newSkillsArr = [...skills, newSkills]; // this is the new array with the new skills
+    setSkills(newSkillsArr);
+  };
 
   const handleFirstNameChange = (event) => {
     const { value } = event.target;
@@ -49,10 +58,11 @@ function DetailResumePage() {
     getOneResume();
   }, []);
 
-  const handleCange = () => {
+  const saveChanges = () => {
     const requestBody = {
       firstName: resume.firstName,
       lastName: resume.lastName,
+      // skills: skills,
     };
     const storedToken = localStorage.getItem("authToken");
 
@@ -61,6 +71,7 @@ function DetailResumePage() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
+        console.log(`saved changes ${requestBody}`);
         navigate("/resumes");
       });
   };
@@ -138,14 +149,18 @@ function DetailResumePage() {
             <br />
             <div className="col-lg-8">
               <div className="profile">
-                <Profile />
+                <Profile addTheNewSkills={addNewSkills} />
+                {skills.map((skill) => (
+                  <div>{skill}</div>
+                ))}
+                {/* <AddInput /> */}
               </div>
               {/* <div className="work-experience" style={{ height: "75%" }}>
             <Experience />
           </div> */}
             </div>
           </div>
-          <button onClick={handleCange}>SAVE CHANGES</button>
+          <button onClick={saveChanges}>SAVE CHANGES</button>
         </div>
       </div>
     </div>

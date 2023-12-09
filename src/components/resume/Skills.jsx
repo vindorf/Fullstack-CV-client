@@ -4,7 +4,7 @@ function Skills() {
   const handleSkillChange = (e) => props.onSkillChange(e.target.value);
   return (
     <div>
-      <h1>Hello from the skills-component</h1>
+      <h3>Hello from the skills-component</h3>
       <form>
         <input
           type="text"
