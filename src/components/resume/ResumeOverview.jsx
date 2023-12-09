@@ -4,7 +4,6 @@ import { useContext } from "react";
 import axios from "axios";
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
-
 import Contact from "./Contact";
 import Profile from "./Profile";
 import Skills from "./Skills";
@@ -18,6 +17,13 @@ function ResumeOverview() {
   const [fullName, setFullName] = useState([]);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+
+  const [telephone, setTelephone] = useState("");
+  const [email, setEmail] = useState("");
+  const [street, setStreet] = useState("");
+  const [houseNumber, setHouseNumber] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [city, setCity] = useState("");
 
   const [language, setLanguage] = useState([]);
 
@@ -36,6 +42,7 @@ function ResumeOverview() {
   const saveResume = (e) => {
     e.preventDefault();
     receiveDataFromInput();
+
     const newEducation = {
       instituteName,
       degreeName,
@@ -59,7 +66,6 @@ function ResumeOverview() {
     const requestBody = {
       firstName,
       lastName,
-      education: [...education, newEducation],
       userId: user._id,
     };
 
