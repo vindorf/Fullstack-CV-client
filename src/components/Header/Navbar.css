@@ -1,10 +1,6 @@
 .navbar {
-  padding: 20px 10px 20px 0px;
-  background-color: #28a7e9;
-}
-
-.navbar-brand {
-  font-size: 22px;
+  padding: 20px 20px 20px 0px;
+  background: linear-gradient(to right, #f0e68c, #ffc72c, #662d91);
 }
 
 .navbar .navbar-nav .nav-link {
@@ -12,17 +8,6 @@
   color: white;
 }
 
-.navbar .navbar-nav {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-}
-
 .navbar .navbar-nav .nav-link {
-  padding: 0 10px;
-}
-
-.brandlogo-img {
-  width: 70px;
-  height: 70px;
+  padding: 0 15px;
 }
