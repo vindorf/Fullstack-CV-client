@@ -1,65 +1,120 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
 import axios from "axios";
+import Header from "../components/resume/Header";
+
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
 function UserPage() {
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [resumes, setResumes] = useState([]);
-  console.log(resumes);
-  const getAllResumes = () => {
-    const storedToken = localStorage.getItem("authToken");
-    axios
-      .get(`${API_URL}/api/resumes/${user._id}`, {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [hideForm, sethideForm] = useState("show");
+
+  const storedToken = localStorage.getItem("authToken");
+
+  const handleFirstNameChange = (value) => {
+    setFirstName(value);
+  };
+
+  const handleLastNameChange = (value) => {
+    setLastName(value);
+  };
+
+  const createCV = async () => {
+    try {
+      const requestBody = {
+        firstName,
+        lastName,
+        userId: user._id,
+      };
+
+      await axios.post(`${API_URL}/api/resumes`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then((resp) => setResumes(resp.data.resumes));
+      });
+      getAllResumes();
+    } catch (error) {
+      console.error("ERROR!", error);
+    }
+
+    sethideForm("hide");
+  };
+
+  const getAllResumes = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/api/resumes/${user._id}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      });
+      setResumes(response.data.resumes);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
     getAllResumes();
-  }, []);
+  }, [user._id]);
 
-  const deleteResume = (resumeId) => {
-    const confirmation = window.confirm(
-      "Are you sure you want to delete this?"
-    );
-    if (confirmation) {
-      const storedToken = localStorage.getItem("authToken");
-      axios
-        .delete(`${API_URL}/api/resume/delete/${resumeId}`, {
+  const deleteResume = async (resumeId) => {
+    try {
+      const confirmation = window.confirm(
+        "Are you sure you want to delete this?"
+      );
+      if (confirmation) {
+        await axios.delete(`${API_URL}/api/resume/delete/${resumeId}`, {
           headers: { Authorization: `Bearer ${storedToken}` },
-        })
-        .then((resp) => {
-          const updatedResumes = resumes.filter(
-            (resume) => resume._id !== resumeId
-          );
-          setResumes(updatedResumes);
-        })
-        .catch((error) => {
-          console.error(error);
         });
+
+        const updatedResumes = resumes.filter(
+          (resume) => resume._id !== resumeId
+        );
+        setResumes(updatedResumes);
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
   return (
     <div>
+      <div className={`form ${hideForm}`}>
+        <Header
+          onFirstNameChange={handleFirstNameChange}
+          onLastNameChange={handleLastNameChange}
+        />
+        <button onClick={createCV}>Create new resumé</button>
+      </div>
       <h1>Welcome {user && user.email}</h1>
       {resumes &&
-        resumes.map((e) => {
+        resumes.map((resume) => {
           return (
-            <div key={e._id} className="resume-card">
-              <h1>{e.title} </h1>
-              <h2>{e.intro} </h2>
-              <p>{e._id} </p>
-              <button onClick={() => deleteResume(e._id)}>DELETE</button>
+            <div key={resume._id} className="resume-card">
+              <h1>First Name: {resume.firstName} </h1>
+              <h2>Last Name: {resume.lastName} </h2>
+              <p>ID: {resume._id} </p>
+              {resume.education && (
+                <div>
+                  {resume.education.map((edu, index) => (
+                    <div key={index}>
+                      <p>Degree Name: {edu.degreeName}</p>
+                      <p>Description: {edu.description}</p>
+                      <p>Start Year: {edu.startYear}</p>
+                      <p>End Year: {edu.endYear}</p>
+                      <p>Institute Name: {edu.instituteName}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+              <button onClick={() => deleteResume(resume._id)}>DELETE</button>
+              <Link to={`/resume/${resume._id}`}>
+                <button>DETAILS</button>{" "}
+              </Link>
             </div>
           );
         })}
-
-      <Link to="/create-resume">Create resumé</Link>
     </div>
   );
 }

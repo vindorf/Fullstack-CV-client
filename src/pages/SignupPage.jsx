@@ -4,29 +4,25 @@ import axios from "axios";
 
 const API_URL = "http://localhost:5005";
 
-function SignupPage(props) {
+function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
-
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
-  const handleSignupSubmit = (e) => {
-    e.preventDefault();
-    const requestBody = { email, password };
-
-    axios
-      .post(`${API_URL}/auth/signup`, requestBody)
-      .then((response) => {
-        navigate("/login");
-      })
-      .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
-      });
+  const handleSignupSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      const requestBody = { email, password };
+      await axios.post(`${API_URL}/auth/signup`, requestBody);
+      navigate("/login");
+    } catch (error) {
+      const errorDescription = error.response.data.message;
+      setErrorMessage(errorDescription);
+    }
   };
 
   return (

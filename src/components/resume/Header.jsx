@@ -4,10 +4,9 @@ function Header(props) {
   const handleFirstNameChange = (e) => props.onFirstNameChange(e.target.value);
   const handleLastNameChange = (e) => props.onLastNameChange(e.target.value);
 
+
   return (
     <div>
-      <h1>Hello from the header component</h1>
-
       <form>
         <input
           type="text"

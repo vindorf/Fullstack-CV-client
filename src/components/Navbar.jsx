@@ -24,17 +24,12 @@ function Navbar() {
       {!isLoggedIn && (
         <>
           <Link to="/signup">
-            {" "}
             <button type="button" className="btn btn-dark">
               Sign Up
-            </button>{" "}
-            <button type="button" className="btn btn-dark">
-              Primary
             </button>
           </Link>
           <Link to="/login">
-            {" "}
-            <button>Login</button>{" "}
+            <button>Login</button>
           </Link>
         </>
       )}
