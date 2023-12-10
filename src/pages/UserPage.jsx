@@ -8,7 +8,8 @@ import Header from "../components/resume/Header";
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
 function UserPage() {
-  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { user, logOutUser } = useContext(AuthContext);
   const [resumes, setResumes] = useState([]);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -78,8 +79,26 @@ function UserPage() {
     }
   };
 
+  const deleteUser = async () => {
+    try {
+      const confirmation = window.confirm(
+        "Are you sure you want to delete your Profil?"
+      );
+      if (confirmation) {
+        await axios.delete(`${API_URL}/api/delete/user/${user._id}`, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        });
+      }
+      console.log("user successfuly deleted", user._id);
+    } catch (err) {
+      console.log(err);
+    }
+    navigate('/')
+  };
+
   return (
     <div>
+      <button onClick={() => { deleteUser(); logOutUser(); }}>Delete Profil</button>
       <div className={`form ${hideForm}`}>
         <Header
           onFirstNameChange={handleFirstNameChange}

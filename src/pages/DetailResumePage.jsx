@@ -42,7 +42,7 @@ function DetailResumePage() {
 
   const [skills, setSkills] = useState([]);
 
-  console.log(resume);
+  // console.log(resume);
 
   const addNewSkills = (newSkills) => {
     const newSkillsArr = [...skills, newSkills]; // this is the new array with the new skills
