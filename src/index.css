@@ -1,43 +1,161 @@
 .a4-resume {
   width: 21cm; /* A4 width */
   height: 29.7cm; /* A4 height */
-  margin: 0 auto; /* Center the container */
+  margin: 0 auto !important; /* Center the container */
   background-color: white; /* Background color to simulate paper */
-  padding: 10px; /* Add padding for aesthetics */
+
+  border: 0.7px solid rgba(53, 53, 53, 0.5); /* Add a solid border */
+  box-shadow: 0 0 0.5cm rgba(53, 53, 53, 0.5); /* Add a 0.5cm shadow */
 }
 
 .row.header {
-  height: 20%;
-  background-color: yellow;
+  height: 15%;
+  padding: 0 !important;
 }
 
 .row.body {
-  height: 80%;
-  background-color: greenyellow;
+  height: 85%;
+  padding: 0 !important;
+  display: flex;
 }
 
-.skills-and-certificates {
-  background-color: beige;
+.col-12 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
-.education {
-  background-color: yellow;
-}
-.skillsLang {
-  background-color: orange;
-}
-.contact {
-  background-color: blueviolet;
+.col-sm-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 40px !important;
 }
 
-.profile {
-  background-color: gray;
-  height: 25%;
+.col-sm-8 {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  padding: 0 40px !important;
+}
+
+.component {
+  margin: 20px 0 20px 0;
+}
+
+.component .skills {
+  margin: 10px 0 0 0 !important;
+}
+
+hr {
+  width: 90%;
+  border-top: 1px solid gray !important;
+  margin: 0 auto !important;
+}
+
+hr.short {
+  width: 90%;
+  border-top: 1px dotted black !important;
+  margin: 0 auto !important;
+}
+
+.vl {
+  border-left: 1px dotted black !important;
+  margin: 0 auto !important;
+}
+
+h2.cv {
+  font-size: 3em;
+  letter-spacing: 5px;
+}
+
+h4.title {
+  font-size: 1.5em;
+  letter-spacing: 5px;
+  font-weight: normal;
+}
+
+p.title {
+  font-size: 1.25em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+ul.contact {
+  list-style: none;
+  font-size: 0.9em;
+  line-height: 2.25em;
+  padding: 0px 0px 0px 30px !important;
+  margin: 0 auto !important;
+}
+
+ul.skills {
+  list-style: none;
+  font-size: 0.9em;
+  line-height: 2.25em;
+  padding: 0px !important;
+}
+
+ul.education {
+  list-style: none;
+  padding: 0px !important;
+}
+
+li.timeframe {
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+li.institute {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+li.educationtitle {
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+li.shortdescr {
+  font-size: 0.9em;
+  padding-right: 10px;
+}
+
+.profiletext {
+  font-size: 0.9em;
+  line-height: 1.3em;
 }
 
 .work-experience {
   height: 75%;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
+}
+
+ul.workexperience {
+  list-style: none;
+  padding: 0px !important;
+  margin: 0 0 15px 0 !important;
+}
+
+li.job {
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  text-align: justify;
+}
+
+.linkedinlink {
+  font-style: italic;
 }
 
 .hide {
