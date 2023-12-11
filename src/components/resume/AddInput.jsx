@@ -1,45 +1,96 @@
 import { useState } from "react";
 function AddInput() {
   const [input, setInput] = useState([]);
+
   const inputArr = [
     {
+      name: "start-year",
       type: "text",
       id: 1,
       value: "",
     },
+    {
+      name: "end-year",
+      type: "text",
+      id: 1,
+      value: "",
+    },
+    {
+      name: "company",
+      type: "text",
+      id: 2,
+      value: "",
+    },
+    {
+      name: "role",
+      type: "text",
+      id: 3,
+      value: "",
+    },
+    {
+      name: "description",
+      type: "text",
+      id: 4,
+      value: "",
+    },
   ];
 
-  console.log(input);
-  const [arr, setArr] = useState(inputArr);
+  const [fields, setFields] = useState(inputArr);
   const addInput = () => {
-    setArr((s) => {
+    setFields((fieldsArray) => {
       return [
-        ...s,
+        ...fieldsArray,
         {
+          name: "start-year",
           type: "text",
+          id: 1,
+          value: "",
+        },
+        {
+          name: "end-year",
+          type: "text",
+          id: 1,
+          value: "",
+        },
+        {
+          name: "company",
+          type: "text",
+          id: 2,
+          value: "",
+        },
+        {
+          name: "role",
+          type: "text",
+          id: 3,
+          value: "",
+        },
+        {
+          name: "description",
+          type: "text",
+          id: 4,
           value: "",
         },
       ];
     });
   };
-  console.log(arr); // this array doesnt have the value of the input and does not go to the DetailResumePage.jsx
+  console.log(fields);
 
   console.log("INPUT ==>", input);
 
   const handleChange = (e, index) => {
-    const newArr = arr.map((item, i) => {
+    const newArr = fields.map((item, i) => {
       if (i === index) {
         return { ...item, value: e.target.value };
       }
       return item;
     });
-    setArr(newArr);
+    setFields(newArr);
     setInput(newArr.map((item) => item.value));
   };
 
   const reload = (e) => {
     e.preventDefault();
-    setArr(inputArr); // this array
+    setFields(inputArr); // basis array
     setInput([]); //
   };
 
@@ -52,16 +103,17 @@ function AddInput() {
       <button onClick={reload} style={{ margin: "10px" }}>
         NEW
       </button>
-      {arr.map((item, i) => {
+      {fields.map((item, i) => {
         return (
-          <div key={i}>
+          <div key={i} className="workexpinput">
             <input
+              name={item.name}
+              placeholder={item.name}
               onChange={(e) => handleChange(e, i)}
               type={item.value}
               value={item.value}
               id={i}
             />
-            <br></br>
           </div>
         );
       })}
