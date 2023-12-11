@@ -7,6 +7,7 @@ import WorkExperience from "../components/resume/WorkExperience";
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
 function DetailResumePage() {
+  const storedToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
   const { resumeId } = useParams();
   const [resume, setResume] = useState({
@@ -40,7 +41,6 @@ function DetailResumePage() {
   };
 
   const getOneResume = () => {
-    const storedToken = localStorage.getItem("authToken");
     axios
       .get(`${API_URL}/api/resume/${resumeId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
