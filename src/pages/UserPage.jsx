@@ -93,12 +93,19 @@ function UserPage() {
     } catch (err) {
       console.log(err);
     }
-    navigate('/')
+    navigate("/");
   };
 
   return (
     <div>
-      <button onClick={() => { deleteUser(); logOutUser(); }}>Delete Profil</button>
+      <button
+        onClick={() => {
+          deleteUser();
+          logOutUser();
+        }}
+      >
+        Delete Profil
+      </button>
       <div className={`form ${hideForm}`}>
         <Header
           onFirstNameChange={handleFirstNameChange}
@@ -114,19 +121,6 @@ function UserPage() {
               <h1>First Name: {resume.firstName} </h1>
               <h2>Last Name: {resume.lastName} </h2>
               <p>ID: {resume._id} </p>
-              {resume.education && (
-                <div>
-                  {resume.education.map((edu, index) => (
-                    <div key={index}>
-                      <p>Degree Name: {edu.degreeName}</p>
-                      <p>Description: {edu.description}</p>
-                      <p>Start Year: {edu.startYear}</p>
-                      <p>End Year: {edu.endYear}</p>
-                      <p>Institute Name: {edu.instituteName}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
               <button onClick={() => deleteResume(resume._id)}>DELETE</button>
               <Link to={`/resume/${resume._id}`}>
                 <button>DETAILS</button>{" "}
