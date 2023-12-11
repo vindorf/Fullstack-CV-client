@@ -1,7 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
-import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import "./DetailsResumePage.css";
+
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
 function DetailResumePage() {
@@ -11,6 +12,7 @@ function DetailResumePage() {
     resumeTitle: "",
     firstName: "",
     lastName: "",
+    title: "",
     phone: "",
     address: "",
     email: "",
@@ -21,10 +23,6 @@ function DetailResumePage() {
     education: "",
     certificate: "",
   });
-  console.log("resume------------", resume);
-
-  const [hideForm, sethideForm] = useState("show");
-  const [showResumeResult, setshowResumeResult] = useState("hide");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -52,6 +50,7 @@ function DetailResumePage() {
       resumeTitle: resume.resumeTitle,
       firstName: resume.firstName,
       lastName: resume.lastName,
+      title: resume.title,
       phone: resume.phone,
       address: resume.address,
       email: resume.email,
@@ -62,7 +61,6 @@ function DetailResumePage() {
       education: resume.education,
       certificate: resume.certificate,
     };
-    const storedToken = localStorage.getItem("authToken");
 
     axios
       .put(`${API_URL}/api/resume/edit/${resumeId}`, requestBody, {
@@ -76,34 +74,45 @@ function DetailResumePage() {
 
   return (
     <div>
-      <h1>DETAIL PAGE</h1>
-      <p>ID: {resumeId}</p>
+      <form>
+        <input
+          type="text"
+          name="resumeTitle"
+          placeholder="resume title"
+          value={resume.resumeTitle}
+          onChange={handleInputChange}
+        />
+      </form>
+
       <div key={resume._id}>
-        <h1>{resume.lastName} </h1>
-        <h2>{resume.firstName} </h2>
         <div className="container a4-resume">
           <div className="row header">
-            <div className={`col-12 header ${hideForm}`}>
-              <form>
-                <input
-                  type="text"
-                  name="resumeTitle"
-                  placeholder="resume title"
-                  value={resume.resumeTitle}
-                  onChange={handleInputChange}
-                />
+            <div className="col-12 header show">
+              <form className="mb-3 input-fields">
                 <input
                   type="text"
                   name="firstName"
-                  placeholder="first name"
+                  className="form-control"
+                  placeholder="First name"
                   value={resume.firstName}
                   onChange={handleInputChange}
                 />
                 <input
                   type="text"
                   name="lastName"
-                  placeholder="last name"
+                  className="form-control"
+                  placeholder="Last name"
                   value={resume.lastName}
+                  onChange={handleInputChange}
+                />
+              </form>
+              <form className="mb-3 input-fields title">
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="Title / Role"
+                  className="form-control"
+                  value={resume.title}
                   onChange={handleInputChange}
                 />
               </form>
