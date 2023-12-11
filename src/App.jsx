@@ -8,6 +8,7 @@ import IsAnon from "./components/IsAnon";
 import UserPage from "./pages/UserPage";
 import DetailResumePage from "./pages/DetailResumePage";
 import Navbar from "./components/Header/Navbar";
+import ShowPage from "./pages/ShowPage";
 
 function App() {
   return (
@@ -29,6 +30,14 @@ function App() {
           element={
             <IsPrivat>
               <DetailResumePage />
+            </IsPrivat>
+          }
+        />
+        <Route
+          path="/resume/show/:resumeId"
+          element={
+            <IsPrivat>
+              <ShowPage />
             </IsPrivat>
           }
         />

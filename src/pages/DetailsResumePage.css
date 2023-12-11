@@ -1,0 +1,22 @@
+.container {
+  padding: 40px !important;
+}
+
+.input-fields {
+  display: flex;
+  margin: 10px;
+  gap: 10px;
+}
+
+.form-control {
+  height: 50px !important;
+}
+
+.title {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.workexp {
+  margin: 20px 0 20px 0;
+}

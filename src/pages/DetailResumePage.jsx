@@ -1,30 +1,37 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
-import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import "./DetailsResumePage.css";
+import WorkExperience from "../components/resume/WorkExperience";
+
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
 function DetailResumePage() {
+  const storedToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
   const { resumeId } = useParams();
   const [resume, setResume] = useState({
     resumeTitle: "",
     firstName: "",
     lastName: "",
+    title: "",
     phone: "",
     address: "",
     email: "",
     skills: "",
     language: "",
     intro: "",
-    workExperience: "",
+    workExperience: {
+      startYear: "",
+      endYear: "",
+      company: "",
+      role: "",
+      description: "",
+    },
     education: "",
     certificate: "",
   });
 
-
-  const [hideForm, sethideForm] = useState("show");
-  const [showResumeResult, setshowResumeResult] = useState("hide");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -35,7 +42,6 @@ function DetailResumePage() {
   };
 
   const getOneResume = () => {
-    const storedToken = localStorage.getItem("authToken");
     axios
       .get(`${API_URL}/api/resume/${resumeId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -52,6 +58,7 @@ function DetailResumePage() {
       resumeTitle: resume.resumeTitle,
       firstName: resume.firstName,
       lastName: resume.lastName,
+      title: resume.title,
       phone: resume.phone,
       address: resume.address,
       email: resume.email,
@@ -62,7 +69,6 @@ function DetailResumePage() {
       education: resume.education,
       certificate: resume.certificate,
     };
-    const storedToken = localStorage.getItem("authToken");
 
     axios
       .put(`${API_URL}/api/resume/edit/${resumeId}`, requestBody, {
@@ -76,34 +82,45 @@ function DetailResumePage() {
 
   return (
     <div>
-      <h1>DETAIL PAGE</h1>
-      <p>ID: {resumeId}</p>
+      <form>
+        <input
+          type="text"
+          name="resumeTitle"
+          placeholder="resume title"
+          value={resume.resumeTitle}
+          onChange={handleInputChange}
+        />
+      </form>
+
       <div key={resume._id}>
-        <h1>{resume.lastName} </h1>
-        <h2>{resume.firstName} </h2>
         <div className="container a4-resume">
           <div className="row header">
-            <div className={`col-12 header ${hideForm}`}>
-              <form>
-                <input
-                  type="text"
-                  name="resumeTitle"
-                  placeholder="resume title"
-                  value={resume.resumeTitle}
-                  onChange={handleInputChange}
-                />
+            <div className="col-12 header show">
+              <form className="mb-3 input-fields">
                 <input
                   type="text"
                   name="firstName"
-                  placeholder="first name"
+                  className="form-control"
+                  placeholder="First name"
                   value={resume.firstName}
                   onChange={handleInputChange}
                 />
                 <input
                   type="text"
                   name="lastName"
-                  placeholder="last name"
+                  className="form-control"
+                  placeholder="Last name"
                   value={resume.lastName}
+                  onChange={handleInputChange}
+                />
+              </form>
+              <form className="mb-3 input-fields title">
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="Title / Role"
+                  className="form-control"
+                  value={resume.title}
                   onChange={handleInputChange}
                 />
               </form>
@@ -181,7 +198,9 @@ function DetailResumePage() {
               </div>
               <div className="work-experience" style={{ height: "75%" }}>
                 <h4>W O R K E X P E R I E N C E S</h4>
-                <form>
+                <WorkExperience handleWorkExpData={handleInputChange} />
+
+                {/* <form>
                   <input
                     type="text"
                     name="workExperience"
@@ -189,7 +208,7 @@ function DetailResumePage() {
                     placeholder="Starting year, ending year, company, position, description"
                     onChange={handleInputChange}
                   />
-                </form>
+                </form> */}
               </div>
               <div className="profile">
                 <h4>E D U C A T I O N </h4>

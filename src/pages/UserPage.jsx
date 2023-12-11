@@ -151,6 +151,9 @@ function UserPage() {
               <Link to={`/resume/${resume._id}`}>
                 <button>DETAILS</button>{" "}
               </Link>
+              <Link to={`/resume/show/${resume._id}`}>
+                <button>SHOW</button>{" "}
+              </Link>
             </div>
           );
         })}
