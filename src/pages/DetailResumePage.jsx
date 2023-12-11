@@ -21,7 +21,7 @@ function DetailResumePage() {
     education: "",
     certificate: "",
   });
-  console.log("resume------------", resume);
+
 
   const [hideForm, sethideForm] = useState("show");
   const [showResumeResult, setshowResumeResult] = useState("hide");
