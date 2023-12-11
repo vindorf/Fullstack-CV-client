@@ -68,9 +68,10 @@ hr.short {
   margin: 0 auto !important;
 }
 
-h2.cv {
+h2.cvname {
   font-size: 3em;
   letter-spacing: 5px;
+  text-transform: uppercase;
 }
 
 h4.title {
