@@ -11,25 +11,19 @@ function UserPage() {
   const navigate = useNavigate();
   const { user, logOutUser } = useContext(AuthContext);
   const [resumes, setResumes] = useState([]);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [resumeTitle, setResumeTitle] = useState("");
   const [hideForm, sethideForm] = useState("show");
 
   const storedToken = localStorage.getItem("authToken");
 
-  const handleFirstNameChange = (value) => {
-    setFirstName(value);
-  };
-
-  const handleLastNameChange = (value) => {
-    setLastName(value);
+  const handleResumeTitleChange = (value) => {
+    setResumeTitle(value);
   };
 
   const createCV = async () => {
     try {
       const requestBody = {
-        firstName,
-        lastName,
+        resumeTitle,
         userId: user._id,
       };
 
@@ -108,8 +102,7 @@ function UserPage() {
       </button>
       <div className={`form ${hideForm}`}>
         <Header
-          onFirstNameChange={handleFirstNameChange}
-          onLastNameChange={handleLastNameChange}
+          onResumeTitleChange={handleResumeTitleChange}
         />
         <button onClick={createCV}>Create new resumé</button>
       </div>
@@ -118,8 +111,7 @@ function UserPage() {
         resumes.map((resume) => {
           return (
             <div key={resume._id} className="resume-card">
-              <h1>First Name: {resume.firstName} </h1>
-              <h2>Last Name: {resume.lastName} </h2>
+              <h1>Resume Title: {resume.resumeTitle} </h1>
               <p>ID: {resume._id} </p>
               <button onClick={() => deleteResume(resume._id)}>DELETE</button>
               <Link to={`/resume/${resume._id}`}>
