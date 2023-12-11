@@ -3,7 +3,6 @@ import React from "react";
 function ShowPage() {
   return (
     <div className="container">
-      <h1>See your resumé here</h1>
       <br />
       <div className="container a4-resume">
         <div className="row header">

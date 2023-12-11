@@ -43,7 +43,7 @@
   padding: 0 40px !important;
 }
 
-.component {
+/* .component {
   margin: 20px 0 20px 0;
 }
 
@@ -137,7 +137,6 @@ li.shortdescr {
 
 .work-experience {
   height: 75%;
-  /* background-color: blueviolet; */
 }
 
 ul.workexperience {
@@ -161,3 +160,4 @@ li.job {
 .hide {
   display: none;
 }
+ */
