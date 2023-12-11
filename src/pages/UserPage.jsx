@@ -101,9 +101,7 @@ function UserPage() {
         Delete Profil
       </button>
       <div className={`form ${hideForm}`}>
-        <Header
-          onResumeTitleChange={handleResumeTitleChange}
-        />
+        <Header onResumeTitleChange={handleResumeTitleChange} />
         <button onClick={createCV}>Create new resumé</button>
       </div>
       <h1>Welcome {user && user.email}</h1>
@@ -116,6 +114,9 @@ function UserPage() {
               <button onClick={() => deleteResume(resume._id)}>DELETE</button>
               <Link to={`/resume/${resume._id}`}>
                 <button>DETAILS</button>{" "}
+              </Link>
+              <Link to={`/resume/show/${resume._id}`}>
+                <button>SHOW</button>{" "}
               </Link>
             </div>
           );

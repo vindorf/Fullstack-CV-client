@@ -1,5 +1,5 @@
 import { useState } from "react";
-function AddInput() {
+function WorkExperience() {
   const [input, setInput] = useState([]);
 
   const inputArr = [
@@ -40,6 +40,7 @@ function AddInput() {
     setFields((fieldsArray) => {
       return [
         ...fieldsArray,
+
         {
           name: "start-year",
           type: "text",
@@ -73,10 +74,9 @@ function AddInput() {
       ];
     });
   };
-  console.log(fields);
+  console.log("CURRENT FIELDS =>", fields);
 
-  console.log("INPUT ==>", input);
-
+  console.log("INPUT VALUES =>", input);
   const handleChange = (e, index) => {
     const newArr = fields.map((item, i) => {
       if (i === index) {
@@ -96,16 +96,10 @@ function AddInput() {
 
   return (
     <div>
-      <h2>Languages</h2>
-      <button onClick={addInput} style={{ margin: "10px" }}>
-        +
-      </button>
-      <button onClick={reload} style={{ margin: "10px" }}>
-        NEW
-      </button>
       {fields.map((item, i) => {
         return (
           <div key={i} className="workexpinput">
+            <label>{`${item.name}`}</label>
             <input
               name={item.name}
               placeholder={item.name}
@@ -117,7 +111,13 @@ function AddInput() {
           </div>
         );
       })}
+      <button onClick={addInput} style={{ margin: "10px" }}>
+        +
+      </button>
+      <button onClick={reload} style={{ margin: "10px" }}>
+        NEW
+      </button>
     </div>
   );
 }
-export default AddInput;
+export default WorkExperience;
