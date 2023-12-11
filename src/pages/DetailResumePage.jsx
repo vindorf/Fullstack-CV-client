@@ -4,13 +4,6 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
-import Contact from "../components/resume/Contact";
-import Profile from "../components/resume/Profile";
-import Skills from "../components/resume/Skills";
-import Experience from "../components/resume/Experience";
-import Header from "../components/resume/Header";
-import AddInput from "../components/resume/AddInput";
-
 function DetailResumePage() {
   const navigate = useNavigate();
   const { resumeId } = useParams();
@@ -24,90 +17,20 @@ function DetailResumePage() {
     language: "",
     intro: "",
     workExperience: "",
+    education: "",
+    certificate: ""
   });
-
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-
-  const [fullName, setFullName] = useState([]);
-  const [education, setEducation] = useState([]);
-  const [instituteName, setInstituteName] = useState("");
-  const [degreeName, setDegreeName] = useState("");
-  const [startYear, setStartYear] = useState("");
-  const [endYear, setEndYear] = useState("");
-  const [description, setDescription] = useState("");
+  console.log("resume------------", resume);
 
   const [hideForm, sethideForm] = useState("show");
   const [showResumeResult, setshowResumeResult] = useState("hide");
 
-  const [skills, setSkills] = useState([]);
-
-  // console.log(resume);
-
-  const addNewSkills = (newSkills) => {
-    const newSkillsArr = [...skills, newSkills]; // this is the new array with the new skills
-    setSkills(newSkillsArr);
-  };
-
-  // NOTE HEADER FORM
-  const handleFirstNameChange = (event) => {
-    const { value } = event.target;
-    setResume((prevResume) => ({ ...prevResume, firstName: value }));
-  };
-
-  const handleLastNameChange = (event) => {
-    const { value } = event.target;
-    setResume((prevResume) => ({ ...prevResume, lastName: value }));
-  };
-
-  // NOTE CONTACT FORM
-  const handleTelefoneNumberChange = (event) => {
-    const { value } = event.target;
-    setResume((prevResume) => ({ ...prevResume, phone: value }));
-    console.log(resume);
-  };
-
-  const handleAddressChange = (event) => {
-    const { value } = event.target;
-    setResume((prevResume) => ({ ...prevResume, address: value }));
-    console.log(resume);
-  };
-
-  const handleEmailAdressChange = (event) => {
-    const { value } = event.target;
-    setResume((prevResume) => ({ ...prevResume, email: value }));
-    console.log(resume);
-  };
-
-  // NOTE SKILLS FORM
-
-  const handleSkillsChange = (event) => {
-    const { value } = event.target;
-    setResume((prevResume) => ({ ...prevResume, skills: value }));
-    console.log(resume);
-  };
-
-  // NOTE LANGUAGE FORM
-
-  const handleLanguageChange = (event) => {
-    const { value } = event.target;
-    setResume((prevResume) => ({ ...prevResume, language: value }));
-    console.log(resume);
-  };
-
-  // NOTE INTRO FORM
-
-  const handleIntroChange = (event) => {
-    const { value } = event.target;
-    setResume((prevResume) => ({ ...prevResume, intro: value }));
-    console.log(resume);
-  };
-
-  // NOTE WORK EXPERIENCE FORM
-  const handleWorkExperienceInput = (event) => {
-    const { value } = event.target;
-    setResume((prevResume) => ({ ...prevResume, workExperience: value }));
-    console.log(resume);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setResume({
+      ...resume,
+      [name]: value,
+    });
   };
 
   const getOneResume = () => {
@@ -127,9 +50,15 @@ function DetailResumePage() {
     const requestBody = {
       firstName: resume.firstName,
       lastName: resume.lastName,
-      telephoneNumber: resume.telefonNumber,
+      phone: resume.phone,
       address: resume.address,
       email: resume.email,
+      skills: resume.skills,
+      language: resume.language,
+      intro: resume.intro,
+      workExperience: resume.workExperience,
+      education: resume.education,
+      certificate: resume.certificate
     };
     const storedToken = localStorage.getItem("authToken");
 
@@ -156,27 +85,19 @@ function DetailResumePage() {
               <form>
                 <input
                   type="text"
-                  name="firstname"
+                  name="firstName"
                   placeholder="first name"
                   value={resume.firstName}
-                  onChange={handleFirstNameChange}
+                  onChange={handleInputChange}
                 />
                 <input
                   type="text"
-                  name="lastname"
+                  name="lastName"
                   placeholder="last name"
                   value={resume.lastName}
-                  onChange={handleLastNameChange}
+                  onChange={handleInputChange}
                 />
               </form>
-            </div>
-            <div className={`${showResumeResult}`}>
-              {fullName.map((element) => (
-                <div>
-                  <div>{element.firstName}</div>
-                  <div>{element.lastName}</div>
-                </div>
-              ))}
             </div>
           </div>
           <div className="row body">
@@ -187,10 +108,10 @@ function DetailResumePage() {
                 <form>
                   <input
                     type="text"
-                    name="telephone"
+                    name="phone"
                     placeholder="telephone"
                     value={resume.phone}
-                    onChange={handleTelefoneNumberChange}
+                    onChange={handleInputChange}
                   />
                   <br />
                   <p>{resume.address} </p>
@@ -199,7 +120,7 @@ function DetailResumePage() {
                     name="address"
                     placeholder="address"
                     value={resume.address}
-                    onChange={handleAddressChange}
+                    onChange={handleInputChange}
                   />
                   <p>{resume.email} </p>
                   <input
@@ -207,7 +128,7 @@ function DetailResumePage() {
                     name="email"
                     placeholder="E-mail"
                     value={resume.email}
-                    onChange={handleEmailAdressChange}
+                    onChange={handleInputChange}
                   />
                 </form>
               </div>
@@ -217,37 +138,12 @@ function DetailResumePage() {
                   <p>{resume.skills} </p>
                   <input
                     type="text"
-                    name="allSkills"
+                    name="skills"
                     placeholder="Tell us about your skills"
                     value={resume.skills}
-                    onChange={handleSkillsChange}
+                    onChange={handleInputChange}
                   />
                 </form>
-              </div>
-              {/* <div className="skills-and-certificates flex-fill">
-            <Skills />
-          </div> */}
-              <div className={`education flex-fill ${hideForm}`}>
-                <Experience
-                //   onSaveResume={saveResume}
-                //   onInstituteChange={handleInstituteChange}
-                //   onDegreeChange={handleDegreeChange}
-                //   onStartYearChange={handleStartYearChange}
-                //   onEndYearChange={handleEndYearChange}
-                //   onExperienceDescriptionChange={handleExperienceDescriptionChange}
-                />
-              </div>
-              <div className={`${showResumeResult}`}>
-                {education.map((element) => (
-                  <div>
-                    <div>{element.instituteName}</div>
-                    <div>{element.degreeName}</div>
-                    <div>{element.startYear}</div>
-                    <div>{element.endYear}</div>
-                    <div>{element.description}</div>
-                  </div>
-                ))}
-                {/* <button onClick={addNewExperience}>add new experience</button> */}
               </div>
               <div className="skillsLang flex-fill">
                 <h4>L A N G U A G E</h4>
@@ -255,13 +151,12 @@ function DetailResumePage() {
                   <p>{resume.language} </p>
                   <input
                     type="text"
-                    name="allSkills"
+                    name="language"
                     placeholder="Which Language do you speak"
                     value={resume.language}
-                    onChange={handleLanguageChange}
+                    onChange={handleInputChange}
                   />
                 </form>
-                {/* <Skills /> */}
               </div>
               <div className="contact flex-fill">{/* <Contact /> */}</div>
             </div>
@@ -276,16 +171,10 @@ function DetailResumePage() {
                     name="intro"
                     placeholder="Tell the world about yourself"
                     value={resume.intro}
-                    onChange={handleIntroChange}
+                    onChange={handleInputChange}
                   />
                 </form>
                 <br />
-                <Profile addTheNewSkills={addNewSkills} />
-                {skills.map((skill) => (
-                  <div>{skill}</div>
-                ))}
-
-                {/* <AddInput />
               </div>
               <div className="work-experience" style={{ height: "75%" }}>
                 <h4>W O R K E X P E R I E N C E S</h4>
@@ -297,10 +186,37 @@ function DetailResumePage() {
                     name="workExperience"
                     value={resume.workExperience}
                     placeholder="Starting year, ending year, company, position, description"
-                    onChange={handleWorkExperienceInput}
+                    onChange={handleInputChange}
                   />
                 </form>
-                {/* <Experience /> */}
+              </div>
+              <div className="profile">
+                <h4>E D U C A T I O N </h4>
+                <form>
+                  <p>{resume.education} </p>
+                  <input
+                    type="text"
+                    name="education"
+                    placeholder="Your Educations"
+                    value={resume.education}
+                    onChange={handleInputChange}
+                  />
+                </form>
+                <br />
+              </div>
+              <div className="profile">
+                <h4>C E R T I F I C A T </h4>
+                <form>
+                  <p>{resume.certificate} </p>
+                  <input
+                    type="text"
+                    name="certificate"
+                    placeholder="Your certificate"
+                    value={resume.certificate}
+                    onChange={handleInputChange}
+                  />
+                </form>
+                <br />
               </div>
             </div>
           </div>
