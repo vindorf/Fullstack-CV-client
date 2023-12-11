@@ -3,7 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
 import axios from "axios";
+import Modal from "react-modal";
 import Header from "../components/resume/Header";
+Modal.setAppElement("#root");
 
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
@@ -13,7 +15,9 @@ function UserPage() {
   const [resumes, setResumes] = useState([]);
   const [resumeTitle, setResumeTitle] = useState("");
   const [hideForm, sethideForm] = useState("show");
-
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalUserIsOpen, setModalUserIsOpen] = useState(false);
+  const [deleteResumeId, setDeleteResumeId] = useState(null);
   const storedToken = localStorage.getItem("authToken");
 
   const handleResumeTitleChange = (value) => {
@@ -53,12 +57,24 @@ function UserPage() {
     getAllResumes();
   }, [user._id]);
 
+  const openModal = (resumeId) => {
+    setModalIsOpen(true);
+    setDeleteResumeId(resumeId);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
+    setDeleteResumeId(null);
+  };
+  const openUserModal = () => {
+    setModalUserIsOpen(true);
+  };
+  const closeUserModal = () => {
+    setModalUserIsOpen(false);
+  };
+
   const deleteResume = async (resumeId) => {
     try {
-      const confirmation = window.confirm(
-        "Are you sure you want to delete this?"
-      );
-      if (confirmation) {
+      if (deleteResumeId) {
         await axios.delete(`${API_URL}/api/resume/delete/${resumeId}`, {
           headers: { Authorization: `Bearer ${storedToken}` },
         });
@@ -68,38 +84,56 @@ function UserPage() {
         );
         setResumes(updatedResumes);
       }
+      closeModal();
     } catch (error) {
       console.error(error);
+      closeModal();
     }
   };
 
   const deleteUser = async () => {
     try {
-      const confirmation = window.confirm(
-        "Are you sure you want to delete your Profil?"
-      );
-      if (confirmation) {
+      if (modalUserIsOpen) {
         await axios.delete(`${API_URL}/api/delete/user/${user._id}`, {
           headers: { Authorization: `Bearer ${storedToken}` },
         });
       }
       console.log("user successfuly deleted", user._id);
+      closeUserModal();
     } catch (err) {
       console.log(err);
+      closeUserModal();
     }
     navigate("/");
   };
 
   return (
     <div>
-      <button
-        onClick={() => {
-          deleteUser();
-          logOutUser();
-        }}
+      <button onClick={() => openUserModal()}>Delete User</button>
+      <Modal
+        isOpen={modalUserIsOpen}
+        onRequestClose={closeUserModal}
+        className="custom-modal"
+        contentLabel="Delete Confirmation"
       >
-        Delete Profil
-      </button>
+        <div className="custom-modal-content">
+          <h3>Are you sure delete User?</h3>
+          <div className="custom-modal-buttons">
+            <button onClick={closeUserModal} className="modal-btn">
+              Cancel
+            </button>
+            <button
+              onClick={() => {
+                deleteUser();
+                logOutUser();
+              }}
+              className="modal-btn"
+            >
+              Confirm Delete
+            </button>
+          </div>
+        </div>
+      </Modal>
       <div className={`form ${hideForm}`}>
         <Header onResumeTitleChange={handleResumeTitleChange} />
         <button onClick={createCV}>Create new resumé</button>
@@ -111,7 +145,9 @@ function UserPage() {
             <div key={resume._id} className="resume-card">
               <h1>Resume Title: {resume.resumeTitle} </h1>
               <p>ID: {resume._id} </p>
-              <button onClick={() => deleteResume(resume._id)}>DELETE</button>
+              <button onClick={() => openModal(resume._id)}>
+                Delete Resume
+              </button>
               <Link to={`/resume/${resume._id}`}>
                 <button>DETAILS</button>{" "}
               </Link>
@@ -121,6 +157,27 @@ function UserPage() {
             </div>
           );
         })}
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className="custom-modal"
+        contentLabel="Delete Confirmation"
+      >
+        <div className="custom-modal-content">
+          <h3>Are you sure delete Resume?</h3>
+          <div className="custom-modal-buttons">
+            <button onClick={closeModal} className="modal-btn">
+              Cancel
+            </button>
+            <button
+              onClick={() => deleteResume(deleteResumeId)}
+              className="modal-btn"
+            >
+              Confirm Delete
+            </button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }

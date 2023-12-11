@@ -32,6 +32,7 @@ function DetailResumePage() {
     certificate: "",
   });
 
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setResume({
