@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import AddInput from "../components/resume/AddInput";
+
 const API_URL = import.meta.env.VITE_SERVER_URL;
 import Profile from "../components/resume/Profile";
 
@@ -46,7 +46,6 @@ function ShowPage() {
 
   return (
     <div className="container">
-      <AddInput />
       <br />
       <h1>See your resumé here</h1>
       <br />

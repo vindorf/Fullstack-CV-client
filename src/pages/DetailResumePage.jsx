@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./DetailsResumePage.css";
+import WorkExperience from "../components/resume/WorkExperience";
 
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
@@ -19,7 +20,13 @@ function DetailResumePage() {
     skills: "",
     language: "",
     intro: "",
-    workExperience: "",
+    workExperience: {
+      startYear: "",
+      endYear: "",
+      company: "",
+      role: "",
+      description: "",
+    },
     education: "",
     certificate: "",
   });
@@ -190,7 +197,9 @@ function DetailResumePage() {
               </div>
               <div className="work-experience" style={{ height: "75%" }}>
                 <h4>W O R K E X P E R I E N C E S</h4>
-                <form>
+                <WorkExperience handleWorkExpData={handleInputChange} />
+
+                {/* <form>
                   <input
                     type="text"
                     name="workExperience"
@@ -198,7 +207,7 @@ function DetailResumePage() {
                     placeholder="Starting year, ending year, company, position, description"
                     onChange={handleInputChange}
                   />
-                </form>
+                </form> */}
               </div>
               <div className="profile">
                 <h4>E D U C A T I O N </h4>
