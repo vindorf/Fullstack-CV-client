@@ -8,6 +8,7 @@ function DetailResumePage() {
   const navigate = useNavigate();
   const { resumeId } = useParams();
   const [resume, setResume] = useState({
+    resumeTitle: "",
     firstName: "",
     lastName: "",
     phone: "",
@@ -18,7 +19,7 @@ function DetailResumePage() {
     intro: "",
     workExperience: "",
     education: "",
-    certificate: ""
+    certificate: "",
   });
   console.log("resume------------", resume);
 
@@ -48,6 +49,7 @@ function DetailResumePage() {
 
   const saveChanges = () => {
     const requestBody = {
+      resumeTitle: resume.resumeTitle,
       firstName: resume.firstName,
       lastName: resume.lastName,
       phone: resume.phone,
@@ -58,7 +60,7 @@ function DetailResumePage() {
       intro: resume.intro,
       workExperience: resume.workExperience,
       education: resume.education,
-      certificate: resume.certificate
+      certificate: resume.certificate,
     };
     const storedToken = localStorage.getItem("authToken");
 
@@ -85,6 +87,13 @@ function DetailResumePage() {
               <form>
                 <input
                   type="text"
+                  name="resumeTitle"
+                  placeholder="resume title"
+                  value={resume.resumeTitle}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
                   name="firstName"
                   placeholder="first name"
                   value={resume.firstName}
@@ -103,7 +112,6 @@ function DetailResumePage() {
           <div className="row body">
             <div className="col-lg-4">
               <div className="contact">
-                <p>{resume.phone} </p>
                 <h4>C O N T A C T</h4>
                 <form>
                   <input
@@ -114,7 +122,6 @@ function DetailResumePage() {
                     onChange={handleInputChange}
                   />
                   <br />
-                  <p>{resume.address} </p>
                   <input
                     type="text"
                     name="address"
@@ -122,7 +129,6 @@ function DetailResumePage() {
                     value={resume.address}
                     onChange={handleInputChange}
                   />
-                  <p>{resume.email} </p>
                   <input
                     type="text"
                     name="email"
@@ -135,7 +141,6 @@ function DetailResumePage() {
               <div className="skills">
                 <h4>S K I L L S</h4>
                 <form>
-                  <p>{resume.skills} </p>
                   <input
                     type="text"
                     name="skills"
@@ -148,7 +153,6 @@ function DetailResumePage() {
               <div className="skillsLang flex-fill">
                 <h4>L A N G U A G E</h4>
                 <form>
-                  <p>{resume.language} </p>
                   <input
                     type="text"
                     name="language"
@@ -165,7 +169,6 @@ function DetailResumePage() {
               <div className="profile">
                 <h4>I N T R O </h4>
                 <form>
-                  <p>{resume.intro} </p>
                   <input
                     type="text"
                     name="intro"
@@ -178,9 +181,7 @@ function DetailResumePage() {
               </div>
               <div className="work-experience" style={{ height: "75%" }}>
                 <h4>W O R K E X P E R I E N C E S</h4>
-
                 <form>
-                  <p>{resume.workExperience} </p>
                   <input
                     type="text"
                     name="workExperience"
@@ -193,7 +194,6 @@ function DetailResumePage() {
               <div className="profile">
                 <h4>E D U C A T I O N </h4>
                 <form>
-                  <p>{resume.education} </p>
                   <input
                     type="text"
                     name="education"
@@ -207,7 +207,6 @@ function DetailResumePage() {
               <div className="profile">
                 <h4>C E R T I F I C A T </h4>
                 <form>
-                  <p>{resume.certificate} </p>
                   <input
                     type="text"
                     name="certificate"
