@@ -40,6 +40,7 @@ function WorkExperience() {
     setFields((fieldsArray) => {
       return [
         ...fieldsArray,
+
         {
           name: "start-year",
           type: "text",
@@ -73,10 +74,9 @@ function WorkExperience() {
       ];
     });
   };
-  console.log(fields);
+  console.log("CURRENT FIELDS =>", fields);
 
-  console.log("INPUT ==>", input);
-
+  console.log("INPUT VALUES =>", input);
   const handleChange = (e, index) => {
     const newArr = fields.map((item, i) => {
       if (i === index) {
@@ -99,7 +99,7 @@ function WorkExperience() {
       {fields.map((item, i) => {
         return (
           <div key={i} className="workexpinput">
-            <label>{`${item.name} `}</label>
+            <label>{`${item.name}`}</label>
             <input
               name={item.name}
               placeholder={item.name}

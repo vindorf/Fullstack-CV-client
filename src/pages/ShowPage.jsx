@@ -32,7 +32,7 @@ function ShowPage() {
   const showOneResume = () => {
     const storedToken = localStorage.getItem("authToken");
     axios
-      .get(`${API_URL}/api/resume/6571ecd9eeb41ba60628ef6e`, {
+      .get(`${API_URL}/api/resume/${resumeId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((resp) => setResume(resp.data));
