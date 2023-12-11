@@ -1,6 +1,5 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
@@ -8,6 +7,7 @@ import IsPrivat from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 import UserPage from "./pages/UserPage";
 import DetailResumePage from "./pages/DetailResumePage";
+import Navbar from "./components/Header/Navbar";
 
 function App() {
   return (

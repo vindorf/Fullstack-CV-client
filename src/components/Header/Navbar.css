@@ -1,0 +1,13 @@
+.navbar {
+  padding: 20px 20px 20px 0px;
+  background: linear-gradient(to right, #f0e68c, #ffc72c, #662d91);
+}
+
+.navbar .navbar-nav .nav-link {
+  font-size: 16px;
+  color: white;
+}
+
+.navbar .navbar-nav .nav-link {
+  padding: 0 15px;
+}
