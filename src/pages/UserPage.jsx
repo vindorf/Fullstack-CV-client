@@ -5,6 +5,9 @@ import { useContext } from "react";
 import axios from "axios";
 import Modal from "react-modal";
 import Header from "../components/resume/Header";
+
+import "./ResumeCard.css";
+
 Modal.setAppElement("#root");
 
 const API_URL = import.meta.env.VITE_SERVER_URL;
@@ -38,8 +41,6 @@ function UserPage() {
     } catch (error) {
       console.error("ERROR!", error);
     }
-
-    sethideForm("hide");
   };
 
   const getAllResumes = async () => {
@@ -108,8 +109,79 @@ function UserPage() {
   };
 
   return (
-    <div>
-      <button onClick={() => openUserModal()}>Delete User</button>
+    <div className="user-page-body">
+      <h2>Welcome {user.email}</h2>
+      <div>
+        <Header onResumeTitleChange={handleResumeTitleChange} />
+        <button
+          type="submit"
+          class="btn btn-primary create-new-resume-btn"
+          onClick={createCV}
+        >
+          Create new resumé
+        </button>
+      </div>
+
+      {resumes &&
+        resumes.map((resume) => {
+          return (
+            <div key={resume._id} className="card mb-3">
+              <div className="card-body">
+                <h3 className="card-title">{resume.resumeTitle}</h3>
+
+                <Link
+                  to={`/resume/${resume._id}`}
+                  className="btn btn-primary ml-2"
+                >
+                  Edit
+                </Link>
+                <Link
+                  to={`/resume/show/${resume._id}`}
+                  className="btn btn-success"
+                >
+                  Preview
+                </Link>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => openModal(resume._id)}
+                >
+                  Delete Resume
+                </button>
+              </div>
+            </div>
+          );
+        })}
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className="custom-modal"
+        contentLabel="Delete Confirmation"
+      >
+        <div className="custom-modal-content">
+          <h3>Are you sure delete Resume?</h3>
+          <div className="custom-modal-buttons">
+            <button onClick={closeModal} className="modal-btn">
+              Cancel
+            </button>
+            <button
+              onClick={() => deleteResume(deleteResumeId)}
+              className="modal-btn"
+            >
+              Confirm Delete
+            </button>
+          </div>
+        </div>
+      </Modal>
+
+      {/* -------------------- DELETE USER SECTION -------------------- */}
+
+      <button
+        className="btn btn-secondary delete-btn"
+        onClick={() => openUserModal()}
+      >
+        Delete Account
+      </button>
       <Modal
         isOpen={modalUserIsOpen}
         onRequestClose={closeUserModal}
@@ -127,50 +199,6 @@ function UserPage() {
                 deleteUser();
                 logOutUser();
               }}
-              className="modal-btn"
-            >
-              Confirm Delete
-            </button>
-          </div>
-        </div>
-      </Modal>
-      <div className={`form ${hideForm}`}>
-        <Header onResumeTitleChange={handleResumeTitleChange} />
-        <button onClick={createCV}>Create new resumé</button>
-      </div>
-      <h1>Welcome {user && user.email}</h1>
-      {resumes &&
-        resumes.map((resume) => {
-          return (
-            <div key={resume._id} className="resume-card">
-              <h1>Resume Title: {resume.resumeTitle} </h1>
-              <p>ID: {resume._id} </p>
-              <button onClick={() => openModal(resume._id)}>
-                Delete Resume
-              </button>
-              <Link to={`/resume/${resume._id}`}>
-                <button>DETAILS</button>{" "}
-              </Link>
-              <Link to={`/resume/show/${resume._id}`}>
-                <button>SHOW</button>{" "}
-              </Link>
-            </div>
-          );
-        })}
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        className="custom-modal"
-        contentLabel="Delete Confirmation"
-      >
-        <div className="custom-modal-content">
-          <h3>Are you sure delete Resume?</h3>
-          <div className="custom-modal-buttons">
-            <button onClick={closeModal} className="modal-btn">
-              Cancel
-            </button>
-            <button
-              onClick={() => deleteResume(deleteResumeId)}
               className="modal-btn"
             >
               Confirm Delete

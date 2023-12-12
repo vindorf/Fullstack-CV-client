@@ -7,7 +7,7 @@ import IsPrivat from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 import UserPage from "./pages/UserPage";
 import DetailResumePage from "./pages/DetailResumePage";
-import Navbar from "./components/Header/Navbar";
+import Navbar from "./components/Navigation/Navbar";
 import ShowPage from "./pages/ShowPage";
 
 function App() {

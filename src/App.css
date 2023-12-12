@@ -1,33 +1,39 @@
-.resume-card{
-    border: 1px solid;
-    padding: 1em;
-    margin-bottom: 30px;
+.custom-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: aliceblue;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-.custom-modal{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: aliceblue;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-.custom-modal-content{
-    text-align: center;
-
+.custom-modal-content {
+  text-align: center;
 }
 .custom-modal-buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .modal-btn{
-    border: none;
-    border-radius: 5px;
-    background-color: blue;
-    color: aliceblue;
-    padding: 2px;
-    width: 120px;
-    height: 30px;
-  }
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.modal-btn {
+  border: none;
+  border-radius: 5px;
+  background-color: blue;
+  color: aliceblue;
+  padding: 2px;
+  width: 120px;
+  height: 30px;
+}
+
+.user-page-body {
+  padding: 20px;
+}
+
+.create-resume-input {
+  width: 35% !important;
+}
+
+.create-resume-form {
+  margin: 20px;
+}
