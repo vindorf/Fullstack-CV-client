@@ -16,19 +16,25 @@ function DetailResumePage() {
     lastName: "",
     title: "",
     phone: "",
-    address: "",
+    address: { street: "", city: "" },
     email: "",
+    website: "",
+    linkedin: "",
     skills: "",
     language: "",
     intro: "",
     workExperience: {
-      startYear: "",
-      endYear: "",
+      workingYear: "",
       company: "",
       role: "",
-      description: "",
+      jobDescription: "",
     },
-    education: "",
+    education: {
+      studyYear: "",
+      educationTitle: "",
+      institute: "",
+      educationDescription: "",
+    },
     certificate: "",
   });
 
@@ -41,18 +47,61 @@ function DetailResumePage() {
     });
   };
 
+  const handleAddressInputChange = (e, field) => {
+    const { value } = e.target;
+    setResume({
+      ...resume,
+      address: {
+        ...resume.address,
+        [field]: value,
+      },
+    });
+  };
+
+  const handleEducationChange = (e, field) => {
+    const { value } = e.target;
+    setResume({
+      ...resume,
+      education: {
+        ...resume.education,
+        [field]: value,
+      },
+    });
+  };
+
+  const handleWorkChange = (e, field) => {
+    const { value } = e.target;
+    setResume({
+      ...resume,
+      workExperience: {
+        ...resume.workExperience,
+        [field]: value,
+      },
+    });
+  };
+
   const getOneResume = () => {
+    const storedToken = localStorage.getItem("authToken");
+
     axios
       .get(`${API_URL}/api/resume/${resumeId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((resp) => setResume(resp.data));
+      .then((resp) => {
+        console.log("blabla", resp);
+        setResume(resp.data);
+      });
   };
 
   useEffect(() => {
+    console.log("RESUME FIRST THING AFTER PAGE LOAD =>", resume.education);
     getOneResume();
   }, []);
 
+  console.log("RESUME SECOND THING AFTER USE EFFECT LOAD =>", resume.education);
+
+  console.log(resume.address.city);
+  console.log(resume.address.street);
   const saveChanges = () => {
     const requestBody = {
       resumeTitle: resume.resumeTitle,
@@ -60,13 +109,50 @@ function DetailResumePage() {
       lastName: resume.lastName,
       title: resume.title,
       phone: resume.phone,
-      address: resume.address,
+      address: {
+        street: resume.address.street,
+        city: resume.address.city,
+      },
       email: resume.email,
       skills: resume.skills,
       language: resume.language,
       intro: resume.intro,
-      workExperience: resume.workExperience,
-      education: resume.education,
+      workExperience: {
+        workingYear:
+          typeof resume.workExperience !== "undefined"
+            ? resume.workExperience.workingYear
+            : "",
+        company:
+          typeof resume.workExperience !== "undefined"
+            ? resume.workExperience.company
+            : "",
+        role:
+          typeof resume.workExperience !== "undefined"
+            ? resume.workExperience.role
+            : "",
+        jobDescription:
+          typeof resume.workExperience !== "undefined"
+            ? resume.workExperience.jobDescription
+            : "",
+      },
+      education: {
+        studyYear:
+          typeof resume.education.studyYear !== "undefined"
+            ? resume.education.studyYear
+            : "",
+        educationTitle:
+          typeof resume.education.educationTitle !== "undefined"
+            ? resume.education.educationTitle
+            : "",
+        institute:
+          typeof resume.education.institute !== "undefined"
+            ? resume.education.institute
+            : "",
+        educationDescription:
+          typeof resume.education.educationDescription !== "undefined"
+            ? resume.education.educationDescription
+            : "",
+      },
       certificate: resume.certificate,
     };
 
@@ -139,19 +225,35 @@ function DetailResumePage() {
                     onChange={handleInputChange}
                   />
                   <br />
-                  <input
-                    type="text"
-                    name="address"
-                    placeholder="address"
-                    value={resume.address}
-                    onChange={handleInputChange}
-                  />
+
                   <input
                     type="text"
                     name="email"
                     placeholder="E-mail"
                     value={resume.email}
                     onChange={handleInputChange}
+                  />
+
+                  <input
+                    type="text"
+                    name="website"
+                    placeholder="Website/Github URL"
+                    value={resume.website}
+                    onChange={handleInputChange}
+                  />
+                  <input
+                    type="text"
+                    name="street"
+                    placeholder="street"
+                    value={resume.address.street ? resume.address.street : ""}
+                    onChange={(e) => handleAddressInputChange(e, "street")}
+                  />
+                  <input
+                    type="text"
+                    name="city"
+                    placeholder="city"
+                    value={resume.address.city ? resume.address.city : ""}
+                    onChange={(e) => handleAddressInputChange(e, "city")}
                   />
                 </form>
               </div>
@@ -167,6 +269,57 @@ function DetailResumePage() {
                   />
                 </form>
               </div>
+              <div className="education">
+                <h4>E D U C A T I O N </h4>
+                <form>
+                  <input
+                    type="text"
+                    name="studyYear"
+                    value={
+                      resume.education.studyYear
+                        ? resume.education.studyYear
+                        : ""
+                    }
+                    placeholder="YEAR-YEAR"
+                    onChange={(e) => handleEducationChange(e, "studyYear")}
+                  />
+                  <input
+                    type="text"
+                    name="educationTitle"
+                    value={
+                      resume.education.educationTitle
+                        ? resume.education.educationTitle
+                        : ""
+                    }
+                    placeholder="Study"
+                    onChange={(e) => handleEducationChange(e, "educationTitle")}
+                  />
+                  <input
+                    type="text"
+                    name="institute"
+                    value={
+                      resume.education.institute
+                        ? resume.education.institute
+                        : ""
+                    }
+                    placeholder="Institute"
+                    onChange={(e) => handleEducationChange(e, "institute")}
+                  />
+                  <input
+                    type="text"
+                    name="educationDescription"
+                    value={
+                      resume.education.educationDescription
+                        ? resume.education.educationDescription
+                        : ""
+                    }
+                    placeholder="What was your study about?"
+                    onChange={(e) =>
+                      handleEducationChange(e, "educationDescription")
+                    }
+                  />
+                </form>
+              </div>
               <div className="skillsLang flex-fill">
                 <h4>L A N G U A G E</h4>
                 <form>
@@ -179,7 +332,6 @@ function DetailResumePage() {
                   />
                 </form>
               </div>
-              <div className="contact flex-fill">{/* <Contact /> */}</div>
             </div>
             <br />
             <div className="col-lg-8">
@@ -198,43 +350,66 @@ function DetailResumePage() {
               </div>
               <div className="work-experience" style={{ height: "75%" }}>
                 <h4>W O R K E X P E R I E N C E S</h4>
-                <WorkExperience handleWorkExpData={handleInputChange} />
-
-                {/* <form>
-                  <input
-                    type="text"
-                    name="workExperience"
-                    value={resume.workExperience}
-                    placeholder="Starting year, ending year, company, position, description"
-                    onChange={handleInputChange}
-                  />
-                </form> */}
-              </div>
-              <div className="profile">
-                <h4>E D U C A T I O N </h4>
                 <form>
                   <input
                     type="text"
-                    name="education"
-                    placeholder="Your Educations"
-                    value={resume.education}
-                    onChange={handleInputChange}
+                    name="workingYear"
+                    value={
+                      resume.workExperience.workingYear
+                        ? resume.workExperience.workingYear
+                        : ""
+                    }
+                    placeholder="YEAR-YEAR"
+                    onChange={(e) => handleWorkChange(e, "workingYear")}
                   />
-                </form>
-                <br />
-              </div>
-              <div className="profile">
-                <h4>C E R T I F I C A T </h4>
-                <form>
                   <input
                     type="text"
-                    name="certificate"
-                    placeholder="Your certificate"
-                    value={resume.certificate}
-                    onChange={handleInputChange}
+                    name="company"
+                    value={
+                      resume.workExperience.company
+                        ? resume.workExperience.company
+                        : ""
+                    }
+                    placeholder="Company"
+                    onChange={(e) => handleWorkChange(e, "company")}
+                  />
+                  <input
+                    type="text"
+                    name="role"
+                    value={
+                      resume.workExperience.role
+                        ? resume.workExperience.role
+                        : ""
+                    }
+                    placeholder="Role"
+                    onChange={(e) => handleWorkChange(e, "role")}
+                  />
+                  <input
+                    type="text"
+                    name="jobDescription"
+                    value={
+                      resume.workExperience.jobDescription
+                        ? resume.workExperience.jobDescription
+                        : ""
+                    }
+                    placeholder="What was your job about?"
+                    onChange={(e) => handleWorkChange(e, "jobDescription")}
                   />
                 </form>
-                <br />
+              </div>
+              <div className="linkedinlink">
+                <p>
+                  Find more on my linkedIn profile:{" "}
+                  <form>
+                    <input
+                      type="text"
+                      name="linkedin"
+                      placeholder="LinkedIn"
+                      value={resume.linkedin}
+                      onChange={handleInputChange}
+                    />
+                  </form>
+                </p>
               </div>
             </div>
           </div>
