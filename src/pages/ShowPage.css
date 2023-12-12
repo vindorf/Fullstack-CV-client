@@ -1,14 +1,14 @@
-/* .a4-resume {
-  width: 21cm;  /* A4 width */
-/*height: 29.7cm; /* A4 height */
-/* margin: 0 auto !important; /* Center the container */
-/* background-color: white; /* Background color to simulate paper */
+.a4-resume {
+  width: 21cm; /* A4 width */
+  height: 29.7cm; /* A4 height */
+  margin: 0 auto !important; /* Center the container */
+  background-color: white; /* Background color to simulate paper */
 
-/*border: 0.7px solid rgba(53, 53, 53, 0.5); /* Add a solid border */
-/*box-shadow: 0 0 0.5cm rgba(53, 53, 53, 0.5); /* Add a 0.5cm shadow */
-/*} */
+  border: 0.7px solid rgba(53, 53, 53, 0.5); /* Add a solid border */
+  box-shadow: 0 0 0.5cm rgba(53, 53, 53, 0.5); /* Add a 0.5cm shadow */
+}
 
-/* .row.header {
+.row.header {
   height: 15%;
   padding: 0 !important;
 }
@@ -27,7 +27,7 @@
   height: 100%;
 }
 
-.col-sm-4 {
+.col-lg-4 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -35,20 +35,24 @@
   padding: 0 40px !important;
 }
 
-.col-sm-8 {
+.col-lg-8 {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: space-between;
-  padding: 0 40px !important;
+  padding: 0 60px !important;
 }
 
-/* .component {
+.component {
   margin: 20px 0 20px 0;
 }
 
-.component .skills {
+.component.skills {
   margin: 10px 0 0 0 !important;
+}
+
+.component.profile {
+  height: 20%;
 }
 
 hr {
@@ -72,12 +76,14 @@ h2.cvname {
   font-size: 3em;
   letter-spacing: 5px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 h4.title {
   font-size: 1.5em;
   letter-spacing: 5px;
   font-weight: normal;
+  text-align: center;
 }
 
 p.title {
@@ -85,6 +91,7 @@ p.title {
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
+  text-align: left;
 }
 
 ul.contact {
@@ -132,8 +139,9 @@ li.shortdescr {
 }
 
 .profiletext {
-  font-size: 0.9em;
-  line-height: 1.3em;
+  font-size: 1em;
+  line-height: 2em;
+  height: 20%;
 }
 
 .work-experience {
@@ -157,8 +165,3 @@ li.job {
 .linkedinlink {
   font-style: italic;
 }
-
-.hide {
-  display: none;
-}
- */

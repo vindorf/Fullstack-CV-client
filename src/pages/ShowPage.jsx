@@ -1,8 +1,16 @@
 import React, { Profiler } from "react";
+import { Link } from "react-router-dom";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import "./ShowPage.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocation, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { faLocationPin } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const API_URL = import.meta.env.VITE_SERVER_URL;
 import Profile from "../components/resume/Profile";
@@ -11,23 +19,37 @@ function ShowPage() {
   const navigate = useNavigate();
   const { resumeId } = useParams();
   const [resume, setResume] = useState({
+    resumeTitle: "",
     firstName: "",
     lastName: "",
+    title: "",
     phone: "",
-    address: "",
+    address: { street: "", city: "" },
     email: "",
+    website: "",
+    linkedin: "",
     skills: "",
     language: "",
     intro: "",
-    workExperience: "",
-    education: "",
+    workExperience: {
+      workingYear: "",
+      company: "",
+      role: "",
+      jobDescription: "",
+    },
+    education: {
+      studyYear: "",
+      educationTitle: "",
+      institute: "",
+      educationDescription: "",
+    },
     certificate: "",
   });
 
   console.log("skills", resume.skills);
 
-  const skillsArray = resume.skills.split(",");
-  const languageArray = resume.language.split(",");
+  const skillsArray = (resume.skills || "").split(",");
+  const languageArray = (resume.language || "").split(",");
 
   const showOneResume = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -56,30 +78,42 @@ function ShowPage() {
             <h2 className="cvname">
               {resume.firstName} {resume.lastName}
             </h2>
-            <h4 className="title">YOUR TITLE/ROLE HERE</h4>
+            <h4 className="title">{resume.title}</h4>
           </div>
         </div>
         <hr />
         <div className="row body">
-          <div className="col-sm-4">
+          <div className="col-lg-4">
             <div className="component">
               <p className="title">contact</p>
               <ul className="contact">
                 <li>
-                  <i className="fa-solid fa-phone"></i>
+                  <FontAwesomeIcon
+                    icon={faPhone}
+                    style={{ marginRight: "2px" }}
+                  />{" "}
                   {resume.phone}
                 </li>
                 <li>
-                  <i className="fa-solid fa-envelope"></i>
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    style={{ marginRight: "5px" }}
+                  />
                   {resume.email}
                 </li>
                 <li>
-                  <i className="fa-solid fa-globe"></i>
-                  YOUR WEBSITE HERE
+                  <FontAwesomeIcon
+                    icon={faGlobe}
+                    style={{ marginRight: "5px" }}
+                  />
+                  {resume.website}
                 </li>
                 <li>
-                  <i className="fa-solid fa-location-pin"></i>
-                  {resume.address}
+                  <FontAwesomeIcon
+                    icon={faLocationPin}
+                    style={{ marginRight: "5px" }}
+                  />
+                  {resume.address.street}, {resume.address.city}{" "}
                 </li>
               </ul>
             </div>
@@ -97,20 +131,13 @@ function ShowPage() {
             <div className="component">
               <p className="title">education</p>
               <ul className="education">
-                <li className="timeframe">2023-2023</li>
-                <li className="institute">Ironhack Berlin</li>
-                <li className="educationtitle">fullstack webdevelopment</li>
-                <li className="shortdescr">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <li className="timeframe">{resume.education.studyYear}</li>
+                <li className="institute">{resume.education.instute}</li>
+                <li className="educationtitle">
+                  {resume.education.educationTitle}
                 </li>
-              </ul>
-              <ul className="education">
-                <li className="timeframe">2008-2013</li>
-                <li className="institute">Amsterdam Fashion Institute</li>
-                <li className="educationtitle">fashion & branding</li>
-
                 <li className="shortdescr">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  {resume.education.educationDescription}
                 </li>
               </ul>
             </div>
@@ -126,8 +153,8 @@ function ShowPage() {
             </div>
           </div>
           <div className="vl"></div>
-          <div className="col-sm-8">
-            <div className="component">
+          <div className="col-lg-8">
+            <div className="component profile">
               <p className="title">profile</p>
               <p className="profiletext">{resume.intro}</p>
             </div>
@@ -135,28 +162,35 @@ function ShowPage() {
             <div className="component">
               <p className="title">work experiences</p>
               <ul className="workexperience">
-                <li className="job">2008-2013 online marketeer - ironhack</li>
+                <li className="job">
+                  {resume.workExperience.workingYear} -{" "}
+                  {resume.workExperience.role} - {resume.workExperience.company}
+                </li>
                 <li className="shortdescr">
                   Morbi ultricies porta sem eu dignissim. Mauris id est velit.
                   Ut augue velit, dignissim a orci quis, dignissim tincidunt
                   urna. Ut malesuada ultricies lobortis. Morbi ultricies porta
                   sem eu dignissim. Mauris id est velit. Ut augue velit,
-                  dignissim a orci quis, dignissim tincidunt urna. Morbi
-                  ultricies porta sem eu dignissim. Mauris id est velit. Ut
-                  augue velit, dignissim a orci quis, dignissim tincidunt urna.
+                  dignissim a orci quis, dignissim tincidunt urna.
                 </li>
               </ul>
             </div>
             <div className="component">
               <div className="linkedinlink">
-                Find more on my linkedIn profile: {resume.website}
+                <FontAwesomeIcon
+                  icon={faLinkedin}
+                  style={{ marginRight: "5px" }}
+                />
+                Find more on my linkedIn profile: {resume.linkedin}
               </div>
             </div>
           </div>
         </div>
 
         <br />
-        <button type="submit">edit resumé</button>
+        <Link to={`/resume/${resume._id}`}>
+          <button type="submit">edit resumé</button>
+        </Link>
       </div>
     </div>
   );

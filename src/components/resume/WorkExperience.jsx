@@ -1,123 +1,72 @@
 import { useState } from "react";
 function WorkExperience() {
-  const [input, setInput] = useState([]);
+  const [workExperience, setWorkExperience] = useState([]);
 
-  const inputArr = [
-    {
-      name: "start-year",
-      type: "text",
-      id: 1,
-      value: "",
-    },
-    {
-      name: "end-year",
-      type: "text",
-      id: 1,
-      value: "",
-    },
-    {
-      name: "company",
-      type: "text",
-      id: 2,
-      value: "",
-    },
-    {
-      name: "role",
-      type: "text",
-      id: 3,
-      value: "",
-    },
-    {
-      name: "description",
-      type: "text",
-      id: 4,
-      value: "",
-    },
-  ];
+  const inputArr = ["startYear", "endYear", "company", "role", "description"];
 
-  const [fields, setFields] = useState(inputArr);
-  const addInput = () => {
-    setFields((fieldsArray) => {
-      return [
-        ...fieldsArray,
+  const [fields, setFields] = useState(
+    inputArr.reduce((acc, curr) => {
+      acc[curr] = "";
+      return acc;
+    }, {})
+  );
 
-        {
-          name: "start-year",
-          type: "text",
-          id: 1,
-          value: "",
-        },
-        {
-          name: "end-year",
-          type: "text",
-          id: 1,
-          value: "",
-        },
-        {
-          name: "company",
-          type: "text",
-          id: 2,
-          value: "",
-        },
-        {
-          name: "role",
-          type: "text",
-          id: 3,
-          value: "",
-        },
-        {
-          name: "description",
-          type: "text",
-          id: 4,
-          value: "",
-        },
-      ];
-    });
-  };
-  console.log("CURRENT FIELDS =>", fields);
-
-  console.log("INPUT VALUES =>", input);
-  const handleChange = (e, index) => {
-    const newArr = fields.map((item, i) => {
-      if (i === index) {
-        return { ...item, value: e.target.value };
-      }
-      return item;
-    });
-    setFields(newArr);
-    setInput(newArr.map((item) => item.value));
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFields((prevFields) => ({
+      ...prevFields,
+      [name]: value,
+    }));
   };
 
-  const reload = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setFields(inputArr); // basis array
-    setInput([]); //
+    setWorkExperience((prevExperience) => [...prevExperience, { ...fields }]);
+    console.log(workExperience);
+    setFields(
+      inputArr.reduce((acc, curr) => {
+        acc[curr] = "";
+        return acc;
+      }, {})
+    );
   };
 
   return (
-    <div>
-      {fields.map((item, i) => {
-        return (
-          <div key={i} className="workexpinput">
-            <label>{`${item.name}`}</label>
-            <input
-              name={item.name}
-              placeholder={item.name}
-              onChange={(e) => handleChange(e, i)}
-              type={item.value}
-              value={item.value}
-              id={i}
-            />
+    <form onSubmit={handleSubmit}>
+      <ul>
+        {inputArr.map((fieldName, index) => (
+          <div key={index} className="workexpinput">
+            <li>
+              {fieldName}
+              {"  "}
+              <input
+                name={fieldName}
+                placeholder={fieldName}
+                onChange={handleChange}
+                value={fields[fieldName]}
+              />
+            </li>
           </div>
-        );
-      })}
-      <button onClick={addInput} style={{ margin: "10px" }}>
-        +
+        ))}
+      </ul>
+      <button type="submit" style={{ margin: "10px" }}>
+        Submit
       </button>
-      <button onClick={reload} style={{ margin: "10px" }}>
-        NEW
-      </button>
-    </div>
+
+      <div>
+        <h4>Saved work experiences:</h4>
+        {workExperience.map((exp, index) => (
+          <div key={index}>
+            <p>Start Year: {exp.startYear}</p>
+            <p>End Year: {exp.endYear}</p>
+            <p>Company: {exp.company}</p>
+            <p>Role: {exp.role}</p>
+            <p>Description: {exp.description}</p>
+            <br />
+          </div>
+        ))}
+      </div>
+    </form>
   );
 }
 export default WorkExperience;
