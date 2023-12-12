@@ -80,11 +80,12 @@ h2.cvname {
   text-align: center;
 }
 
-h4.title {
+h3.title {
   font-size: 1.5em;
   letter-spacing: 5px;
   font-weight: normal;
   text-align: center;
+  text-transform: uppercase;
 }
 
 p.title {

@@ -24,27 +24,28 @@ function ShowPage() {
     resumeTitle: "",
     firstName: "",
     lastName: "",
+
     title: "",
     phone: "",
-    address: { street: "", city: "" },
+    street: "",
+    city: "",
     email: "",
     website: "",
     linkedin: "",
+
     skills: "",
     language: "",
     intro: "",
-    workExperience: {
-      workingYear: "",
-      company: "",
-      role: "",
-      jobDescription: "",
-    },
-    education: {
-      studyYear: "",
-      educationTitle: "",
-      institute: "",
-      educationDescription: "",
-    },
+
+    workingyear: "",
+    company: "",
+    role: "",
+    jobDescription: "",
+
+    studyyear: "",
+    educationTitle: "",
+    institute: "",
+    educationDescription: "",
     certificate: "",
   });
 
@@ -111,7 +112,7 @@ function ShowPage() {
                     icon={faLocationPin}
                     style={{ marginRight: "5px" }}
                   />
-                  {resume.address.street}, {resume.address.city}{" "}
+                  {resume.street}, {resume.city}{" "}
                 </li>
               </ul>
             </div>
@@ -129,14 +130,10 @@ function ShowPage() {
             <div className="component">
               <p className="title">education</p>
               <ul className="education">
-                <li className="timeframe">{resume.education.studyYear}</li>
-                <li className="institute">{resume.education.instute}</li>
-                <li className="educationtitle">
-                  {resume.education.educationTitle}
-                </li>
-                <li className="shortdescr">
-                  {resume.education.educationDescription}
-                </li>
+                <li className="timeframe">{resume.studyyear}</li>
+                <li className="institute">{resume.institute}</li>
+                <li className="educationtitle">{resume.ed}</li>
+                <li className="shortdescr">{resume.educationDescription}</li>
               </ul>
             </div>
             <hr className="short" />
@@ -161,8 +158,7 @@ function ShowPage() {
               <p className="title">work experiences</p>
               <ul className="workexperience">
                 <li className="job">
-                  {resume.workExperience.workingYear} -{" "}
-                  {resume.workExperience.role} - {resume.workExperience.company}
+                  {resume.workingyear} - {resume.role} - {resume.company}
                 </li>
                 <li className="shortdescr">
                   Morbi ultricies porta sem eu dignissim. Mauris id est velit.
