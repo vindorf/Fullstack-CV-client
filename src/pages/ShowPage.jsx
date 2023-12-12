@@ -46,10 +46,6 @@ function ShowPage() {
 
   return (
     <div className="container">
-      <br />
-      <h1>See your resumé here</h1>
-      <br />
-
       <div className="container a4-resume">
         <div className="row header">
           <div className="col-12 header">

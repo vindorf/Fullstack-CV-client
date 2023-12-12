@@ -6,11 +6,12 @@ function Header(props) {
 
   return (
     <div>
-      <form>
+      <form className="create-resume-form">
         <input
           type="text"
+          className="form-control create-resume-input"
           name="resumeTitle"
-          placeholder="resume title"
+          placeholder="Resume Title"
           value={props.resumeTitle}
           onChange={handleResumeTitleChange}
         />
