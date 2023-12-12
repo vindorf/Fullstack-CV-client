@@ -33,14 +33,15 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: 0 40px !important;
+  width: 25% !important;
 }
 
 .col-lg-8 {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  justify-content: space-between;
   padding: 0 60px !important;
+  width: 75% !important;
 }
 
 .component {

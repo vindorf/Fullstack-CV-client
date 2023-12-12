@@ -6,10 +6,12 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "./ShowPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocation, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
-import { faLocationPin } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPhone,
+  faEnvelope,
+  faGlobe,
+  faLocationPin,
+} from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const API_URL = import.meta.env.VITE_SERVER_URL;
