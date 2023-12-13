@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "./AuthenticationPage.css";
 import axios from "axios";
 
 const API_URL = "http://localhost:5005";
@@ -26,28 +27,41 @@ function SignupPage() {
   };
 
   return (
-    <div className="SignupPage">
-      <h1>Sign Up</h1>
+    <div className="AuthenticationContainer">
+      <h3>Sign Up</h3>
 
       <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <div className="form-group">
+          <label className="text-muted form-control-label">Email</label>
+          <input
+            className="form-control"
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+          />
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+          <label className="text-muted form-control-label">Password</label>
+          <input
+            className="form-control"
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+          />
+        </div>
 
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="btn submit-btn">
+          Sign Up
+        </button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+      <div className="cta">
+        <p>Already have account?</p>
+        <Link to={"/login"}> Login</Link>
+      </div>
     </div>
   );
 }
