@@ -168,7 +168,13 @@ function DetailResumePage() {
   };
 
   return (
-    <div>
+    <div className="form-container">
+      <div className="button-container">
+        <button className="btn edit-submit-btn" onClick={saveChanges}>
+          Save Changes
+        </button>
+      </div>
+
       <form>
         <input
           type="text"
@@ -201,7 +207,7 @@ function DetailResumePage() {
                   onChange={handleInputChange}
                 />
               </form>
-              <form className="mb-3 input-fields title">
+              <form>
                 <input
                   type="text"
                   name="title"
@@ -219,6 +225,7 @@ function DetailResumePage() {
                 <h4>C O N T A C T</h4>
                 <form>
                   <input
+                    className="form-control"
                     type="text"
                     name="phone"
                     placeholder="telephone"
@@ -228,6 +235,7 @@ function DetailResumePage() {
                   <br />
 
                   <input
+                    className="form-control"
                     type="text"
                     name="email"
                     placeholder="E-mail"
@@ -236,6 +244,7 @@ function DetailResumePage() {
                   />
 
                   <input
+                    className="form-control"
                     type="text"
                     name="website"
                     placeholder="Website/Github URL"
@@ -243,6 +252,7 @@ function DetailResumePage() {
                     onChange={handleInputChange}
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="street"
                     placeholder="street"
@@ -250,6 +260,7 @@ function DetailResumePage() {
                     onChange={handleInputChange}
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="city"
                     placeholder="city"
@@ -261,7 +272,8 @@ function DetailResumePage() {
               <div className="skills">
                 <h4>S K I L L S</h4>
                 <form>
-                  <input
+                  <textarea
+                    className="skill-text-area custom-text-area"
                     type="text"
                     name="skills"
                     placeholder="Tell us about your skills"
@@ -271,10 +283,11 @@ function DetailResumePage() {
                 </form>
               </div>
               <div className="education">
-                <h3>E D U C A T I O N </h3>
-                <h3>education 1</h3>
+                <h4>E D U C A T I O N </h4>
                 <form>
+                  <h5 className="text-muted"> Education 1</h5>
                   <input
+                    className="form-control"
                     type="text"
                     name="studyyear"
                     value={resume.studyyear}
@@ -282,6 +295,7 @@ function DetailResumePage() {
                     placeholder="YEAR-YEAR"
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="educationTitle"
                     value={resume.educationTitle}
@@ -289,6 +303,7 @@ function DetailResumePage() {
                     placeholder="Study"
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="institute"
                     value={resume.institute}
@@ -296,23 +311,25 @@ function DetailResumePage() {
                     placeholder="Institute"
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="educationDescription"
                     value={resume.educationDescription}
                     onChange={handleInputChange}
                     placeholder="What was your study about?"
                   />
-                  <br />
 
-                  <h3>education 2</h3>
+                  <h5 className="text-muted"> Education 2</h5>
                   <input
+                    className="form-control"
                     type="text"
                     name="studyyear1"
                     value={resume.studyyear1}
                     onChange={handleInputChange}
-                    placeholder="YEAR-YEAR"
+                    placeholder="Year - Year"
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="educationTitle1"
                     value={resume.educationTitle1}
@@ -320,6 +337,7 @@ function DetailResumePage() {
                     placeholder="Study"
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="institute1"
                     value={resume.institute1}
@@ -327,13 +345,13 @@ function DetailResumePage() {
                     placeholder="Institute"
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="educationDescription1"
                     value={resume.educationDescription1}
                     onChange={handleInputChange}
                     placeholder="What was your study about?"
                   />
-                  <br />
                   <h3>education 3</h3>
                   <input
                     type="text"
@@ -369,6 +387,7 @@ function DetailResumePage() {
                 <h4>L A N G U A G E</h4>
                 <form>
                   <input
+                    className="form-control"
                     type="text"
                     name="language"
                     placeholder="Which Language do you speak"
@@ -383,7 +402,8 @@ function DetailResumePage() {
               <div className="profile">
                 <h4>I N T R O </h4>
                 <form>
-                  <input
+                  <textarea
+                    className="intro-text-area custom-text-area"
                     type="text"
                     name="intro"
                     placeholder="Tell the world about yourself"
@@ -394,41 +414,47 @@ function DetailResumePage() {
                 <br />
               </div>
               <div className="work-experience" style={{ height: "75%" }}>
-                <h4>W O R K E X P E R I E N C E S</h4>
+                <h4> E X P E R I E N C E </h4>
                 <form>
-                  <h3>workexperience 1</h3>
-                  <input
-                    type="text"
-                    name="workingyear"
-                    value={resume.workingyear}
-                    onChange={handleInputChange}
-                    placeholder="YEAR-YEAR"
-                  />
-                  <input
-                    type="text"
-                    name="company"
-                    value={resume.company}
-                    onChange={handleInputChange}
-                    placeholder="Company"
-                  />
-                  <input
-                    type="text"
-                    name="role"
-                    value={resume.role}
-                    onChange={handleInputChange}
-                    placeholder="Role"
-                  />
-                  <input
+                  <h5 className="text-muted"> Work Experience 1</h5>
+                  <div>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="workingyear"
+                      value={resume.workingyear}
+                      onChange={handleInputChange}
+                      placeholder="Year - Year"
+                    />
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="company"
+                      value={resume.company}
+                      onChange={handleInputChange}
+                      placeholder="Company"
+                    />
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="role"
+                      value={resume.role}
+                      onChange={handleInputChange}
+                      placeholder="Role"
+                    />
+                  </div>
+                  <textarea
+                    className="custom-text-area"
                     type="text"
                     name="jobDescription"
                     value={resume.jobDescription}
                     onChange={handleInputChange}
-                    placeholder="What was your job about?"
+                    placeholder="Description"
                   />
-                  <br />
-                  <br />
-                  <h3>workexperience 2</h3>
+
+                  <h5 className="text-muted">Work Experience 2</h5>
                   <input
+                    className="form-control"
                     type="text"
                     name="workingyear1"
                     value={resume.workingyear1}
@@ -436,6 +462,7 @@ function DetailResumePage() {
                     placeholder="YEAR-YEAR"
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="company1"
                     value={resume.company1}
@@ -443,23 +470,26 @@ function DetailResumePage() {
                     placeholder="Company"
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="role1"
                     value={resume.role1}
                     onChange={handleInputChange}
                     placeholder="Role"
                   />
-                  <input
+                  <textarea
+                    className="custom-text-area"
                     type="text"
                     name="jobDescription1"
                     value={resume.jobDescription1}
                     onChange={handleInputChange}
-                    placeholder="What was your job about?"
+                    placeholder="Description"
                   />
                   <br />
                   <br />
-                  <h3>workexperience 3</h3>
+                  <h5 className="text-muted"> Work Experience 3</h5>
                   <input
+                    className="form-control"
                     type="text"
                     name="workingyear2"
                     value={resume.workingyear2}
@@ -467,6 +497,7 @@ function DetailResumePage() {
                     placeholder="YEAR-YEAR"
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="company2"
                     value={resume.company2}
@@ -474,22 +505,25 @@ function DetailResumePage() {
                     placeholder="Company"
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="role2"
                     value={resume.role2}
                     onChange={handleInputChange}
                     placeholder="Role"
                   />
-                  <input
+                  <textarea
+                    className="custom-text-area"
                     type="text"
                     name="jobDescription2"
                     value={resume.jobDescription2}
                     onChange={handleInputChange}
-                    placeholder="What was your job about?"
+                    placeholder="Description"
                   />
                   <br />
-                  <h3>workexperience 4</h3>
+                  <h5 className="text-muted"> Work Experience 4</h5>
                   <input
+                    className="form-control"
                     type="text"
                     name="workingyear3"
                     value={resume.workingyear3}
@@ -497,6 +531,7 @@ function DetailResumePage() {
                     placeholder="YEAR-YEAR"
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="company3"
                     value={resume.company3}
@@ -504,20 +539,21 @@ function DetailResumePage() {
                     placeholder="Company"
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="role3"
                     value={resume.role3}
                     onChange={handleInputChange}
                     placeholder="Role"
                   />
-                  <input
+                  <textarea
+                    className="custom-text-area"
                     type="text"
                     name="jobDescription3"
                     value={resume.jobDescription3}
                     onChange={handleInputChange}
-                    placeholder="What was your job about?"
+                    placeholder="Description"
                   />
-                  <br />
                   <h3>workexperience 5</h3>
                   <input
                     type="text"
@@ -554,6 +590,7 @@ function DetailResumePage() {
                   Find more on my linkedIn profile:{" "}
                   <form>
                     <input
+                      className="form-control"
                       type="text"
                       name="linkedin"
                       placeholder="LinkedIn"
@@ -565,7 +602,6 @@ function DetailResumePage() {
               </div>
             </div>
           </div>
-          <button onClick={saveChanges}>SAVE CHANGES</button>
         </div>
       </div>
     </div>

@@ -41,7 +41,7 @@ function LoginPage() {
           <label className="text-muted form-control-label">Email:</label>
           <input
             type="email"
-            className="form-control"
+            className="form-control custom-form-control"
             name="email"
             value={email}
             onChange={handleEmail}
@@ -52,7 +52,7 @@ function LoginPage() {
           <label className="text-muted form-control-label">Password:</label>
           <input
             type="password"
-            className="form-control"
+            className="form-control custom-form-control"
             name="password"
             value={password}
             onChange={handlePassword}

@@ -13,8 +13,9 @@ form {
   margin: 20px !important;
 }
 
-.form-control {
+.custom-form-control {
   border-radius: 50px !important;
+  height: 50px !important;
 }
 
 .form-control-label {

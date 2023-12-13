@@ -34,7 +34,7 @@ function SignupPage() {
         <div className="form-group">
           <label className="text-muted form-control-label">Email</label>
           <input
-            className="form-control"
+            className="form-control custom-form-control"
             type="email"
             name="email"
             value={email}
@@ -43,7 +43,7 @@ function SignupPage() {
 
           <label className="text-muted form-control-label">Password</label>
           <input
-            className="form-control"
+            className="form-control custom-form-control"
             type="password"
             name="password"
             value={password}
