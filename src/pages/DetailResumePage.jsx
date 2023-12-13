@@ -31,11 +31,43 @@ function DetailResumePage() {
     role: "",
     jobDescription: "",
 
+    workingyear1: "",
+    company1: "",
+    role1: "",
+    jobDescription1: "",
+
+    workingyear2: "",
+    company2: "",
+    role2: "",
+    jobDescription2: "",
+
+    workingyear3: "",
+    company3: "",
+    role3: "",
+    jobDescription3: "",
+
+    workingyear4: "",
+    company4: "",
+    role4: "",
+    jobDescription4: "",
+
     studyyear: "",
     educationTitle: "",
     institute: "",
     educationDescription: "",
     certificate: "",
+
+    studyyear1: "",
+    educationTitle1: "",
+    institute1: "",
+    educationDescription1: "",
+    certificate1: "",
+
+    studyyear2: "",
+    educationTitle2: "",
+    institute2: "",
+    educationDescription2: "",
+    certificate2: "",
   });
 
   const handleInputChange = (e) => {
@@ -81,14 +113,47 @@ function DetailResumePage() {
       skills: resume.skills,
       language: resume.language,
       intro: resume.intro,
+
       workingyear: resume.workingyear,
       company: resume.company,
       role: resume.role,
       jobDescription: resume.jobDescription,
+
+      workingyear1: resume.workingyear1,
+      company1: resume.company1,
+      role1: resume.role1,
+      jobDescription1: resume.jobDescription1,
+
+      workingyear2: resume.workingyear2,
+      company2: resume.company2,
+      role2: resume.role2,
+      jobDescription2: resume.jobDescription2,
+
+      workingyear3: resume.workingyear3,
+      company3: resume.company3,
+      role3: resume.role3,
+      jobDescription3: resume.jobDescription3,
+
+      workingyear4: resume.workingyear4,
+      company4: resume.company4,
+      role4: resume.role4,
+      jobDescription4: resume.jobDescription4,
+
       studyyear: resume.studyyear,
       educationTitle: resume.educationTitle,
       institute: resume.institute,
       educationDescription: resume.educationDescription,
+
+      studyyear1: resume.studyyear1,
+      educationTitle1: resume.educationTitle1,
+      institute1: resume.institute1,
+      educationDescription1: resume.educationDescription1,
+
+      studyyear2: resume.studyyear2,
+      educationTitle2: resume.educationTitle2,
+      institute2: resume.institute2,
+      educationDescription2: resume.educationDescription2,
+
       certificate: resume.certificate,
     };
 
@@ -206,7 +271,8 @@ function DetailResumePage() {
                 </form>
               </div>
               <div className="education">
-                <h4>E D U C A T I O N </h4>
+                <h3>E D U C A T I O N </h3>
+                <h3>education 1</h3>
                 <form>
                   <input
                     type="text"
@@ -233,6 +299,67 @@ function DetailResumePage() {
                     type="text"
                     name="educationDescription"
                     value={resume.educationDescription}
+                    onChange={handleInputChange}
+                    placeholder="What was your study about?"
+                  />
+                  <br />
+
+                  <h3>education 2</h3>
+                  <input
+                    type="text"
+                    name="studyyear1"
+                    value={resume.studyyear1}
+                    onChange={handleInputChange}
+                    placeholder="YEAR-YEAR"
+                  />
+                  <input
+                    type="text"
+                    name="educationTitle1"
+                    value={resume.educationTitle1}
+                    onChange={handleInputChange}
+                    placeholder="Study"
+                  />
+                  <input
+                    type="text"
+                    name="institute1"
+                    value={resume.institute1}
+                    onChange={handleInputChange}
+                    placeholder="Institute"
+                  />
+                  <input
+                    type="text"
+                    name="educationDescription1"
+                    value={resume.educationDescription1}
+                    onChange={handleInputChange}
+                    placeholder="What was your study about?"
+                  />
+                  <br />
+                  <h3>education 3</h3>
+                  <input
+                    type="text"
+                    name="studyyear2"
+                    value={resume.studyyear2}
+                    onChange={handleInputChange}
+                    placeholder="YEAR-YEAR"
+                  />
+                  <input
+                    type="text"
+                    name="educationTitle2"
+                    value={resume.educationTitle2}
+                    onChange={handleInputChange}
+                    placeholder="Study"
+                  />
+                  <input
+                    type="text"
+                    name="institute2"
+                    value={resume.institute2}
+                    onChange={handleInputChange}
+                    placeholder="Institute"
+                  />
+                  <input
+                    type="text"
+                    name="educationDescription2"
+                    value={resume.educationDescription2}
                     onChange={handleInputChange}
                     placeholder="What was your study about?"
                   />
@@ -269,6 +396,7 @@ function DetailResumePage() {
               <div className="work-experience" style={{ height: "75%" }}>
                 <h4>W O R K E X P E R I E N C E S</h4>
                 <form>
+                  <h3>workexperience 1</h3>
                   <input
                     type="text"
                     name="workingyear"
@@ -294,6 +422,128 @@ function DetailResumePage() {
                     type="text"
                     name="jobDescription"
                     value={resume.jobDescription}
+                    onChange={handleInputChange}
+                    placeholder="What was your job about?"
+                  />
+                  <br />
+                  <br />
+                  <h3>workexperience 2</h3>
+                  <input
+                    type="text"
+                    name="workingyear1"
+                    value={resume.workingyear1}
+                    onChange={handleInputChange}
+                    placeholder="YEAR-YEAR"
+                  />
+                  <input
+                    type="text"
+                    name="company1"
+                    value={resume.company1}
+                    onChange={handleInputChange}
+                    placeholder="Company"
+                  />
+                  <input
+                    type="text"
+                    name="role1"
+                    value={resume.role1}
+                    onChange={handleInputChange}
+                    placeholder="Role"
+                  />
+                  <input
+                    type="text"
+                    name="jobDescription1"
+                    value={resume.jobDescription1}
+                    onChange={handleInputChange}
+                    placeholder="What was your job about?"
+                  />
+                  <br />
+                  <br />
+                  <h3>workexperience 3</h3>
+                  <input
+                    type="text"
+                    name="workingyear2"
+                    value={resume.workingyear2}
+                    onChange={handleInputChange}
+                    placeholder="YEAR-YEAR"
+                  />
+                  <input
+                    type="text"
+                    name="company2"
+                    value={resume.company2}
+                    onChange={handleInputChange}
+                    placeholder="Company"
+                  />
+                  <input
+                    type="text"
+                    name="role2"
+                    value={resume.role2}
+                    onChange={handleInputChange}
+                    placeholder="Role"
+                  />
+                  <input
+                    type="text"
+                    name="jobDescription2"
+                    value={resume.jobDescription2}
+                    onChange={handleInputChange}
+                    placeholder="What was your job about?"
+                  />
+                  <br />
+                  <h3>workexperience 4</h3>
+                  <input
+                    type="text"
+                    name="workingyear3"
+                    value={resume.workingyear3}
+                    onChange={handleInputChange}
+                    placeholder="YEAR-YEAR"
+                  />
+                  <input
+                    type="text"
+                    name="company3"
+                    value={resume.company3}
+                    onChange={handleInputChange}
+                    placeholder="Company"
+                  />
+                  <input
+                    type="text"
+                    name="role3"
+                    value={resume.role3}
+                    onChange={handleInputChange}
+                    placeholder="Role"
+                  />
+                  <input
+                    type="text"
+                    name="jobDescription3"
+                    value={resume.jobDescription3}
+                    onChange={handleInputChange}
+                    placeholder="What was your job about?"
+                  />
+                  <br />
+                  <h3>workexperience 5</h3>
+                  <input
+                    type="text"
+                    name="workingyear4"
+                    value={resume.workingyear4}
+                    onChange={handleInputChange}
+                    placeholder="YEAR-YEAR"
+                  />
+                  <input
+                    type="text"
+                    name="company4"
+                    value={resume.company4}
+                    onChange={handleInputChange}
+                    placeholder="Company"
+                  />
+                  <input
+                    type="text"
+                    name="role4"
+                    value={resume.role4}
+                    onChange={handleInputChange}
+                    placeholder="Role"
+                  />
+                  <input
+                    type="text"
+                    name="jobDescription4"
+                    value={resume.jobDescription4}
                     onChange={handleInputChange}
                     placeholder="What was your job about?"
                   />

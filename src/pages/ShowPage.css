@@ -69,12 +69,6 @@ hr.short {
   border-top: 1px dotted black !important;
 }
 
-hr.right {
-  width: 90%;
-  border-top: 1px solid gray !important;
-  margin: 0px 0 0 10px !important;
-}
-
 .vl {
   border-left: 1px dotted black !important;
   margin: 0 auto !important;
@@ -171,4 +165,10 @@ li.job {
 
 .linkedinlink {
   font-style: italic;
+}
+
+hr.right {
+  width: 90%;
+  border-top: 1px solid gray !important;
+  margin: 10px 0 0 10px !important;
 }

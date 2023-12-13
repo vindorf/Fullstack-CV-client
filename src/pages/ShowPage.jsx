@@ -42,11 +42,43 @@ function ShowPage() {
     role: "",
     jobDescription: "",
 
+    workingyear1: "",
+    company1: "",
+    role1: "",
+    jobDescription1: "",
+
+    workingyear2: "",
+    company2: "",
+    role2: "",
+    jobDescription2: "",
+
+    workingyear3: "",
+    company3: "",
+    role3: "",
+    jobDescription3: "",
+
+    workingyear4: "",
+    company4: "",
+    role4: "",
+    jobDescription4: "",
+
     studyyear: "",
     educationTitle: "",
     institute: "",
     educationDescription: "",
     certificate: "",
+
+    studyyear1: "",
+    educationTitle1: "",
+    institute1: "",
+    educationDescription1: "",
+    certificate1: "",
+
+    studyyear2: "",
+    educationTitle2: "",
+    institute2: "",
+    educationDescription2: "",
+    certificate2: "",
   });
 
   console.log("skills", resume.skills);
@@ -132,8 +164,38 @@ function ShowPage() {
               <ul className="education">
                 <li className="timeframe">{resume.studyyear}</li>
                 <li className="institute">{resume.institute}</li>
-                <li className="educationtitle">{resume.ed}</li>
+                <li className="educationtitle">{resume.educationTitle}</li>
                 <li className="shortdescr">{resume.educationDescription}</li>
+              </ul>
+              <br />
+              <ul className="education">
+                <li className="timeframe">
+                  {resume.studyyear1 && resume.studyyear1}
+                </li>
+                <li className="institute">
+                  {resume.institute1 && resume.institute1}
+                </li>
+                <li className="educationtitle">
+                  {resume.educationTitle1 && resume.educationTitle1}
+                </li>
+                <li className="shortdescr">
+                  {resume.educationDescription1 && resume.educationDescription1}
+                </li>
+              </ul>
+              <br />
+              <ul className="education">
+                <li className="timeframe">
+                  {resume.studyyear2 && resume.studyyear2}
+                </li>
+                <li className="institute">
+                  {resume.institute2 && resume.institute2}
+                </li>
+                <li className="educationtitle">
+                  {resume.educationTitle2 && resume.educationTitle2}
+                </li>
+                <li className="shortdescr">
+                  {resume.educationDescription2 && resume.educationDescription2}
+                </li>
               </ul>
             </div>
             <hr className="short" />
@@ -160,23 +222,52 @@ function ShowPage() {
                 <li className="job">
                   {resume.workingyear} - {resume.role} - {resume.company}
                 </li>
+                <li className="shortdescr">{resume.jobDescription}</li>
+              </ul>
+              <br />
+              <ul className="workexperience">
+                <li className="job">
+                  {resume.workingyear1 &&
+                    `{${resume.workingyear1} - ${resume.role1} - ${resume.company1}`}
+                </li>
                 <li className="shortdescr">
-                  Morbi ultricies porta sem eu dignissim. Mauris id est velit.
-                  Ut augue velit, dignissim a orci quis, dignissim tincidunt
-                  urna. Ut malesuada ultricies lobortis. Morbi ultricies porta
-                  sem eu dignissim. Mauris id est velit. Ut augue velit,
-                  dignissim a orci quis, dignissim tincidunt urna.
+                  {resume.jobDescription1 && resume.jobDescription1}
                 </li>
               </ul>
+              <br />
+              <ul className="workexperience">
+                <li className="job">
+                  {resume.workingyear2 &&
+                    `{${resume.workingyear2} - ${resume.role2} - ${resume.company2}`}
+                </li>
+                <li className="shortdescr">
+                  {resume.jobDescription2 && resume.jobDescription2}
+                </li>
+              </ul>
+              <br />
+              <ul className="workexperience">
+                <li className="job">
+                  {resume.workingyear3 &&
+                    `{${resume.workingyear3} - ${resume.role3} - ${resume.company3}`}
+                </li>
+                <li className="shortdescr">
+                  {resume.jobDescription3 && resume.jobDescription3}
+                </li>
+              </ul>
+              <br />
             </div>
             <div className="component">
-              <div className="linkedinlink">
-                <FontAwesomeIcon
-                  icon={faLinkedin}
-                  style={{ marginRight: "5px" }}
-                />
-                Find more on my linkedIn profile: {resume.linkedin}
-              </div>
+              {resume.linkedin && (
+                <div className="linkedinlink">
+                  {
+                    <FontAwesomeIcon
+                      icon={faLinkedin}
+                      style={{ marginRight: "5px" }}
+                    />
+                  }
+                  Find more on my linkedIn profile: {resume.linkedin}
+                </div>
+              )}
             </div>
           </div>
         </div>
