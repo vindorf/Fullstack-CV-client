@@ -77,40 +77,40 @@ function ShowPage() {
             <h2 className="cvname">
               {resume.firstName} {resume.lastName}
             </h2>
-            <h4 className="title">{resume.title}</h4>
+            <h3 className="title">{resume.title}</h3>
           </div>
         </div>
-        <hr />
+        <hr className="top" />
         <div className="row body">
-          <div className="col-lg-4">
+          <div className="column-small">
             <div className="component">
-              <p className="title">contact</p>
+              <h4 className="blocktitle">contact</h4>
               <ul className="contact">
                 <li>
                   <FontAwesomeIcon
                     icon={faPhone}
-                    style={{ marginRight: "2px" }}
+                    style={{ marginRight: "4px" }}
                   />{" "}
                   {resume.phone}
                 </li>
                 <li>
                   <FontAwesomeIcon
                     icon={faEnvelope}
-                    style={{ marginRight: "5px" }}
+                    style={{ marginRight: "7px" }}
                   />
                   {resume.email}
                 </li>
                 <li>
                   <FontAwesomeIcon
                     icon={faGlobe}
-                    style={{ marginRight: "5px" }}
+                    style={{ marginRight: "7px" }}
                   />
                   {resume.website}
                 </li>
                 <li>
                   <FontAwesomeIcon
                     icon={faLocationPin}
-                    style={{ marginRight: "5px" }}
+                    style={{ marginRight: "7px" }}
                   />
                   {resume.street}, {resume.city}{" "}
                 </li>
@@ -118,7 +118,7 @@ function ShowPage() {
             </div>
             <hr className="short" />
             <div className="component">
-              <p className="title">skills</p>
+              <h4 className="blocktitle">skills</h4>
               <ul className="skills">
                 {skillsArray &&
                   skillsArray.map((skill, index) => (
@@ -128,7 +128,7 @@ function ShowPage() {
             </div>
             <hr className="short" />
             <div className="component">
-              <p className="title">education</p>
+              <h4 className="blocktitle">education</h4>
               <ul className="education">
                 <li className="timeframe">{resume.studyyear}</li>
                 <li className="institute">{resume.institute}</li>
@@ -138,7 +138,7 @@ function ShowPage() {
             </div>
             <hr className="short" />
             <div className="component skills">
-              <p className="title">languages</p>
+              <h4 className="blocktitle">languages</h4>
               <ul className="skills">
                 {languageArray &&
                   languageArray.map((skill, index) => (
@@ -148,14 +148,14 @@ function ShowPage() {
             </div>
           </div>
           <div className="vl"></div>
-          <div className="col-lg-8">
+          <div className="column-large">
             <div className="component profile">
-              <p className="title">profile</p>
+              <h4 className="blocktitle">profile</h4>
               <p className="profiletext">{resume.intro}</p>
             </div>
-            <hr className="short" />
+            <hr className="right" />
             <div className="component">
-              <p className="title">work experiences</p>
+              <h4 className="blocktitle">work experiences</h4>
               <ul className="workexperience">
                 <li className="job">
                   {resume.workingyear} - {resume.role} - {resume.company}
