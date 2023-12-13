@@ -184,6 +184,8 @@ hr.right {
   color: white;
   background-color: #662d91;
   font-size: 16px;
+  border-radius: 25px;
+  padding: 10px 20px;
 }
 
 .btn.edit:hover {
