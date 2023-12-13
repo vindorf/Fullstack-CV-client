@@ -81,8 +81,6 @@ function ShowPage() {
     certificate2: "",
   });
 
-  console.log("skills", resume.skills);
-
   const skillsArray = (resume.skills || "").split(",");
   const languageArray = (resume.language || "").split(",");
 
@@ -104,11 +102,13 @@ function ShowPage() {
   return (
     <div className="totalpage">
       <Link to={`/resume/${resume._id}`}>
-        <button type="submit">edit resumé</button>
+        <button className="btn edit" type="submit">
+          edit resumé
+        </button>
       </Link>
-      <div className="a4-resume">
+      <div className="a4-resume-view">
         <div className="row header">
-          <div className="col-12 header">
+          <div className="header-view">
             <h2 className="cvname">
               {resume.firstName && resume.firstName}{" "}
               {resume.lastName && resume.lastName}
@@ -171,48 +171,42 @@ function ShowPage() {
               </ul>
             </div>
             <hr className="short" />
-            <div className="component-small">
+            <div className="component-small edu">
               <h4 className="blocktitle">education</h4>
               <ul className="education">
                 <li className="timeframe">
-                  {resume.studyyear && resume.studyyear}
+                  <li className="educationtitle">
+                    {resume.educationTitle && resume.educationTitle}
+                  </li>
+                  {resume.studyyear &&
+                    `${resume.studyyear} - ${resume.institute}`}
                 </li>
-                <li className="institute">
-                  {" "}
-                  {resume.institute && resume.institute}
-                </li>
-                <li className="educationtitle">
-                  {resume.educationTitle && resume.educationTitle}
-                </li>
+
                 <li className="shortdescr">
                   {resume.educationDescription && resume.educationDescription}
                 </li>
               </ul>
               <ul className="education">
-                <li className="timeframe">
-                  {resume.studyyear1 && resume.studyyear1}
-                </li>
-                <li className="institute">
-                  {resume.institute1 && resume.institute1}
-                </li>
                 <li className="educationtitle">
                   {resume.educationTitle1 && resume.educationTitle1}
+                </li>
+                <li className="timeframe">
+                  {resume.studyyear &&
+                    `${resume.studyyear} - ${resume.institute}`}
                 </li>
                 <li className="shortdescr">
                   {resume.educationDescription1 && resume.educationDescription1}
                 </li>
               </ul>
-              <br />
               <ul className="education">
-                <li className="timeframe">
-                  {resume.studyyear2 && resume.studyyear2}
-                </li>
-                <li className="institute">
-                  {resume.institute2 && resume.institute2}
-                </li>
                 <li className="educationtitle">
                   {resume.educationTitle2 && resume.educationTitle2}
                 </li>
+                <li className="timeframe">
+                  {resume.studyyear &&
+                    `${resume.studyyear} - ${resume.institute}`}
+                </li>
+
                 <li className="shortdescr">
                   {resume.educationDescription2 && resume.educationDescription2}
                 </li>
@@ -231,12 +225,14 @@ function ShowPage() {
           </div>
           <div className="vl"></div>
           <div className="column-large">
-            <div className="component profile">
+            <div className="component-big">
               <h4 className="blocktitle">profile</h4>
               <p className="profiletext">{resume.intro && resume.intro}</p>
             </div>
+
             <hr className="right" />
-            <div className="component">
+
+            <div className="component-big">
               <h4 className="blocktitle">work experiences</h4>
               <ul className="workexperience">
                 <li className="job">
@@ -245,50 +241,49 @@ function ShowPage() {
                 </li>
                 <li className="shortdescr">{resume.jobDescription}</li>
               </ul>
-              <br />
+
               <ul className="workexperience">
                 <li className="job">
                   {resume.workingyear1 &&
                     `${resume.workingyear1} - ${resume.role1} - ${resume.company1}`}
                 </li>
-                <li className="shortdescr">
+                <li className="shortjobdescr">
                   {resume.jobDescription1 && resume.jobDescription1}
                 </li>
               </ul>
-              <br />
               <ul className="workexperience">
                 <li className="job">
                   {resume.workingyear2 &&
                     `${resume.workingyear2} - ${resume.role2} - ${resume.company2}`}
                 </li>
-                <li className="shortdescr">
+                <li className="shortjobdescr">
                   {resume.jobDescription2 && resume.jobDescription2}
                 </li>
               </ul>
-              <br />
               <ul className="workexperience">
                 <li className="job">
                   {resume.workingyear3 &&
                     `${resume.workingyear3} - ${resume.role3} - ${resume.company3}`}
                 </li>
-                <li className="shortdescr">
+                <li className="shortjobdescr">
                   {resume.jobDescription3 && resume.jobDescription3}
                 </li>
               </ul>
-              <br />
             </div>
-            <div className="component">
-              {resume.linkedin && (
-                <div className="linkedinlink">
-                  {
-                    <FontAwesomeIcon
-                      icon={faLinkedin}
-                      style={{ marginRight: "5px" }}
-                    />
-                  }
-                  Find more on my linkedIn profile: {resume.linkedin}
-                </div>
-              )}
+            <div className="component-big">
+              <div className="linkedinfooter">
+                {resume.linkedin && (
+                  <div className="linkedinlink">
+                    {
+                      <FontAwesomeIcon
+                        icon={faLinkedin}
+                        style={{ marginRight: "5px" }}
+                      />
+                    }
+                    Find more on my linkedIn profile: {resume.linkedin}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>

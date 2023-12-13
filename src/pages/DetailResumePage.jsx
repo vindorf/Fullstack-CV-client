@@ -170,9 +170,9 @@ function DetailResumePage() {
       </form>
 
       <div key={resume._id}>
-        <div className="container a4-resume">
+        <div className="container a4-resume-view">
           <div className="row header">
-            <div className="col-12 header show">
+            <div className="header-view">
               <form className="mb-3 input-fields">
                 <input
                   type="text"
