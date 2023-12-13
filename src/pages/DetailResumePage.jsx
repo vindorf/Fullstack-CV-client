@@ -46,11 +46,6 @@ function DetailResumePage() {
     role3: "",
     jobDescription3: "",
 
-    workingyear4: "",
-    company4: "",
-    role4: "",
-    jobDescription4: "",
-
     studyyear: "",
     educationTitle: "",
     institute: "",
@@ -134,11 +129,6 @@ function DetailResumePage() {
       role3: resume.role3,
       jobDescription3: resume.jobDescription3,
 
-      workingyear4: resume.workingyear4,
-      company4: resume.company4,
-      role4: resume.role4,
-      jobDescription4: resume.jobDescription4,
-
       studyyear: resume.studyyear,
       educationTitle: resume.educationTitle,
       institute: resume.institute,
@@ -180,9 +170,9 @@ function DetailResumePage() {
       </form>
 
       <div key={resume._id}>
-        <div className="container a4-resume">
+        <div className="container a4-resume-view">
           <div className="row header">
-            <div className="col-12 header show">
+            <div className="header-view">
               <form className="mb-3 input-fields">
                 <input
                   type="text"
@@ -518,35 +508,6 @@ function DetailResumePage() {
                     placeholder="What was your job about?"
                   />
                   <br />
-                  <h3>workexperience 5</h3>
-                  <input
-                    type="text"
-                    name="workingyear4"
-                    value={resume.workingyear4}
-                    onChange={handleInputChange}
-                    placeholder="YEAR-YEAR"
-                  />
-                  <input
-                    type="text"
-                    name="company4"
-                    value={resume.company4}
-                    onChange={handleInputChange}
-                    placeholder="Company"
-                  />
-                  <input
-                    type="text"
-                    name="role4"
-                    value={resume.role4}
-                    onChange={handleInputChange}
-                    placeholder="Role"
-                  />
-                  <input
-                    type="text"
-                    name="jobDescription4"
-                    value={resume.jobDescription4}
-                    onChange={handleInputChange}
-                    placeholder="What was your job about?"
-                  />
                 </form>
               </div>
               <div className="linkedinlink">
