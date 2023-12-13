@@ -1,0 +1,118 @@
+.home-container{
+  margin: 20px;
+}
+.home-head{
+  margin: 30px;
+  margin-top: 80px;
+  
+}
+h1, h2{
+    text-align: center;
+}
+.home-main{
+display: flex;
+gap: 50px;
+}
+.main-right{
+display: flex;
+flex-direction: column;
+padding-top: 50px;
+margin-left: 250px;
+}
+.getstartet{
+ background-color: #662d91;
+ color: white;
+ padding: 10px;
+ border: none;
+ border-radius: 50px;
+ width: 500px;
+ margin-left: 150px;
+ margin-top: 100px;
+}
+.user-exp{
+    background-color: #DFE2FF;
+    border: none;
+    border-radius: 10px;
+}
+.card-header{
+    padding: 50px;
+}
+
+.exp-card-cont{
+    display: flex;
+    justify-content: space-evenly;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    background-color: white;
+}
+.card-name{
+    font-size: 35px;
+}
+.card-title{
+    font-size: 20px;
+}
+.card-text{
+    font-style: italic;
+    margin-top: 20px;
+    font-size: 23px;
+}
+.card-top{
+    display: flex;
+    gap: 53px;
+    margin-bottom: 30px;
+}
+.first-card{
+    display: flex;
+    margin-top: 80px;
+
+}
+.first{
+    width: 150px;
+    height: 150px;
+    background-color: #662d91;
+    margin: auto;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-size: 110px;
+}
+.second-card{
+    display: flex;
+    margin-top: 80px;
+}
+.second{
+    width: 150px;
+    height: 150px;
+    background-color: #662d91;
+    margin: auto;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-size: 110px;
+}
+.tre-card{
+    display: flex;
+    margin-top: 80px;
+}
+.tre{
+    width: 150px;
+    height: 150px;
+    background-color: #662d91;
+    margin: auto;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-size: 110px;
+}
+span{
+    margin: auto;
+}
+.anl-card{
+    font-size: 25px;
+}
