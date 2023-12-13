@@ -1,3 +1,8 @@
+.totalpage {
+  padding: 20px;
+  overflow: hidden;
+}
+
 .row.header {
   height: 15%;
   padding: 0 !important;
@@ -163,12 +168,11 @@ hr.right {
 }
 
 .a4-resume {
-  height: 1754px; /* A4 height */
+  height: 1123px; /* A4 height */
   margin: 0 auto !important; /* Center the container */
   background-color: white; /* Background color to simulate paper */
   border: 0.7px solid rgba(53, 53, 53, 0.5); /* Add a solid border */
   box-shadow: 0 0 0.5cm rgba(53, 53, 53, 0.5); /* Add a 0.5cm shadow */
   padding: 0 !important;
-  width: 1240px; /* A4 width */
-  overflow: hidden;
+  width: 793px; /* A4 width */
 }
