@@ -168,7 +168,7 @@ function DetailResumePage() {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container my-padding-class">
       <div className="button-container">
         <button className="btn edit-submit-btn" onClick={saveChanges}>
           Save Changes
@@ -186,40 +186,43 @@ function DetailResumePage() {
       </form>
 
       <div key={resume._id}>
-        <div className="container a4-resume">
-          <div className="row header">
+        <div className="container a4-resume-edit">
+          <div className="row header container-header">
             <div className="col-12 header show">
               <form className="mb-3 input-fields">
-                <input
-                  type="text"
-                  name="firstName"
-                  className="form-control"
-                  placeholder="First name"
-                  value={resume.firstName}
-                  onChange={handleInputChange}
-                />
-                <input
-                  type="text"
-                  name="lastName"
-                  className="form-control"
-                  placeholder="Last name"
-                  value={resume.lastName}
-                  onChange={handleInputChange}
-                />
-              </form>
-              <form>
-                <input
-                  type="text"
-                  name="title"
-                  placeholder="Title / Role"
-                  className="form-control"
-                  value={resume.title}
-                  onChange={handleInputChange}
-                />
+                <div className="name-edit-inputs">
+                  <input
+                    type="text"
+                    name="firstName"
+                    className="form-control cvname"
+                    placeholder="First name"
+                    value={resume.firstName}
+                    onChange={handleInputChange}
+                  />
+                  <input
+                    type="text"
+                    name="lastName "
+                    className="form-control cvname"
+                    placeholder="Last name"
+                    value={resume.lastName}
+                    onChange={handleInputChange}
+                  />
+                </div>
+
+                <div>
+                  <input
+                    type="text"
+                    name="title"
+                    placeholder="Title / Role"
+                    className="form-control cvname"
+                    value={resume.title}
+                    onChange={handleInputChange}
+                  />
+                </div>
               </form>
             </div>
           </div>
-          <div className="row body">
+          <div className="row body container-body">
             <div className="col-lg-4">
               <div className="contact">
                 <h4>C O N T A C T</h4>
@@ -232,8 +235,6 @@ function DetailResumePage() {
                     value={resume.phone}
                     onChange={handleInputChange}
                   />
-                  <br />
-
                   <input
                     className="form-control"
                     type="text"
@@ -352,8 +353,9 @@ function DetailResumePage() {
                     onChange={handleInputChange}
                     placeholder="What was your study about?"
                   />
-                  <h3>education 3</h3>
+                  <h5 className="text-muted">Education 3</h5>
                   <input
+                    className="form-control"
                     type="text"
                     name="studyyear2"
                     value={resume.studyyear2}
@@ -361,6 +363,7 @@ function DetailResumePage() {
                     placeholder="YEAR-YEAR"
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="educationTitle2"
                     value={resume.educationTitle2}
@@ -368,6 +371,7 @@ function DetailResumePage() {
                     placeholder="Study"
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="institute2"
                     value={resume.institute2}
@@ -375,6 +379,7 @@ function DetailResumePage() {
                     placeholder="Institute"
                   />
                   <input
+                    className="form-control"
                     type="text"
                     name="educationDescription2"
                     value={resume.educationDescription2}
@@ -386,8 +391,8 @@ function DetailResumePage() {
               <div className="skillsLang flex-fill">
                 <h4>L A N G U A G E</h4>
                 <form>
-                  <input
-                    className="form-control"
+                  <textarea
+                    className="form-control custome-text-area "
                     type="text"
                     name="language"
                     placeholder="Which Language do you speak"
@@ -397,7 +402,6 @@ function DetailResumePage() {
                 </form>
               </div>
             </div>
-            <br />
             <div className="col-lg-8">
               <div className="profile">
                 <h4>I N T R O </h4>
@@ -411,7 +415,6 @@ function DetailResumePage() {
                     onChange={handleInputChange}
                   />
                 </form>
-                <br />
               </div>
               <div className="work-experience" style={{ height: "75%" }}>
                 <h4> E X P E R I E N C E </h4>
@@ -485,8 +488,7 @@ function DetailResumePage() {
                     onChange={handleInputChange}
                     placeholder="Description"
                   />
-                  <br />
-                  <br />
+
                   <h5 className="text-muted"> Work Experience 3</h5>
                   <input
                     className="form-control"
@@ -520,7 +522,6 @@ function DetailResumePage() {
                     onChange={handleInputChange}
                     placeholder="Description"
                   />
-                  <br />
                   <h5 className="text-muted"> Work Experience 4</h5>
                   <input
                     className="form-control"
@@ -553,35 +554,6 @@ function DetailResumePage() {
                     value={resume.jobDescription3}
                     onChange={handleInputChange}
                     placeholder="Description"
-                  />
-                  <h3>workexperience 5</h3>
-                  <input
-                    type="text"
-                    name="workingyear4"
-                    value={resume.workingyear4}
-                    onChange={handleInputChange}
-                    placeholder="YEAR-YEAR"
-                  />
-                  <input
-                    type="text"
-                    name="company4"
-                    value={resume.company4}
-                    onChange={handleInputChange}
-                    placeholder="Company"
-                  />
-                  <input
-                    type="text"
-                    name="role4"
-                    value={resume.role4}
-                    onChange={handleInputChange}
-                    placeholder="Role"
-                  />
-                  <input
-                    type="text"
-                    name="jobDescription4"
-                    value={resume.jobDescription4}
-                    onChange={handleInputChange}
-                    placeholder="What was your job about?"
                   />
                 </form>
               </div>

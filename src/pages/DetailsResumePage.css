@@ -1,5 +1,20 @@
-.container {
+.a4-resume-edit {
+  height: 1754px;
+  margin: 0 auto !important;
+  background-color: white;
+  border: 0.7px solid rgba(53, 53, 53, 0.5);
+  box-shadow: 0 0 0.5cm rgba(53, 53, 53, 0.5);
   padding: 40px !important;
+  width: 1240px;
+  overflow: hidden;
+}
+
+.container-header {
+  height: 10% !important;
+}
+
+.container-body {
+  height: 90% !important;
 }
 
 .form-container {
@@ -7,6 +22,7 @@
   flex-direction: column;
   position: relative;
 }
+
 .edit-submit-btn {
   color: white;
   border: none !important;
@@ -19,6 +35,13 @@
 .edit-submit-btn:hover {
   background-color: rgb(158, 48, 158) !important;
   color: white !important;
+}
+
+.cvname {
+  font-size: 3em;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .button-container {
@@ -37,7 +60,10 @@
 .input-fields {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  gap: 10px;
+}
+.name-edit-inputs {
+  display: flex;
   gap: 10px;
 }
 

@@ -161,8 +161,7 @@ hr.right {
   border-top: 1px solid gray !important;
   margin: 10px 0 0 10px !important;
 }
-
-.a4-resume {
+.a4-resume-view {
   height: 1754px; /* A4 height */
   margin: 0 auto !important; /* Center the container */
   background-color: white; /* Background color to simulate paper */
