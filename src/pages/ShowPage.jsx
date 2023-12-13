@@ -1,6 +1,6 @@
-import React, { Profiler } from "react";
-import { Link } from "react-router-dom";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { Profiler, forwardRef, useRef } from "react";
+import html2pdf from "html2pdf.js";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
@@ -15,9 +15,8 @@ import {
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const API_URL = import.meta.env.VITE_SERVER_URL;
-import Profile from "../components/resume/Profile";
 
-function ShowPage() {
+const ShowPage = () => {
   const navigate = useNavigate();
   const { resumeId } = useParams();
   const [resume, setResume] = useState({
@@ -99,14 +98,27 @@ function ShowPage() {
     showOneResume();
   }, []);
 
+  const componentRef = useRef(null);
+  const generatePDF = () => {
+    const element = componentRef.current;
+
+    html2pdf().from(element).save("your-resume.pdf");
+  };
+
   return (
     <div className="totalpage">
-      <Link to={`/resume/${resume._id}`}>
-        <button className="btn edit" type="submit">
-          edit resumé
+      <div className="Actions">
+        <Link to={`/resume/${resume._id}`}>
+          <button className="btn edit" type="submit">
+            edit resumé
+          </button>
+        </Link>
+
+        <button className="btn edit" onClick={generatePDF}>
+          Generate PDF
         </button>
-      </Link>
-      <div className="a4-resume-view">
+      </div>
+      <div className="a4-resume-view" ref={componentRef}>
         <div className="row header">
           <div className="header-view">
             <h2 className="cvname">
@@ -269,8 +281,7 @@ function ShowPage() {
                   {resume.jobDescription3 && resume.jobDescription3}
                 </li>
               </ul>
-            </div>
-            <div className="component-big">
+
               <div className="linkedinfooter">
                 {resume.linkedin && (
                   <div className="linkedinlink">
@@ -290,6 +301,6 @@ function ShowPage() {
       </div>
     </div>
   );
-}
+};
 
 export default ShowPage;
