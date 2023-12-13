@@ -2,7 +2,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./DetailsResumePage.css";
-import workexperience from "../components/resume/workexperience";
 
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
