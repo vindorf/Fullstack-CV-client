@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import "./LoginPage.css"; // Your additional CSS file
+import "./AuthenticationPage.css"; // Your additional CSS file
 
 const API_URL = "http://localhost:5005";
 
@@ -34,10 +34,10 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
+    <div className="AuthenticationContainer">
       <h3>Login</h3>
       <form onSubmit={handleLoginSubmit}>
-        <div className="form-group text-muted">
+        <div className="form-group">
           <label className="text-muted form-control-label">Email:</label>
           <input
             type="email"
@@ -58,13 +58,13 @@ function LoginPage() {
             onChange={handlePassword}
           />
         </div>
-        <button type="submit" className="btn btn-primary login-btn">
+        <button type="submit" className="btn submit-btn">
           Login
         </button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <div className="register-cta">
+      <div className="cta">
         <p>Don't have an account yet?</p>
         <Link to={"/signup"}> Sign Up</Link>
       </div>
