@@ -1,7 +1,8 @@
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import "./LoginPage.css"; // Your additional CSS file
 
 const API_URL = "http://localhost:5005";
 
@@ -34,26 +35,39 @@ function LoginPage() {
 
   return (
     <div className="LoginPage">
-      <h1>Login</h1>
-
+      <h3>Login</h3>
       <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <div className="form-group text-muted">
+          <label className="text-muted form-control-label">Email:</label>
+          <input
+            type="email"
+            className="form-control"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+          />
+        </div>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-
-        <button type="submit">Login</button>
+        <div className="form-group ">
+          <label className="text-muted form-control-label">Password:</label>
+          <input
+            type="password"
+            className="form-control"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+          />
+        </div>
+        <button type="submit" className="btn btn-primary login-btn">
+          Login
+        </button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <div className="register-cta">
+        <p>Don't have an account yet?</p>
+        <Link to={"/signup"}> Sign Up</Link>
+      </div>
     </div>
   );
 }
