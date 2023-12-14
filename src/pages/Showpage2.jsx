@@ -13,6 +13,7 @@ import {
   faLocationPin,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import ImageUpload from "../components/ImageCloud";
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
 const Showpage2 = () => {
@@ -98,7 +99,9 @@ const Showpage2 = () => {
             edit resumé
           </button>
         </Link>
-
+        <div className="App">
+          <ImageUpload />
+        </div>
         <button className="btn edit" onClick={generatePDF}>
           Generate PDF
         </button>

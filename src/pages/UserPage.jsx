@@ -8,6 +8,7 @@ import Header from "../components/resume/Header";
 
 import "./ResumeCard.css";
 
+
 Modal.setAppElement("#root");
 
 const API_URL = import.meta.env.VITE_SERVER_URL;
