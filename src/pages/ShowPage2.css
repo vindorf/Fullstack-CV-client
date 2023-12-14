@@ -25,10 +25,6 @@
   font-family: "Noto Sans TC", sans-serif;
 }
 
-.profileimage {
-  width: 170px;
-  border-radius: 50%;
-}
 .component-small-2 {
   padding: 0 12px 10px 40px;
   color: white;
@@ -36,39 +32,16 @@
 
 .component-small-2-img {
   width: 100%;
-  height: 250px;
-  /* background-color: red; */
+  height: 300px;
 }
-
-hr.top-2 {
-  width: 90%;
-  border-top: 1px dotted black !important;
-  margin: 0 auto !important;
-  display: flex;
-}
-
-hr.short-2 {
-  width: 100%;
-  margin: 0 auto !important;
-  border-top: 1px solid white !important;
-}
-
-h2.cvname-2 {
-  font-size: 2.5em;
-  text-transform: capitalize;
-  text-align: left;
-  margin-top: 30px;
-  font-weight: 500;
-}
-
-h3.title-2 {
-  font-size: 1.25em;
-  text-align: left;
-  text-transform: capitalize;
-  font-weight: 400;
-  margin-top: 0px;
-  margin-bottom: 10px;
-  letter-spacing: 3px;
+.profileimage {
+  position: relative;
+  top: 50px;
+  left: 45px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 h4.blocktitle-2 {
@@ -146,9 +119,27 @@ li.shortdescr-2 {
 
 .component-big.intro-2 {
   width: 100%;
-  height: 250px;
+  height: 300px;
   /* background-color: red; */
-  padding: 0px 15px 0px 0px;
+  padding: 20px 15px 0px 0px;
+}
+
+h2.cvname-2 {
+  font-size: 2.5em;
+  text-transform: capitalize;
+  text-align: left;
+  margin-top: 30px;
+  font-weight: 500;
+}
+
+h3.title-2 {
+  font-size: 1.25em;
+  text-align: left;
+  text-transform: capitalize;
+  font-weight: 400;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  letter-spacing: 3px;
 }
 
 .profiletext-2 {
