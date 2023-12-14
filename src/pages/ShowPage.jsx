@@ -276,7 +276,7 @@ const ShowPage = () => {
                         style={{ marginRight: "5px" }}
                       />
                     }
-                    Find more on my linkedIn profile: {resume.linkedin}
+                    Find more on my LinkedIn: {resume.linkedin}
                   </div>
                 )}
               </div>
