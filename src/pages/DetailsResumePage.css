@@ -1,22 +1,85 @@
-.container {
+.a4-resume-edit {
+  height: 1754px;
+  margin: 0 auto !important;
+  background-color: white;
+  border: 0.7px solid rgba(53, 53, 53, 0.5);
+  box-shadow: 0 0 0.5cm rgba(53, 53, 53, 0.5);
   padding: 40px !important;
+  width: 1240px;
+  overflow: hidden;
+}
+
+.container-header {
+  height: 10% !important;
+}
+
+.container-body {
+  height: 90% !important;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.edit-submit-btn {
+  color: white;
+  border: none !important;
+  background-color: #7328ba !important;
+  border-radius: 50px !important;
+  margin-bottom: 20px !important;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.edit-submit-btn:hover {
+  background-color: rgb(158, 48, 158) !important;
+  color: white !important;
+}
+
+.cvname {
+  font-size: 3em;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.button-container {
+  align-self: flex-end;
+  position: absolute;
+  top: 0;
+  right: 340px;
+}
+
+.row.body input {
+  margin: 5px;
+  border-radius: 5px;
+  height: 30px;
 }
 
 .input-fields {
   display: flex;
-  margin: 10px;
+  flex-direction: column;
+  gap: 10px;
+}
+.name-edit-inputs {
+  display: flex;
   gap: 10px;
 }
 
-.form-control {
-  height: 50px !important;
+.intro-text-area {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+  max-height: 100px;
 }
 
-.title {
-  width: 60%;
-  margin: 0 auto;
-}
-
-.workexp {
-  margin: 20px 0 20px 0;
+.custom-text-area {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+  max-height: 100px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }

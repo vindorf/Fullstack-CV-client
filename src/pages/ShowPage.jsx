@@ -13,7 +13,6 @@ import {
   faLocationPin,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
 const ShowPage = () => {
@@ -23,7 +22,6 @@ const ShowPage = () => {
     resumeTitle: "",
     firstName: "",
     lastName: "",
-
     title: "",
     phone: "",
     street: "",
@@ -31,58 +29,47 @@ const ShowPage = () => {
     email: "",
     website: "",
     linkedin: "",
-
     skills: "",
     language: "",
     intro: "",
-
     workingyear: "",
     company: "",
     role: "",
     jobDescription: "",
-
     workingyear1: "",
     company1: "",
     role1: "",
     jobDescription1: "",
-
     workingyear2: "",
     company2: "",
     role2: "",
     jobDescription2: "",
-
     workingyear3: "",
     company3: "",
     role3: "",
     jobDescription3: "",
-
     workingyear4: "",
     company4: "",
     role4: "",
     jobDescription4: "",
-
     studyyear: "",
     educationTitle: "",
     institute: "",
     educationDescription: "",
     certificate: "",
-
     studyyear1: "",
     educationTitle1: "",
     institute1: "",
     educationDescription1: "",
     certificate1: "",
-
     studyyear2: "",
     educationTitle2: "",
     institute2: "",
     educationDescription2: "",
     certificate2: "",
   });
-
   const skillsArray = (resume.skills || "").split(",");
   const languageArray = (resume.language || "").split(",");
-
   const showOneResume = () => {
     const storedToken = localStorage.getItem("authToken");
     axios
@@ -91,9 +78,7 @@ const ShowPage = () => {
       })
       .then((resp) => setResume(resp.data));
   };
-
   console.log("resume", resume);
-
   useEffect(() => {
     showOneResume();
   }, []);
