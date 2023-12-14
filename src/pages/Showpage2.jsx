@@ -111,7 +111,7 @@ const Showpage2 = () => {
           <div className="column-small-2">
             <div className="component-small-2-img">
               <img
-                src="/src/assets/pexels-andrea-piacquadio-762020"
+                src="/src/assets/pexels-andrea-piacquadio-762020.jpg"
                 className="profileimage"
               ></img>
               HERE COMES THE PHOTO

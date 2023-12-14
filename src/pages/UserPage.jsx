@@ -134,7 +134,6 @@ function UserPage() {
             <div key={resume._id} className="card mb-3">
               <div className="card-body">
                 <h3 className="card-title">{resume.resumeTitle}</h3>
-
                 <Link
                   to={`/resume/${resume._id}`}
                   className="btn btn-edit-user-page"
@@ -149,7 +148,7 @@ function UserPage() {
                 </Link>
                 <Link
                   to={`/resume/show-look2/${resume._id}`}
-                  className="btn btn-success"
+                  className="btn btn-preview-user-page"
                 >
                   Preview "look 2"
                 </Link>

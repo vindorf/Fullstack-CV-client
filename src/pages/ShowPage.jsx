@@ -108,6 +108,7 @@ const ShowPage = () => {
           <div className="header-view">
             <h2 className="cvname">
               {resume.firstName && resume.firstName}
+              {"  "}
               {resume.lastName && resume.lastName}
             </h2>
             <h3 className="title"> {resume.title && resume.title}</h3>
