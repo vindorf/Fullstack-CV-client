@@ -1,3 +1,9 @@
+.h1jobp {
+  text-align: left;
+  position: relative;
+  left: 150px;
+}
+
 .job-search-container {
   padding: 10px 40px;
 }
@@ -10,8 +16,12 @@
   justify-content: center;
 }
 
-.search-job-form input {
-  width: 30%;
+input.form-control {
+  width: 250px;
+  margin: 10px !important;
+  gap: 15px !important;
+  position: relative;
+  left: 150px;
 }
 
 .search-job-btn {
@@ -22,6 +32,8 @@
   border-radius: 50px !important;
   padding: 8px 25px !important;
   transition: background-color 0.3s ease-in-out;
+  position: relative;
+  left: 150px;
 }
 
 .search-job-btn:hover {
@@ -32,6 +44,7 @@
 .show-more-btn {
   width: 10%;
   margin: 20px !important;
+  padding: 8px 25px !important;
 }
 
 .job-ad-card {

@@ -9,6 +9,10 @@ function Navbar() {
 
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+      <Link className="nav-link" to="/">
+        <img src="src/assets/emsresume.png" alt="logo" className="logo" />
+      </Link>
+
       <div className="navbar-nav navbar-right">
         <Link className="nav-link" to="/">
           Home

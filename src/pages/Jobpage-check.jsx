@@ -35,36 +35,28 @@ function JobPage() {
   };
   return (
     <div>
-      <h1 className="h1jobp">FIND A JOB</h1>
-
+      <h1>JOB PAGE</h1>
       <input
-        className="form-control"
         type="text"
-        placeholder="Search by title, skill or company"
+        placeholder="Suche nach Jobs..."
         value={query}
         onChange={handleQueryChange}
       />
       <input
-        className="form-control"
         type="text"
-        placeholder="Location"
+        placeholder="Ort eingeben..."
         value={location}
         onChange={handleLocationChange}
       />
-      <button className="btn search-job-btn" onClick={getData}>
-        Search a job
-      </button>
-
+      <button onClick={getData}>Nach Jobs suchen</button>
       {jobs &&
         jobs.map((job, index) => (
-          <div key={index} className="card">
+          <div key={index} className="job-card">
             <h3>{job.title}</h3>
             <h4>{job.company_name}</h4>
             <p>{job.location}</p>
             <p>{job.formatted_relative_time}</p>
-            <button className="btn search-job-btn show-more-btn">
-              See more
-            </button>
+            <button>Show more</button>
           </div>
         ))}
     </div>
