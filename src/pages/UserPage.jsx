@@ -133,7 +133,6 @@ function UserPage() {
             <div key={resume._id} className="card mb-3">
               <div className="card-body">
                 <h3 className="card-title">{resume.resumeTitle}</h3>
-
                 <Link
                   to={`/resume/${resume._id}`}
                   className="btn btn-edit-user-page"

@@ -1,5 +1,39 @@
-.job-card{
-    border: solid 1px ;
-    padding: 20px;
-    margin-top: 20px;
+.job-search-container {
+  padding: 10px 40px;
+}
+
+.search-job-form {
+  display: flex !important;
+  flex-direction: row;
+  gap: 15px !important;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.search-job-form input {
+  width: 30%;
+}
+
+.search-job-btn {
+  margin-bottom: 10px;
+  color: white;
+  background-color: #7328ba !important;
+  font-size: 16px !important;
+  border-radius: 50px !important;
+  padding: 8px 25px !important;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.search-job-btn:hover {
+  background-color: rgb(158, 48, 158) !important;
+  color: white !important;
+}
+
+.show-more-btn {
+  width: 10%;
+  margin: 20px !important;
+}
+
+.job-ad-card {
+  padding: 30px !important;
 }
