@@ -95,7 +95,7 @@ const ShowPage = () => {
       <div className="actions">
         <Link to={`/resume/${resume._id}`}>
           <button className="btn edit" type="submit">
-            edit resumé
+            Edit Resumé
           </button>
         </Link>
 
@@ -107,7 +107,7 @@ const ShowPage = () => {
         <div className="row header">
           <div className="header-view">
             <h2 className="cvname">
-              {resume.firstName && resume.firstName}{" "}
+              {resume.firstName && resume.firstName}
               {resume.lastName && resume.lastName}
             </h2>
             <h3 className="title"> {resume.title && resume.title}</h3>
@@ -266,7 +266,6 @@ const ShowPage = () => {
                   {resume.jobDescription3 && resume.jobDescription3}
                 </li>
               </ul>
-
               {resume.linkedin && (
                 <div className="linkedinlink">
                   {

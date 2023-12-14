@@ -32,8 +32,31 @@
 
 .create-resume-input {
   width: 35% !important;
+  height: 50px !important;
 }
 
 .create-resume-form {
-  margin: 20px;
+  margin-top: 40px !important;
+  margin-bottom: 20px !important;
+}
+
+.btn-edit-user-page {
+  background-color: #e8bd58;
+  border-radius: 50px !important;
+  padding: 10px 20px !important;
+  color: white !important;
+}
+
+.btn-preview-user-page {
+  background-color: #b58364;
+  border-radius: 50px !important;
+  padding: 10px 20px !important;
+  color: white !important;
+}
+
+.btn-delete-user-page {
+  background-color: rgb(219, 125, 125);
+  border-radius: 50px !important;
+  padding: 10px 20px !important;
+  color: white !important;
 }

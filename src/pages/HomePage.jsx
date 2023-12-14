@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./HomePage.css";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
+
 import ExpCard from "../components/ExpCard";
 import AnlCard from "../components/AnlCard";
+import { Link } from "react-router-dom";
+
 
 function HomePage() {
+  const { isLoggedIn } = useContext(AuthContext);
+
   return (
     <div className="home-container">
       <div className="home-head">
@@ -15,12 +22,16 @@ function HomePage() {
         <h1></h1>
         <img src="src\assets\CV_Builder_2x.png" alt="" />
         <div className="main-right">
-          <h2 style={{ margin: "30px" }}>
-            Build your brand-new resume in as little as 5 minutes.
-          </h2>
-          <div className="getstartet">
-            <h1>Sign Up for Free!</h1>
-          </div>
+          {!isLoggedIn ? (
+            <div>
+              <h3>Build your brand-new resume in as little as 5 minutes.</h3>
+              <Link to="/signup">
+                <button className="signup-button-homepage">Sign Up</button>
+              </Link>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
       <div className="user-exp">
@@ -41,6 +52,11 @@ function HomePage() {
             text="With sleek designs and an easy to use online tool, FreeCV allowed me to quickly build and edit a professional resume with a personal touch, which ultimately helped me to get my dream job. I am now relocating to Barcelona to work for a top tier company."
           />
         </div>
+      </div>
+      <div className="job-api">
+        <Link to='job'> <div className="watch-job">
+            <h1>Find Jobs!</h1>
+          </div></Link>
       </div>
       <div className="anl-card">
         <div className="first-card">
@@ -70,13 +86,12 @@ function HomePage() {
             <span>3</span>
           </div>
           <AnlCard
-          url="src\assets\cv.png"
-          title="Hit 'Download!'"
-          text="And yes, it's free! We don't hit you with a paywall once you've completed your resume in the Basic Account. If you use any of our premium features, the software will let you know about "
-          sectext=""
-        />
+            url="src\assets\cv.png"
+            title="Hit 'Download!'"
+            text="And yes, it's free! We don't hit you with a paywall once you've completed your resume in the Basic Account. If you use any of our premium features, the software will let you know about "
+            sectext=""
+          />
         </div>
-      
       </div>
     </div>
   );

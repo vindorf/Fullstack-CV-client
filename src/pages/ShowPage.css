@@ -181,18 +181,18 @@ hr.right {
   display: flex;
 }
 
-.btn.edit {
+.edit {
   color: white;
-  background-color: #662d91;
+  background-color: #7328ba !important;
   font-size: 16px;
-  border-radius: 20px;
-  padding: 10px 20px;
+
+  border-radius: 50px !important;
+  padding: 10px 20px !important;
+  transition: background-color 0.3s ease-in-out;
+
 }
 
 .btn.edit:hover {
-  color: #662d91;
-  background-color: #f0e68c;
-  font-size: 16px;
-  border: 1px solid #f0e68c;
-  transition: all 200ms ease;
+  background-color: rgb(158, 48, 158) !important;
+  color: white !important;
 }
