@@ -2,6 +2,8 @@ import React from "react";
 import "./HomePage.css";
 import ExpCard from "../components/ExpCard";
 import AnlCard from "../components/AnlCard";
+import { Link } from "react-router-dom";
+
 
 function HomePage() {
   return (
@@ -41,6 +43,11 @@ function HomePage() {
             text="With sleek designs and an easy to use online tool, FreeCV allowed me to quickly build and edit a professional resume with a personal touch, which ultimately helped me to get my dream job. I am now relocating to Barcelona to work for a top tier company."
           />
         </div>
+      </div>
+      <div className="job-api">
+        <Link to='job'> <div className="watch-job">
+            <h1>Find Jobs!</h1>
+          </div></Link>
       </div>
       <div className="anl-card">
         <div className="first-card">
