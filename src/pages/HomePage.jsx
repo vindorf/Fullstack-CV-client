@@ -1,5 +1,7 @@
 import React from "react";
 import "./HomePage.css";
+import { Link } from "react-router-dom";
+
 import ExpCard from "../components/ExpCard";
 import AnlCard from "../components/AnlCard";
 
@@ -15,12 +17,10 @@ function HomePage() {
         <h1></h1>
         <img src="src\assets\CV_Builder_2x.png" alt="" />
         <div className="main-right">
-          <h2 style={{ margin: "30px" }}>
-            Build your brand-new resume in as little as 5 minutes.
-          </h2>
-          <div className="getstartet">
-            <h1>Sign Up for Free!</h1>
-          </div>
+          <h3>Build your brand-new resume in as little as 5 minutes.</h3>
+          <Link to="/signup">
+            <button className="signup-button-homepage">Sign Up</button>
+          </Link>
         </div>
       </div>
       <div className="user-exp">
@@ -70,13 +70,12 @@ function HomePage() {
             <span>3</span>
           </div>
           <AnlCard
-          url="src\assets\cv.png"
-          title="Hit 'Download!'"
-          text="And yes, it's free! We don't hit you with a paywall once you've completed your resume in the Basic Account. If you use any of our premium features, the software will let you know about "
-          sectext=""
-        />
+            url="src\assets\cv.png"
+            title="Hit 'Download!'"
+            text="And yes, it's free! We don't hit you with a paywall once you've completed your resume in the Basic Account. If you use any of our premium features, the software will let you know about "
+            sectext=""
+          />
         </div>
-      
       </div>
     </div>
   );

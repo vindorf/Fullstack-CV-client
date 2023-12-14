@@ -1,118 +1,134 @@
-.home-container{
+.home-container {
   margin: 20px;
 }
-.home-head{
+.home-head {
   margin: 30px;
   margin-top: 80px;
-  
-}
-h1, h2{
-    text-align: center;
-}
-.home-main{
-display: flex;
-gap: 50px;
-}
-.main-right{
-display: flex;
-flex-direction: column;
-padding-top: 50px;
-margin-left: 250px;
-}
-.getstartet{
- background-color: #662d91;
- color: white;
- padding: 10px;
- border: none;
- border-radius: 50px;
- width: 500px;
- margin-left: 150px;
- margin-top: 100px;
-}
-.user-exp{
-    background-color: #DFE2FF;
-    border: none;
-    border-radius: 10px;
-}
-.card-header{
-    padding: 50px;
 }
 
-.exp-card-cont{
-    display: flex;
-    justify-content: space-evenly;
+.signup-button-homepage {
+  margin-top: 20px;
+  color: white;
+  width: 100%;
+  border-color: transparent;
+  background-color: #7328ba !important;
+  font-size: 20px;
+  border-radius: 50px !important;
+  padding: 10px 20px !important;
+  transition: background-color 0.3s ease-in-out;
 }
-.card{
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    background-color: white;
-}
-.card-name{
-    font-size: 35px;
-}
-.card-title{
-    font-size: 20px;
-}
-.card-text{
-    font-style: italic;
-    margin-top: 20px;
-    font-size: 23px;
-}
-.card-top{
-    display: flex;
-    gap: 53px;
-    margin-bottom: 30px;
-}
-.first-card{
-    display: flex;
-    margin-top: 80px;
 
+.signup-button-homepage:hover {
+  background-color: rgb(158, 48, 158) !important;
+  color: white !important;
 }
-.first{
-    width: 150px;
-    height: 150px;
-    background-color: #662d91;
-    margin: auto;
-    border: none;
-    border-radius: 10px;
-    text-align: center;
-    color: white;
-    font-size: 110px;
+h1,
+h2 {
+  text-align: center;
 }
-.second-card{
-    display: flex;
-    margin-top: 80px;
+.home-main {
+  display: flex;
+  gap: 50px;
 }
-.second{
-    width: 150px;
-    height: 150px;
-    background-color: #662d91;
-    margin: auto;
-    border: none;
-    border-radius: 10px;
-    text-align: center;
-    color: white;
-    font-size: 110px;
+.main-right {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  margin-left: 250px;
 }
-.tre-card{
-    display: flex;
-    margin-top: 80px;
+.getstartet {
+  background-color: #662d91;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 50px;
+  width: 500px;
+  margin-left: 150px;
+  margin-top: 100px;
 }
-.tre{
-    width: 150px;
-    height: 150px;
-    background-color: #662d91;
-    margin: auto;
-    border: none;
-    border-radius: 10px;
-    text-align: center;
-    color: white;
-    font-size: 110px;
+.user-exp {
+  background-color: #dfe2ff;
+  border: none;
+  border-radius: 10px;
 }
-span{
-    margin: auto;
+.card-header {
+  padding: 50px;
 }
-.anl-card{
-    font-size: 25px;
+
+.exp-card-cont {
+  display: flex;
+  justify-content: space-evenly;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  background-color: white;
+}
+.card-name {
+  font-size: 35px;
+}
+.card-title {
+  font-size: 20px;
+}
+.card-text {
+  font-style: italic;
+  margin-top: 20px;
+  font-size: 23px;
+}
+.card-top {
+  display: flex;
+  gap: 53px;
+  margin-bottom: 30px;
+}
+.first-card {
+  display: flex;
+  margin-top: 80px;
+}
+.first {
+  width: 150px;
+  height: 150px;
+  background-color: #662d91;
+  margin: auto;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-size: 110px;
+}
+.second-card {
+  display: flex;
+  margin-top: 80px;
+}
+.second {
+  width: 150px;
+  height: 150px;
+  background-color: #662d91;
+  margin: auto;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-size: 110px;
+}
+.tre-card {
+  display: flex;
+  margin-top: 80px;
+}
+.tre {
+  width: 150px;
+  height: 150px;
+  background-color: #662d91;
+  margin: auto;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-size: 110px;
+}
+span {
+  margin: auto;
+}
+.anl-card {
+  font-size: 25px;
 }
