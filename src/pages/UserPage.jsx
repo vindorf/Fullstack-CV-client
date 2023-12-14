@@ -148,7 +148,7 @@ function UserPage() {
                 </Link>
                 <Link
                   to={`/resume/show-look2/${resume._id}`}
-                  className="btn btn-success"
+                  className="btn btn-preview-user-page"
                 >
                   Preview "look 2"
                 </Link>

@@ -5,8 +5,6 @@ import { AuthContext } from "../context/auth.context";
 
 import ExpCard from "../components/ExpCard";
 import AnlCard from "../components/AnlCard";
-import { Link } from "react-router-dom";
-
 
 function HomePage() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -54,9 +52,12 @@ function HomePage() {
         </div>
       </div>
       <div className="job-api">
-        <Link to='job'> <div className="watch-job">
+        <Link to="job">
+          {" "}
+          <div className="watch-job">
             <h1>Find Jobs!</h1>
-          </div></Link>
+          </div>
+        </Link>
       </div>
       <div className="anl-card">
         <div className="first-card">
