@@ -4,7 +4,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import "./ShowPage.css";
+import "./Showpage2.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPhone,
@@ -15,7 +15,7 @@ import {
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
-const ShowPage = () => {
+const Showpage2 = () => {
   const navigate = useNavigate();
   const { resumeId } = useParams();
   const [resume, setResume] = useState({
@@ -91,11 +91,11 @@ const ShowPage = () => {
   };
 
   return (
-    <div className="totalpage">
-      <div className="actions">
+    <div className="totalpage-2">
+      <div className="actions-2">
         <Link to={`/resume/${resume._id}`}>
           <button className="btn edit" type="submit">
-            Edit Resumé
+            edit resumé
           </button>
         </Link>
 
@@ -103,116 +103,104 @@ const ShowPage = () => {
           Generate PDF
         </button>
       </div>
-      <div className="a4-resume-view" ref={componentRef}>
-        <div className="row header">
-          <div className="header-view">
-            <h2 className="cvname">
-              {resume.firstName && resume.firstName}
-              {resume.lastName && resume.lastName}
-            </h2>
-            <h3 className="title"> {resume.title && resume.title}</h3>
-          </div>
-        </div>
-        <hr className="top" />
-        <div className="row body">
-          <div className="column-small">
-            <div className="component-small">
-              <h4 className="blocktitle">contact</h4>
-              <ul className="contact">
+      <div className="a4-resume-view-2" ref={componentRef}>
+        <div className="row body-2">
+          <div className="column-small-2">
+            <div className="component-small-2-img">
+              <img
+                src="/src/assets/pexels-andrea-piacquadio-762020"
+                className="profileimage"
+              ></img>
+              HERE COMES THE PHOTO
+            </div>
+
+            <div className="component-small-2">
+              <h4 className="blocktitle-2">contact</h4>
+
+              <ul className="contact-2">
                 {resume.phone && (
                   <li>
-                    <FontAwesomeIcon
-                      icon={faPhone}
-                      style={{ marginRight: "4px" }}
-                    />{" "}
+                    <span className="subtitle-2">Website</span> <br />
                     {resume.phone}
                   </li>
                 )}
                 {resume.email && (
                   <li>
-                    <FontAwesomeIcon
-                      icon={faEnvelope}
-                      style={{ marginRight: "7px" }}
-                    />
+                    <span className="subtitle-2">Email</span> <br />
                     {resume.email}
                   </li>
                 )}
                 {resume.website && (
                   <li>
-                    <FontAwesomeIcon
-                      icon={faGlobe}
-                      style={{ marginRight: "7px" }}
-                    />
+                    <span className="subtitle-2">Website</span> <br />
                     {resume.website}
                   </li>
                 )}
                 {resume.phone && (
                   <li>
-                    <FontAwesomeIcon
-                      icon={faLocationPin}
-                      style={{ marginRight: "7px" }}
-                    />
+                    <span className="subtitle-2">Address</span> <br />
                     {resume.street}, {resume.city}
                   </li>
                 )}
               </ul>
             </div>
-            <hr className="short" />
-            <div className="component-small">
-              <h4 className="blocktitle">skills</h4>
-              <ul className="skills">
-                {skillsArray &&
-                  skillsArray.map((skill, index) => (
-                    <li key={index}>{skill}</li>
-                  ))}
-              </ul>
-            </div>
-            <hr className="short" />
-            <div className="component-small edu">
-              <h4 className="blocktitle">education</h4>
-              <ul className="education">
-                <li className="timeframe">
-                  <li className="educationtitle">
+            <div className="component-small-2 edu">
+              <h4 className="blocktitle-2">education</h4>
+
+              <ul className="education-2">
+                <li className="timeframe-2">
+                  <li className="educationtitle-2">
                     {resume.educationTitle && resume.educationTitle}
                   </li>
                   {resume.studyyear &&
                     `${resume.studyyear} - ${resume.institute}`}
                 </li>
 
-                <li className="shortdescr">
+                <li className="shortdescr-2">
                   {resume.educationDescription && resume.educationDescription}
                 </li>
               </ul>
-              <ul className="education">
-                <li className="educationtitle">
+              <ul className="education-2">
+                <li className="educationtitle-2">
                   {resume.educationTitle1 && resume.educationTitle1}
                 </li>
-                <li className="timeframe">
+                <li className="timeframe-2">
                   {resume.studyyear &&
                     `${resume.studyyear} - ${resume.institute}`}
                 </li>
-                <li className="shortdescr">
+                <li className="shortdescr-2">
                   {resume.educationDescription1 && resume.educationDescription1}
                 </li>
               </ul>
-              <ul className="education">
-                <li className="educationtitle">
+              <ul className="education-2">
+                <li className="educationtitle-2">
                   {resume.educationTitle2 && resume.educationTitle2}
                 </li>
-                <li className="timeframe">
+                <li className="timeframe-2">
                   {resume.studyyear &&
                     `${resume.studyyear} - ${resume.institute}`}
                 </li>
 
-                <li className="shortdescr">
+                <li className="shortdescr-2">
                   {resume.educationDescription2 && resume.educationDescription2}
                 </li>
               </ul>
             </div>
-            <hr className="short" />
-            <div className="component-small">
-              <h4 className="blocktitle">languages</h4>
-              <ul className="skills">
+            <div className="component-small-2">
+              <h4 className="blocktitle-2">skills</h4>
+
+              <ul className="skills-2">
+                {skillsArray &&
+                  skillsArray.map((skill, index) => (
+                    <li key={index}>{skill}</li>
+                  ))}
+              </ul>
+            </div>
+
+            <div className="component-small-2">
+              <h4 className="blocktitle-2">languages</h4>
+
+              <ul className="skills-2">
                 {languageArray &&
                   languageArray.map((skill, index) => (
                     <li key={index}>{skill}</li>
@@ -220,54 +208,59 @@ const ShowPage = () => {
               </ul>
             </div>
           </div>
-          <div className="vl"></div>
-          <div className="column-large">
-            <div className="component-big">
-              <h4 className="blocktitle">profile</h4>
-              <p className="profiletext">{resume.intro && resume.intro}</p>
+          {/* RIGHT SIDE */}
+          <div className="column-large-2">
+            <div className="component-big intro-2">
+              <h2 className="cvname-2">
+                {resume.firstName && resume.firstName}{" "}
+                {resume.lastName && resume.lastName}
+              </h2>
+              <h3 className="title-2"> {resume.title && resume.title}</h3>
+              <div className="component-big-2 profile">
+                <p className="profiletext-2">{resume.intro && resume.intro}</p>
+              </div>
             </div>
 
-            <hr className="right" />
-
-            <div className="component-big">
-              <h4 className="blocktitle">work experiences</h4>
-              <ul className="workexperience">
-                <li className="job">
+            <div className="workexperience-block">
+              <h4 className="blocktitle-2">Experience</h4>
+              <hr className="right-2" />
+              <ul className="workexperience-2">
+                <li className="job-2">
                   {resume.workingyear &&
                     `${resume.workingyear} - ${resume.role} - ${resume.company}`}
                 </li>
-                <li className="shortjobdescr">{resume.jobDescription}</li>
+                <li className="shortjobdescr-2">{resume.jobDescription}</li>
               </ul>
 
-              <ul className="workexperience">
-                <li className="job">
+              <ul className="workexperience-2">
+                <li className="job-2">
                   {resume.workingyear1 &&
                     `${resume.workingyear1} - ${resume.role1} - ${resume.company1}`}
                 </li>
-                <li className="shortjobdescr">
+                <li className="shortjobdescr-2">
                   {resume.jobDescription1 && resume.jobDescription1}
                 </li>
               </ul>
-              <ul className="workexperience">
-                <li className="job">
+              <ul className="workexperience-2">
+                <li className="job-2">
                   {resume.workingyear2 &&
                     `${resume.workingyear2} - ${resume.role2} - ${resume.company2}`}
                 </li>
-                <li className="shortjobdescr">
+                <li className="shortjobdescr-2">
                   {resume.jobDescription2 && resume.jobDescription2}
                 </li>
               </ul>
-              <ul className="workexperience">
-                <li className="job">
+              <ul className="workexperience-2">
+                <li className="job-2">
                   {resume.workingyear3 &&
                     `${resume.workingyear3} - ${resume.role3} - ${resume.company3}`}
                 </li>
-                <li className="shortjobdescr">
+                <li className="shortjobdescr-2">
                   {resume.jobDescription3 && resume.jobDescription3}
                 </li>
               </ul>
               {resume.linkedin && (
-                <div className="linkedinlink">
+                <div className="linkedinlink-2">
                   {
                     <FontAwesomeIcon
                       icon={faLinkedin}
@@ -285,4 +278,4 @@ const ShowPage = () => {
   );
 };
 
-export default ShowPage;
+export default Showpage2;

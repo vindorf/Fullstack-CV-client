@@ -144,7 +144,13 @@ function UserPage() {
                   to={`/resume/show/${resume._id}`}
                   className="btn btn-preview-user-page"
                 >
-                  Preview
+                  Preview "look 1"
+                </Link>
+                <Link
+                  to={`/resume/show-look2/${resume._id}`}
+                  className="btn btn-success"
+                >
+                  Preview "look 2"
                 </Link>
                 <button
                   className="btn btn-delete-user-page"

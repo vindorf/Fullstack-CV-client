@@ -3,6 +3,10 @@
   overflow: hidden;
 }
 
+.actions {
+  margin-bottom: 20px;
+}
+
 .row.header {
   height: 15%;
   padding: 0 !important;
@@ -75,6 +79,7 @@ h3.title {
   letter-spacing: 5px;
   text-align: center;
   text-transform: uppercase;
+  margin-top: 0px;
 }
 
 h4.blocktitle {
@@ -162,7 +167,7 @@ hr.right {
 }
 
 .a4-resume-view {
-  height: 1123px; /* A4 height */
+  height: 1122px; /* A4 height */
   margin: 0 auto !important; /* Center the container */
   background-color: white; /* Background color to simulate paper */
   border: 0.7px solid rgba(53, 53, 53, 0.5); /* Add a solid border */
@@ -171,10 +176,6 @@ hr.right {
   width: 793px; /* A4 width */
 }
 
-.linkedinfooter {
-  position: absolute;
-  bottom: -25px;
-}
 .linkedinlink {
   font-style: italic;
   display: flex;
@@ -184,9 +185,11 @@ hr.right {
   color: white;
   background-color: #7328ba !important;
   font-size: 16px;
+
   border-radius: 50px !important;
   padding: 10px 20px !important;
   transition: background-color 0.3s ease-in-out;
+
 }
 
 .btn.edit:hover {

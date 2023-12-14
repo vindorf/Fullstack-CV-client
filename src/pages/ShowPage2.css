@@ -1,0 +1,233 @@
+.totalpage-2 {
+  padding: 20px;
+  overflow: hidden;
+}
+
+.actions-2 {
+  margin-bottom: 20px;
+}
+.row.body-2 {
+  height: 100%;
+  padding: 0 !important;
+  display: flex;
+}
+
+.column-small-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  justify-content: flex-start;
+  width: 35% !important;
+  padding: 0 !important;
+  background-color: #34384d;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.profileimage {
+  width: 170px;
+  border-radius: 50%;
+}
+.component-small-2 {
+  padding: 0 12px 10px 40px;
+  color: white;
+}
+
+.component-small-2-img {
+  width: 100%;
+  height: 250px;
+  /* background-color: red; */
+}
+
+hr.top-2 {
+  width: 90%;
+  border-top: 1px dotted black !important;
+  margin: 0 auto !important;
+  display: flex;
+}
+
+hr.short-2 {
+  width: 100%;
+  margin: 0 auto !important;
+  border-top: 1px solid white !important;
+}
+
+h2.cvname-2 {
+  font-size: 2.5em;
+  text-transform: capitalize;
+  text-align: left;
+  margin-top: 30px;
+  font-weight: 500;
+}
+
+h3.title-2 {
+  font-size: 1.25em;
+  text-align: left;
+  text-transform: capitalize;
+  font-weight: 400;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+}
+
+h4.blocktitle-2 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px !important;
+  text-transform: capitalize;
+  text-align: left;
+}
+
+.subtitle-2 {
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: capitalize;
+  text-align: left;
+
+  margin-top: 5px;
+}
+
+ul.contact-2 {
+  list-style: none;
+  font-size: 0.8em;
+  font-weight: 300;
+  line-height: 1.75em;
+  padding: 0 !important;
+}
+
+ul.skills-2 {
+  list-style: none;
+  font-size: 0.8em;
+  font-weight: 300;
+  line-height: 1.75em;
+  padding: 0 !important;
+  margin-bottom: -2px !important;
+}
+
+/* EDUCATION */
+ul.education-2 {
+  list-style: none;
+  padding: 0 !important;
+  margin-bottom: 20px;
+}
+
+li.timeframe-2 {
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+
+li.educationtitle-2 {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+li.shortdescr-2 {
+  /* font-size: 12px; */
+  font-size: 0.8em;
+  font-weight: 300;
+  padding-right: 15px;
+  line-height: 1.4em;
+  margin-top: 3px;
+}
+
+/* COLUMN RIGHT  */
+.column-large-2 {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 65%;
+  font-family: "Noto Sans TC", sans-serif;
+  padding-left: 25px;
+  padding-right: 40px;
+}
+
+.component-big.intro-2 {
+  width: 100%;
+  height: 250px;
+  /* background-color: red; */
+  padding: 0px 15px 0px 0px;
+}
+
+.profiletext-2 {
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.4em;
+}
+
+.workexperience-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  justify-content: flex-start;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+ul.workexperience-2 {
+  list-style: none;
+  padding: 0 0 10px 0 !important;
+  margin: 0 auto !important;
+}
+
+li.job-2 {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+li.shortjobdescr-2 {
+  padding-right: 10px;
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.4em;
+}
+
+hr.right-2 {
+  width: 100%;
+  border-top: 1px solid black !important;
+  margin: 0 auto !important;
+}
+
+.a4-resume-view-2 {
+  height: 1122px; /* A4 height */
+  margin: 0 auto !important; /* Center the container */
+  background-color: white; /* Background color to simulate paper */
+  border: 0.7px solid rgba(53, 53, 53, 0.5); /* Add a solid border */
+  box-shadow: 0 0 0.5cm rgba(53, 53, 53, 0.5); /* Add a 0.5cm shadow */
+  padding: 0 !important;
+  width: 793px; /* A4 width */
+}
+
+.linkedinfooter-2 {
+  position: absolute;
+  bottom: -25px;
+}
+.linkedinlink-2 {
+  font-style: italic;
+  display: flex;
+  font-size: 0.8em;
+  font-weight: 300;
+}
+
+.btn.edit {
+  color: white;
+  background-color: #662d91;
+  font-size: 16px;
+  border-radius: 25px;
+  padding: 10px 20px;
+}
+
+.btn.edit:hover {
+  color: #662d91;
+  background-color: #f0e68c;
+  font-size: 16px;
+  border: 1px solid #f0e68c;
+  transition: all 200ms ease;
+}
