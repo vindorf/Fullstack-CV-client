@@ -9,6 +9,7 @@ import UserPage from "./pages/UserPage";
 import DetailResumePage from "./pages/DetailResumePage";
 import Navbar from "./components/Navigation/Navbar";
 import ShowPage from "./pages/ShowPage";
+import JobPage from "./pages/JobPage";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
             </IsPrivat>
           }
         ></Route>
-
+        <Route path="/job" element={<JobPage />}></Route>
         <Route
           path="/resume/:resumeId"
           element={
