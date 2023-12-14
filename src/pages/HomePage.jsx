@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./HomePage.css";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 
 import ExpCard from "../components/ExpCard";
 import AnlCard from "../components/AnlCard";
 
 function HomePage() {
+  const { isLoggedIn } = useContext(AuthContext);
+
   return (
     <div className="home-container">
       <div className="home-head">
@@ -17,10 +20,16 @@ function HomePage() {
         <h1></h1>
         <img src="src\assets\CV_Builder_2x.png" alt="" />
         <div className="main-right">
-          <h3>Build your brand-new resume in as little as 5 minutes.</h3>
-          <Link to="/signup">
-            <button className="signup-button-homepage">Sign Up</button>
-          </Link>
+          {!isLoggedIn ? (
+            <div>
+              <h3>Build your brand-new resume in as little as 5 minutes.</h3>
+              <Link to="/signup">
+                <button className="signup-button-homepage">Sign Up</button>
+              </Link>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
       <div className="user-exp">
