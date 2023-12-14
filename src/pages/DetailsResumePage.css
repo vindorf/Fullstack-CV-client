@@ -1,3 +1,10 @@
+.form-main-container {
+  margin-top: 20px;
+}
+
+.resume-title {
+  text-align: center;
+}
 .a4-resume-edit {
   height: 1754px;
   margin: 0 auto !important;
@@ -25,10 +32,10 @@
 
 .edit-submit-btn {
   color: white;
-  border: none !important;
   background-color: #7328ba !important;
+  font-size: 16px;
   border-radius: 50px !important;
-  margin-bottom: 20px !important;
+  padding: 10px 20px !important;
   transition: background-color 0.3s ease-in-out;
 }
 
@@ -75,6 +82,7 @@
 }
 
 .custom-text-area {
+  margin-left: 5px;
   min-width: 100%;
   max-width: 100%;
   min-height: 100px;
@@ -82,4 +90,14 @@
   border-radius: 5px;
   border: 1px solid #ced4da;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.linkedin-input {
+  margin-top: 150px !important;
+  font-style: italic;
+}
+
+.education-form div,
+.work-experience-form div {
+  margin-bottom: 30px;
 }
