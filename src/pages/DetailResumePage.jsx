@@ -46,11 +46,6 @@ function DetailResumePage() {
     role3: "",
     jobDescription3: "",
 
-    workingyear4: "",
-    company4: "",
-    role4: "",
-    jobDescription4: "",
-
     studyyear: "",
     educationTitle: "",
     institute: "",
@@ -133,11 +128,6 @@ function DetailResumePage() {
       company3: resume.company3,
       role3: resume.role3,
       jobDescription3: resume.jobDescription3,
-
-      workingyear4: resume.workingyear4,
-      company4: resume.company4,
-      role4: resume.role4,
-      jobDescription4: resume.jobDescription4,
 
       studyyear: resume.studyyear,
       educationTitle: resume.educationTitle,

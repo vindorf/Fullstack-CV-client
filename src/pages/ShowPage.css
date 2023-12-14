@@ -1,3 +1,8 @@
+.totalpage {
+  padding: 20px;
+  overflow: hidden;
+}
+
 .row.header {
   height: 15%;
   padding: 0 !important;
@@ -9,22 +14,21 @@
   display: flex;
 }
 
-.col-12 {
+.header-view {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%;
+  padding-bottom: 20px;
 }
 
 .column-large {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  margin: 0 80px 0 20px !important;
   overflow: hidden;
-  width: 70%;
+  width: 65%;
 }
 .column-small {
   display: flex;
@@ -33,28 +37,24 @@
   flex-wrap: nowrap;
   overflow: hidden;
   justify-content: flex-start;
-  width: 30% !important;
+  width: 35% !important;
+  padding: 0 !important;
 }
 
 .component-small {
-  margin: 20px 20px 20px 70px;
-}
-
-.component.profile {
-  height: 20%;
-  margin: 20px 20px 20px 30px;
+  padding: 15px 12px 20px 60px;
 }
 
 hr.top {
   width: 90%;
-  border-top: 1px solid gray !important;
+  border-top: 1px dotted black !important;
   margin: 0 auto !important;
   display: flex;
 }
 
 hr.short {
-  width: 65%;
-  margin: 5px 0 5px 75px;
+  width: 70%;
+  margin: 0px 0 0px 60px;
   border-top: 1px dotted black !important;
 }
 
@@ -78,7 +78,7 @@ h3.title {
 }
 
 h4.blocktitle {
-  font-size: 1.2em;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -88,7 +88,7 @@ h4.blocktitle {
 ul.contact {
   list-style: none;
   font-size: 1em;
-  line-height: 2em;
+  line-height: 1.75em;
   padding: 0 !important;
   margin: 0 auto !important;
 }
@@ -96,52 +96,50 @@ ul.contact {
 ul.skills {
   list-style: none;
   font-size: 1em;
-  line-height: 2em;
+  line-height: 1.75em;
   padding: 0 !important;
+  margin-bottom: -2px !important;
 }
 
+/* EDUCATION */
 ul.education {
   list-style: none;
   padding: 0 !important;
+  margin-bottom: 10px;
 }
 
 li.timeframe {
-  font-size: 1em;
-  font-weight: bold;
-  margin-bottom: 3px;
-}
-
-li.institute {
-  font-size: 1em;
+  font-size: 14px;
   text-transform: uppercase;
-  margin-bottom: 3px;
 }
 
 li.educationtitle {
-  font-size: 1em;
+  font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 12px;
 }
 
 li.shortdescr {
-  font-size: 1em;
-  padding-right: 10px;
+  font-size: 12px;
+  padding-right: 15px;
+  line-height: 1.25em;
+  margin-top: 3px;
+}
+
+/* COLUMN RIGHT  */
+.component-big {
+  padding: 15px 50px 15px 25px;
 }
 
 .profiletext {
   font-size: 1em;
-  line-height: 2em;
-}
-
-.work-experience {
-  height: 75%;
+  line-height: 1.25em;
 }
 
 ul.workexperience {
   list-style: none;
-  padding: 0px !important;
-  margin: 0 0 15px 0 !important;
+  padding: 0 0 20px 0 !important;
+  margin: 0 auto !important;
 }
 
 li.job {
@@ -149,25 +147,51 @@ li.job {
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 5px;
-  text-align: justify;
 }
 
-.linkedinlink {
-  font-style: italic;
+li.shortjobdescr {
+  font-size: 1em;
+  padding-right: 10px;
+  line-height: 1.25em;
 }
 
 hr.right {
-  width: 90%;
-  border-top: 1px solid gray !important;
-  margin: 10px 0 0 10px !important;
+  width: 80%;
+  border-top: 1px dotted black !important;
+  margin: 5px 0 0 25px !important;
 }
+
 .a4-resume-view {
-  height: 1754px; /* A4 height */
+  height: 1123px; /* A4 height */
   margin: 0 auto !important; /* Center the container */
   background-color: white; /* Background color to simulate paper */
   border: 0.7px solid rgba(53, 53, 53, 0.5); /* Add a solid border */
   box-shadow: 0 0 0.5cm rgba(53, 53, 53, 0.5); /* Add a 0.5cm shadow */
   padding: 0 !important;
-  width: 1240px; /* A4 width */
-  overflow: hidden;
+  width: 793px; /* A4 width */
+}
+
+.linkedinfooter {
+  position: absolute;
+  bottom: -25px;
+}
+.linkedinlink {
+  font-style: italic;
+  display: flex;
+}
+
+.btn.edit {
+  color: white;
+  background-color: #662d91;
+  font-size: 16px;
+  border-radius: 25px;
+  padding: 10px 20px;
+}
+
+.btn.edit:hover {
+  color: #662d91;
+  background-color: #f0e68c;
+  font-size: 16px;
+  border: 1px solid #f0e68c;
+  transition: all 200ms ease;
 }

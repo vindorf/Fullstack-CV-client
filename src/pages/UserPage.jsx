@@ -37,7 +37,9 @@ function UserPage() {
       await axios.post(`${API_URL}/api/resumes`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       });
+
       getAllResumes();
+      setResumeTitle("");
     } catch (error) {
       console.error("ERROR!", error);
     }
@@ -112,7 +114,9 @@ function UserPage() {
     <div className="user-page-body">
       <h2>Welcome {user.email}</h2>
       <div>
-        <Header onResumeTitleChange={handleResumeTitleChange} />
+        <Header 
+        resumeTitle={resumeTitle}
+        onResumeTitleChange={handleResumeTitleChange} />
         <button
           type="submit"
           class="btn btn-primary create-new-resume-btn"
