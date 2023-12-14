@@ -114,9 +114,10 @@ function UserPage() {
     <div className="user-page-body">
       <h2>Welcome {user.email}</h2>
       <div>
-        <Header 
-        resumeTitle={resumeTitle}
-        onResumeTitleChange={handleResumeTitleChange} />
+        <Header
+          resumeTitle={resumeTitle}
+          onResumeTitleChange={handleResumeTitleChange}
+        />
         <button
           type="submit"
           class="btn btn-primary create-new-resume-btn"
@@ -143,7 +144,13 @@ function UserPage() {
                   to={`/resume/show/${resume._id}`}
                   className="btn btn-success"
                 >
-                  Preview
+                  Preview "look 1"
+                </Link>
+                <Link
+                  to={`/resume/show-look2/${resume._id}`}
+                  className="btn btn-success"
+                >
+                  Preview "look 2"
                 </Link>
                 <button
                   className="btn btn-danger"

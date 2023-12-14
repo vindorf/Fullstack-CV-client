@@ -191,7 +191,7 @@ function DetailResumePage() {
                   />
                   <input
                     type="text"
-                    name="lastName "
+                    name="lastName"
                     className="form-control cvname"
                     placeholder="Last name"
                     value={resume.lastName}

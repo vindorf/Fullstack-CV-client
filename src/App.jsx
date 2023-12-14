@@ -9,6 +9,7 @@ import UserPage from "./pages/UserPage";
 import DetailResumePage from "./pages/DetailResumePage";
 import Navbar from "./components/Navigation/Navbar";
 import ShowPage from "./pages/ShowPage";
+import Showpage2 from "./pages/Showpage2";
 
 function App() {
   return (
@@ -38,6 +39,14 @@ function App() {
           element={
             <IsPrivat>
               <ShowPage />
+            </IsPrivat>
+          }
+        />
+        <Route
+          path="/resume/show-look2/:resumeId"
+          element={
+            <IsPrivat>
+              <Showpage2 />
             </IsPrivat>
           }
         />
