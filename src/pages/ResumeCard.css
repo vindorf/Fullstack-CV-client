@@ -14,8 +14,21 @@
   position: absolute;
   top: 100px;
   right: 50px;
+  border-radius: 50px !important;
+  padding: 10px 20px !important;
 }
 
 .create-new-resume-btn {
-  margin: 0 20px;
+  color: white;
+  margin-left: 20px;
+  background-color: #7328ba !important;
+  font-size: 16px;
+  border-radius: 50px !important;
+  padding: 10px 20px !important;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.create-new-resume-btn:hover {
+  background-color: rgb(158, 48, 158) !important;
+  color: white !important;
 }
