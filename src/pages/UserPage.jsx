@@ -114,12 +114,13 @@ function UserPage() {
     <div className="user-page-body">
       <h2>Welcome {user.email}</h2>
       <div>
-        <Header 
-        resumeTitle={resumeTitle}
-        onResumeTitleChange={handleResumeTitleChange} />
+        <Header
+          resumeTitle={resumeTitle}
+          onResumeTitleChange={handleResumeTitleChange}
+        />
         <button
           type="submit"
-          class="btn btn-primary create-new-resume-btn"
+          class="btn create-new-resume-btn"
           onClick={createCV}
         >
           Create new resumé
@@ -135,18 +136,18 @@ function UserPage() {
 
                 <Link
                   to={`/resume/${resume._id}`}
-                  className="btn btn-primary ml-2"
+                  className="btn btn-edit-user-page"
                 >
                   Edit
                 </Link>
                 <Link
                   to={`/resume/show/${resume._id}`}
-                  className="btn btn-success"
+                  className="btn btn-preview-user-page"
                 >
                   Preview
                 </Link>
                 <button
-                  className="btn btn-danger"
+                  className="btn btn-delete-user-page"
                   onClick={() => openModal(resume._id)}
                 >
                   Delete Resume
@@ -178,12 +179,7 @@ function UserPage() {
         </div>
       </Modal>
 
-      {/* -------------------- DELETE USER SECTION -------------------- */}
-
-      <button
-        className="btn btn-secondary delete-btn"
-        onClick={() => openUserModal()}
-      >
+      <button className="btn delete-btn" onClick={() => openUserModal()}>
         Delete Account
       </button>
       <Modal
