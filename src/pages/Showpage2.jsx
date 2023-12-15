@@ -16,7 +16,7 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import ImageUpload from "../components/ImageCloud";
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
-const Showpage2 = () => {
+const Showpage2 = ({}) => {
   const navigate = useNavigate();
   const { resumeId } = useParams();
   const [resume, setResume] = useState({
@@ -69,6 +69,7 @@ const Showpage2 = () => {
     educationDescription2: "",
     certificate2: "",
   });
+  const [imageUrl, setImageUrl] = useState("");
   const skillsArray = (resume.skills || "").split(",");
   const languageArray = (resume.language || "").split(",");
   const showOneResume = () => {
@@ -94,27 +95,31 @@ const Showpage2 = () => {
   return (
     <div className="totalpage-2">
       <div className="actions-2">
+        <div className="imageupload">
+          <ImageUpload setImageUrl={setImageUrl} />
+        </div>
         <Link to={`/resume/${resume._id}`}>
-          <button className="btn edit" type="submit">
+          <button className="btn btn-edit-user-page" type="submit">
             edit resumé
           </button>
         </Link>
-        <div className="App">
-          <ImageUpload />
-        </div>
-        <button className="btn edit" onClick={generatePDF}>
+        <br />
+        <button className="btn edit-submit-btn" onClick={generatePDF}>
+
           Generate PDF
         </button>
       </div>
+      <br />
       <div className="a4-resume-view-2" ref={componentRef}>
         <div className="row body-2">
           <div className="column-small-2">
             <div className="component-small-2-img">
               <img
-                src="/src/assets/pexels-andrea-piacquadio-762020.jpg"
+                src={imageUrl}
+                alt="Uploaded"
+                style={{ maxWidth: "100%" }}
                 className="profileimage"
-              ></img>
-              HERE COMES THE PHOTO
+              />
             </div>
 
             <div className="component-small-2">
