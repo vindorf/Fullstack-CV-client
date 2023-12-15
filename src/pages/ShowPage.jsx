@@ -91,35 +91,35 @@ const ShowPage = () => {
   };
 
   return (
-    <div className="totalpage">
-      <div className="actions">
+    <div className="totalpageM">
+      <div className="actionsM">
         <Link to={`/resume/${resume._id}`}>
-          <button className="btn edit" type="submit">
+          <button className="btn editM" type="submit">
             Edit Resumé
           </button>
         </Link>
 
-        <button className="btn edit" onClick={generatePDF}>
+        <button className="btn editM" onClick={generatePDF}>
           Generate PDF
         </button>
       </div>
-      <div className="a4-resume-view" ref={componentRef}>
-        <div className="row header">
-          <div className="header-view">
-            <h2 className="cvname">
+      <div className="a4-resume-viewM" ref={componentRef}>
+        <div className="row headerM">
+          <div className="header-viewM">
+            <h2 className="cvnameM">
               {resume.firstName && resume.firstName}
               {"  "}
               {resume.lastName && resume.lastName}
             </h2>
-            <h3 className="title"> {resume.title && resume.title}</h3>
+            <h3 className="titleM"> {resume.title && resume.title}</h3>
           </div>
         </div>
-        <hr className="top" />
-        <div className="row body">
-          <div className="column-small">
-            <div className="component-small">
-              <h4 className="blocktitle">contact</h4>
-              <ul className="contact">
+        <hr className="topM" />
+        <div className="row bodyM">
+          <div className="column-smallM">
+            <div className="component-smallM">
+              <h4 className="blocktitleM">contact</h4>
+              <ul className="contactM">
                 {resume.phone && (
                   <li>
                     <FontAwesomeIcon
@@ -158,62 +158,62 @@ const ShowPage = () => {
                 )}
               </ul>
             </div>
-            <hr className="short" />
-            <div className="component-small">
-              <h4 className="blocktitle">skills</h4>
-              <ul className="skills">
+            <hr className="shortM" />
+            <div className="component-smallM">
+              <h4 className="blocktitleM">skills</h4>
+              <ul className="skillsM">
                 {skillsArray &&
                   skillsArray.map((skill, index) => (
                     <li key={index}>{skill}</li>
                   ))}
               </ul>
             </div>
-            <hr className="short" />
-            <div className="component-small edu">
-              <h4 className="blocktitle">education</h4>
-              <ul className="education">
-                <li className="timeframe">
-                  <li className="educationtitle">
+            <hr className="shortM" />
+            <div className="component-smallM edu">
+              <h4 className="blocktitleM">education</h4>
+              <ul className="educationM">
+                <li className="timeframeM">
+                  <li className="educationtitleM">
                     {resume.educationTitle && resume.educationTitle}
                   </li>
                   {resume.studyyear &&
                     `${resume.studyyear} - ${resume.institute}`}
                 </li>
 
-                <li className="shortdescr">
+                <li className="shortdescrM">
                   {resume.educationDescription && resume.educationDescription}
                 </li>
               </ul>
-              <ul className="education">
-                <li className="educationtitle">
+              <ul className="educationM">
+                <li className="educationtitleM">
                   {resume.educationTitle1 && resume.educationTitle1}
                 </li>
-                <li className="timeframe">
+                <li className="timeframeM">
                   {resume.studyyear &&
                     `${resume.studyyear} - ${resume.institute}`}
                 </li>
-                <li className="shortdescr">
+                <li className="shortdescrM">
                   {resume.educationDescription1 && resume.educationDescription1}
                 </li>
               </ul>
-              <ul className="education">
-                <li className="educationtitle">
+              <ul className="educationM">
+                <li className="educationtitleM">
                   {resume.educationTitle2 && resume.educationTitle2}
                 </li>
-                <li className="timeframe">
+                <li className="timeframeM">
                   {resume.studyyear &&
                     `${resume.studyyear} - ${resume.institute}`}
                 </li>
 
-                <li className="shortdescr">
+                <li className="shortdescrM">
                   {resume.educationDescription2 && resume.educationDescription2}
                 </li>
               </ul>
             </div>
-            <hr className="short" />
-            <div className="component-small">
-              <h4 className="blocktitle">languages</h4>
-              <ul className="skills">
+            <hr className="shortM" />
+            <div className="component-smallM">
+              <h4 className="blocktitleM">languages</h4>
+              <ul className="skillsM">
                 {languageArray &&
                   languageArray.map((skill, index) => (
                     <li key={index}>{skill}</li>
@@ -221,54 +221,54 @@ const ShowPage = () => {
               </ul>
             </div>
           </div>
-          <div className="vl"></div>
-          <div className="column-large">
-            <div className="component-big">
-              <h4 className="blocktitle">profile</h4>
-              <p className="profiletext">{resume.intro && resume.intro}</p>
+          <div className="vlM"></div>
+          <div className="column-largeM">
+            <div className="component-bigM">
+              <h4 className="blocktitleM">profile</h4>
+              <p className="profiletextM">{resume.intro && resume.intro}</p>
             </div>
 
-            <hr className="right" />
+            <hr className="rightM" />
 
-            <div className="component-big">
-              <h4 className="blocktitle">work experiences</h4>
-              <ul className="workexperience">
-                <li className="job">
+            <div className="component-bigM">
+              <h4 className="blocktitleM">work experiences</h4>
+              <ul className="workexperienceM">
+                <li className="jobM">
                   {resume.workingyear &&
                     `${resume.workingyear} - ${resume.role} - ${resume.company}`}
                 </li>
-                <li className="shortjobdescr">{resume.jobDescription}</li>
+                <li className="shortjobdescrM">{resume.jobDescription}</li>
               </ul>
 
-              <ul className="workexperience">
-                <li className="job">
+              <ul className="workexperienceM">
+                <li className="jobM">
                   {resume.workingyear1 &&
                     `${resume.workingyear1} - ${resume.role1} - ${resume.company1}`}
                 </li>
-                <li className="shortjobdescr">
+                <li className="shortjobdescrM">
                   {resume.jobDescription1 && resume.jobDescription1}
                 </li>
               </ul>
-              <ul className="workexperience">
-                <li className="job">
+              <ul className="workexperienceM">
+                <li className="jobM">
                   {resume.workingyear2 &&
                     `${resume.workingyear2} - ${resume.role2} - ${resume.company2}`}
                 </li>
-                <li className="shortjobdescr">
+                <li className="shortjobdescrM">
                   {resume.jobDescription2 && resume.jobDescription2}
                 </li>
               </ul>
-              <ul className="workexperience">
-                <li className="job">
+              <ul className="workexperienceM">
+                <li className="jobM">
                   {resume.workingyear3 &&
                     `${resume.workingyear3} - ${resume.role3} - ${resume.company3}`}
                 </li>
-                <li className="shortjobdescr">
+                <li className="shortjobdescrM">
                   {resume.jobDescription3 && resume.jobDescription3}
                 </li>
               </ul>
               {resume.linkedin && (
-                <div className="linkedinlink">
+                <div className="linkedinlinkM">
                   {
                     <FontAwesomeIcon
                       icon={faLinkedin}

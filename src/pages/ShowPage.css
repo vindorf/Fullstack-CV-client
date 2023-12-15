@@ -1,24 +1,24 @@
-.totalpage {
+.totalpageM {
   padding: 20px;
   overflow: hidden;
 }
 
-.actions {
+.actionsM {
   margin-bottom: 20px;
 }
 
-.row.header {
+.row.headerM {
   height: 15%;
   padding: 0 !important;
 }
 
-.row.body {
+.row.bodyM {
   height: 85%;
   padding: 0 !important;
   display: flex;
 }
 
-.header-view {
+.header-viewM {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,13 +28,13 @@
   padding-bottom: 20px;
 }
 
-.column-large {
+.column-largeM {
   display: flex;
   flex-direction: column;
   overflow: hidden;
   width: 65%;
 }
-.column-small {
+.column-smallM {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -45,36 +45,36 @@
   padding: 0 !important;
 }
 
-.component-small {
+.component-smallM {
   padding: 15px 12px 20px 60px;
 }
 
-hr.top {
+hr.topM {
   width: 90%;
   border-top: 1px dotted black !important;
   margin: 0 auto !important;
   display: flex;
 }
 
-hr.short {
+hr.shortM {
   width: 70%;
   margin: 0px 0 0px 60px;
   border-top: 1px dotted black !important;
 }
 
-.vl {
+.vlM {
   border-left: 1px dotted black !important;
   margin: 0 auto !important;
 }
 
-h2.cvname {
+h2.cvnameM {
   font-size: 3em;
   letter-spacing: 5px;
   text-transform: uppercase;
   text-align: center;
 }
 
-h3.title {
+h3.titleM {
   font-size: 1.25em;
   letter-spacing: 5px;
   text-align: center;
@@ -82,7 +82,7 @@ h3.title {
   margin-top: 0px;
 }
 
-h4.blocktitle {
+h4.blocktitleM {
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -90,7 +90,7 @@ h4.blocktitle {
   text-align: left;
 }
 
-ul.contact {
+ul.contactM {
   list-style: none;
   font-size: 1em;
   line-height: 1.75em;
@@ -98,7 +98,7 @@ ul.contact {
   margin: 0 auto !important;
 }
 
-ul.skills {
+ul.skillsM {
   list-style: none;
   font-size: 1em;
   line-height: 1.75em;
@@ -107,24 +107,24 @@ ul.skills {
 }
 
 /* EDUCATION */
-ul.education {
+ul.educationM {
   list-style: none;
   padding: 0 !important;
   margin-bottom: 10px;
 }
 
-li.timeframe {
+li.timeframeM {
   font-size: 14px;
   text-transform: uppercase;
 }
 
-li.educationtitle {
+li.educationtitleM {
   font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-li.shortdescr {
+li.shortdescrM {
   font-size: 12px;
   padding-right: 15px;
   line-height: 1.25em;
@@ -132,41 +132,41 @@ li.shortdescr {
 }
 
 /* COLUMN RIGHT  */
-.component-big {
+.component-bigM {
   padding: 15px 50px 15px 25px;
 }
 
-.profiletext {
+.profiletextM {
   font-size: 1em;
   line-height: 1.25em;
 }
 
-ul.workexperience {
+ul.workexperienceM {
   list-style: none;
   padding: 0 0 20px 0 !important;
   margin: 0 auto !important;
 }
 
-li.job {
+li.jobM {
   font-size: 1em;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 5px;
 }
 
-li.shortjobdescr {
+li.shortjobdescrM {
   font-size: 1em;
   padding-right: 10px;
   line-height: 1.25em;
 }
 
-hr.right {
+hr.rightM {
   width: 80%;
   border-top: 1px dotted black !important;
   margin: 5px 0 0 25px !important;
 }
 
-.a4-resume-view {
+.a4-resume-viewM {
   height: 1122px; /* A4 height */
   margin: 0 auto !important; /* Center the container */
   background-color: white; /* Background color to simulate paper */
@@ -176,12 +176,12 @@ hr.right {
   width: 793px; /* A4 width */
 }
 
-.linkedinlink {
+.linkedinlinkM {
   font-style: italic;
   display: flex;
 }
 
-.edit {
+.editM {
   color: white;
   background-color: #7328ba !important;
   font-size: 16px;
@@ -189,10 +189,9 @@ hr.right {
   border-radius: 50px !important;
   padding: 10px 20px !important;
   transition: background-color 0.3s ease-in-out;
-
 }
 
-.btn.edit:hover {
+.btn.editM:hover {
   background-color: rgb(158, 48, 158) !important;
   color: white !important;
 }

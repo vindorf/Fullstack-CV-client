@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./DetailsResumePage.css";
+import ImageUpload from "../components/ImageCloud";
 
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
