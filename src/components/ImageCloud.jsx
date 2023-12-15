@@ -10,6 +10,7 @@ const ImageUpload = ({ setImageUrl }) => {
   const { user, logOutUser } = useContext(AuthContext);
   const [selectedFile, setSelectedFile] = useState(null);
 
+
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
@@ -23,7 +24,6 @@ const ImageUpload = ({ setImageUrl }) => {
         headers: { Authorization: `Bearer ${storedToken}` },
       });
       setImageUrl(response.data.url);
-      console.log(response.data.url);
     } catch (error) {
       console.error("Error uploading the image: ", error);
     }
@@ -31,6 +31,7 @@ const ImageUpload = ({ setImageUrl }) => {
 
   return (
     <div>
+
       <input
         className="btn btn-edit-user-page"
         type="file"
@@ -40,6 +41,7 @@ const ImageUpload = ({ setImageUrl }) => {
         Upload
       </button>
     </div>
+
   );
 };
 

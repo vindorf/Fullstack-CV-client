@@ -14,7 +14,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import ImageUpload from "../components/ImageCloud";
-
 const API_URL = import.meta.env.VITE_SERVER_URL;
 
 const Showpage2 = ({}) => {
@@ -106,6 +105,7 @@ const Showpage2 = ({}) => {
         </Link>
         <br />
         <button className="btn edit-submit-btn" onClick={generatePDF}>
+
           Generate PDF
         </button>
       </div>
